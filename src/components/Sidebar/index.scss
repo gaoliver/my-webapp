@@ -1,3 +1,10 @@
 .active {
     transform: translateX(0) !important;
+    box-shadow: 2px 0px 5px #000 !important;
+}
+
+#sidebar-container {
+    @media (max-width: 800px) {
+        width: 70%;
+    }
 }
