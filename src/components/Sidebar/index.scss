@@ -1,6 +1,10 @@
 .active {
     transform: translateX(0) !important;
-    // box-shadow: 2px 0px 5px #000 !important;
+    box-shadow: 2px 0px 5px #000 !important;
+}
+
+.active-dark {
+    transform: translateX(0) !important;
     animation: flicker-sidebar 1.5s infinite alternate;
 }
 
@@ -12,5 +16,5 @@
 
 .active-page {
     color: #e1e1e9;
-    animation: flicker 1.5s infinite alternate;
+    animation: flicker 0.5s infinite alternate;
 }

@@ -38,7 +38,10 @@ export const SidebarContainer = styled.div`
     border-radius: 2px;
     transition: all 1s ease;
     background: ${(props) => props.theme.colors.primary};
-    animation: flicker-sidebar 1.5s infinite alternate;
+    ${(props) =>
+      props.theme.title === 'dark'
+        ? 'animation: flicker-sidebar 1.5s infinite alternate'
+        : 'box-shadow: 0px 0px 1px #000 !important;'}
   }
 
   .menu_responsive > span::before {
@@ -50,7 +53,10 @@ export const SidebarContainer = styled.div`
     border-radius: 2px;
     transition: all 0.5s ease;
     background: ${(props) => props.theme.colors.primary};
-    animation: flicker-sidebar 1.5s infinite alternate;
+    ${(props) =>
+      props.theme.title === 'dark'
+        ? 'animation: flicker-sidebar 1.5s infinite alternate'
+        : 'box-shadow: 0px 0px 1px #000 !important;'}
   }
 
   #menu:checked ~ .menu_responsive > span::after {

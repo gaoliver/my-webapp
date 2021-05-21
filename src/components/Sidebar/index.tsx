@@ -1,17 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { SidebarContainer } from '../../styles/sidebar';
 import { useLocation } from 'react-router-dom';
+import { ThemeContext } from 'styled-components';
 
 import './index.scss';
 
 const Sidebar: React.FC = () => {
+  const { title } = useContext(ThemeContext);
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const onClick = () => {
     if (toggleSidebar) {
-      document.getElementById('sidebar-container')?.classList.remove('active');
+      if (title === 'dark') {
+        document
+          .getElementById('sidebar-container')
+          ?.classList.remove('active-dark');
+      } else {
+        document
+          .getElementById('sidebar-container')
+          ?.classList.remove('active');
+      }
       setToggleSidebar(false);
     } else {
-      document.getElementById('sidebar-container')?.classList.add('active');
+      if (title === 'dark') {
+        document.getElementById('sidebar-container')?.classList.add('active-dark');
+      } else {
+        document.getElementById('sidebar-container')?.classList.add('active');
+      }
       setToggleSidebar(true);
     }
   };
@@ -21,7 +35,7 @@ const Sidebar: React.FC = () => {
   });
 
   // Active page effect
-  const location = useLocation().hash.replace("#", "")
+  const location = useLocation().hash.replace('#', '');
   const [prevPage, setPrevPage] = useState('');
 
   function setActivePage() {
