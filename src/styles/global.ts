@@ -13,6 +13,7 @@ export default createGlobalStyle`
   body {
     width: 100%;
     height: 100vh;
+    overflow: hidden;
     background-image: url(${desktopImg});
     background-size: cover;
     background-position: center;
