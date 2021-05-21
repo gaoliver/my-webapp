@@ -38,7 +38,7 @@ export const SidebarContainer = styled.div`
     border-radius: 2px;
     transition: all 1s ease;
     background: ${(props) => props.theme.colors.primary};
-    box-shadow: 0px 0px 1px #000;
+    animation: flicker-sidebar 1.5s infinite alternate;
   }
 
   .menu_responsive > span::before {
@@ -50,17 +50,16 @@ export const SidebarContainer = styled.div`
     border-radius: 2px;
     transition: all 0.5s ease;
     background: ${(props) => props.theme.colors.primary};
-    box-shadow: 0px 0px 1px #000;
-
+    animation: flicker-sidebar 1.5s infinite alternate;
   }
 
   #menu:checked ~ .menu_responsive > span::after {
     transform: rotate(-50deg);
-    top: 45%
+    top: 45%;
   }
   #menu:checked ~ .menu_responsive > span::before {
     transform: rotate(50deg);
-    top: 45%
+    top: 45%;
   }
 
   /* Menu options */
@@ -71,12 +70,49 @@ export const SidebarContainer = styled.div`
       padding: 20px 0;
       font-size: 30pt;
       a {
-        color: ${(props) => props.theme.colors.text};
+        color: #e1e1e9;
         text-decoration: none;
         transition: all 0.2s ease;
         &:hover {
-          color: ${(props) => props.theme.colors.secondary};
-          text-decoration: underline;
+          color: #e1e1e9;
+          text-shadow: 0 0 10px ${(props) => props.theme.colors.secondary},
+            0 0 20px ${(props) => props.theme.colors.secondary},
+            0 0 50px ${(props) => props.theme.colors.secondary},
+            0 0 80px ${(props) => props.theme.colors.secondary},
+            0 0 100px ${(props) => props.theme.colors.secondary};
+          animation: flicker 1.5s infinite alternate;
+        }
+        @keyframes flicker {
+          0%,
+          100% {
+            text-shadow: 0 0 10px ${(props) => props.theme.colors.secondary},
+              0 0 20px ${(props) => props.theme.colors.secondary},
+              0 0 50px ${(props) => props.theme.colors.secondary},
+              0 0 80px ${(props) => props.theme.colors.secondary},
+              0 0 100px ${(props) => props.theme.colors.secondary};
+          }
+          0% {
+            text-shadow: 0 0 2px ${(props) => props.theme.colors.secondary},
+              0 0 5px ${(props) => props.theme.colors.secondary},
+              0 0 10px ${(props) => props.theme.colors.secondary},
+              0 0 80px ${(props) => props.theme.colors.secondary};
+          }
+        }
+        @keyframes flicker-sidebar {
+          0%,
+          100% {
+            box-shadow: 0 0 2px ${(props) => props.theme.colors.secondary},
+              0 0 5px ${(props) => props.theme.colors.secondary},
+              0 0 10px ${(props) => props.theme.colors.secondary},
+              0 0 20px ${(props) => props.theme.colors.secondary},
+              0 0 30px ${(props) => props.theme.colors.secondary};
+          }
+          0% {
+            box-shadow: 0 0 2px ${(props) => props.theme.colors.secondary},
+              0 0 1px ${(props) => props.theme.colors.secondary},
+              0 0 2px ${(props) => props.theme.colors.secondary},
+              0 0 10px ${(props) => props.theme.colors.secondary};
+          }
         }
       }
     }

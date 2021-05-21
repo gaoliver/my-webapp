@@ -10,6 +10,7 @@ import Sidebar from './components/Sidebar';
 import About from './components/About';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
+import NotFound from './components/NotFound';
 
 const App: React.FC = () => {
   const [theme, setTheme] = usePersistedState('theme', light);
@@ -24,6 +25,7 @@ const App: React.FC = () => {
       <About />
       <Portfolio />
       <Contact />
+      <NotFound />
       <GlobalStyle />
     </ThemeProvider>
   );

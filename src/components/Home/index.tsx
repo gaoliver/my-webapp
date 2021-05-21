@@ -12,7 +12,7 @@ const Home: React.FC<App> = ({ onSwitch }) => {
   return (
     <Container id="home">
       <img src={logo} style={{ width: 300 }} alt="Gabriel Ramos logo" />
-      <h1>Hello world!</h1>
+      <h1 id="typping">Hello world!</h1>
       <Switch
         onChange={onSwitch}
         checked={title === 'dark'}

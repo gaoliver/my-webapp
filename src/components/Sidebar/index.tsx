@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SidebarContainer } from '../../styles/sidebar';
+import { useLocation } from 'react-router-dom';
 
 import './index.scss';
 
@@ -14,6 +15,34 @@ const Sidebar: React.FC = () => {
       setToggleSidebar(true);
     }
   };
+
+  useEffect(() => {
+    setActivePage();
+  });
+
+  // Active page effect
+  const location = useLocation().hash.replace("#", "")
+  const [prevPage, setPrevPage] = useState('');
+
+  function setActivePage() {
+    if (location === '') {
+      document
+        .getElementById(prevPage + '-menu')
+        ?.classList.remove('active-page');
+      document.getElementById('home-menu')?.classList.add('active-page');
+      setPrevPage('');
+    } else if (prevPage !== '') {
+      document
+        .getElementById(prevPage + '-menu')
+        ?.classList.remove('active-page');
+      document.getElementById(location + '-menu')?.classList.add('active-page');
+      setPrevPage(location);
+    } else {
+      document.getElementById('home-menu')?.classList.remove('active-page');
+      document.getElementById(location + '-menu')?.classList.add('active-page');
+      setPrevPage(location);
+    }
+  }
   return (
     <SidebarContainer id="sidebar-container">
       {/* Responsive menu */}
@@ -29,16 +58,24 @@ const Sidebar: React.FC = () => {
       {/* Menu */}
       <ul>
         <li>
-          <a href="#home">Home</a>
+          <a id="home-menu" href="#home">
+            Home
+          </a>
         </li>
         <li>
-          <a href="#about-me">About</a>
+          <a id="about-me-menu" href="#about-me">
+            About
+          </a>
         </li>
         <li>
-          <a href="#portfolio">Portfolio</a>
+          <a id="portfolio-menu" href="#portfolio">
+            Portfolio
+          </a>
         </li>
         <li>
-          <a href="#contact">Contact</a>
+          <a id="contact-menu" href="#contact">
+            Contact
+          </a>
         </li>
       </ul>
     </SidebarContainer>

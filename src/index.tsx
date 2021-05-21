@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import _navigation from "./_navigation";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <_navigation />
   </React.StrictMode>,
   document.getElementById("root")
 );
