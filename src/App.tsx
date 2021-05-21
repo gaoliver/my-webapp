@@ -6,6 +6,7 @@ import dark from './styles/dark';
 import light from './styles/light';
 import Home from './components/Home';
 import usePersistedState from './utils/usePersistedState';
+import Sidebar from './components/Sidebar';
 
 const App: React.FC = () => {
   const [theme, setTheme] = usePersistedState("theme", light);
@@ -15,6 +16,7 @@ const App: React.FC = () => {
   };
   return (
     <ThemeProvider theme={theme}>
+      <Sidebar />
       <Home onSwitch={toggleTheme} />
       <GlobalStyle />
     </ThemeProvider>

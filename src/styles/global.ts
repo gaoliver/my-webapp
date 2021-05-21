@@ -10,5 +10,6 @@ export default createGlobalStyle`
     background: ${(props) => props.theme.colors.background};
     color: ${(props) => props.theme.colors.text};
     font: 400 16pt Titillium, sans-serif;
+    transition: all 0.5s ease
   }
 `;
