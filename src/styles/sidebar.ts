@@ -16,12 +16,12 @@ export const SidebarContainer = styled.div`
 
   /* Toggle Menu */
   .menu_responsive {
-    width: 4rem;
+    width: 3rem;
     height: 2rem;
     position: absolute;
     z-index: 9999;
     transition: all 1s ease;
-    right: -100px;
+    right: -70px;
     top: 20px;
   }
 
