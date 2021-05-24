@@ -7,6 +7,32 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: scroll;
+
+  /* Introduction text justified and centered */
+  .intro {
+    padding: 0 20%;;
+    @media screen and (max-width: 800px) {
+      padding: 0 30px;
+    }
+    h1 {
+      color: ${(props) => props.theme.colors.pageH1}
+    }
+    p:first-of-type {
+      width: 100%;
+      margin-top: 0;
+      padding: 5px 0;
+      background-color: ${(props) => props.theme.colors.pageH1};
+      color: ${(props) => props.theme.colors.background};
+      font-size: 20pt;
+      font-weight: 100;
+    }
+    p {
+      text-align: justify;
+      margin-top: 20px;
+      line-height: 30px;
+    }
+  }
 
   /* Home */
   #typping {

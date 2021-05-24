@@ -35,4 +35,9 @@ export default createGlobalStyle`
     background: ${(props) => props.theme.colors.background} !important;
     box-shadow: 0px 0px 40px 40px ${(props) => props.theme.colors.background};
   }
+
+  #about-me {
+    justify-content: flex-start;
+    padding: 20% 0 20px 0;
+  }
 `;
