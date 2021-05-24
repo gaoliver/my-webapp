@@ -13,7 +13,6 @@ export default createGlobalStyle`
   body {
     width: 100%;
     height: 100vh;
-    overflow: hidden;
     background-image: url(${desktopImg});
     background-size: cover;
     background-position: center;
@@ -38,6 +37,6 @@ export default createGlobalStyle`
 
   #about-me {
     justify-content: flex-start;
-    padding: 20% 0 100px 0;
+    padding: 20% 0 0 0;
   }
 `;
