@@ -38,6 +38,6 @@ export default createGlobalStyle`
 
   #about-me {
     justify-content: flex-start;
-    padding: 20% 0 20px 0;
+    padding: 20% 0 100px 0;
   }
 `;

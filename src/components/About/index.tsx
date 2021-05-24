@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from '../../styles/pages';
+import PDFCV from '../../assets/GABRIEL_RAMOS_-_Mobile_App_Developer.pdf';
 
 const About: React.FC = () => {
   return (
@@ -42,6 +43,14 @@ const About: React.FC = () => {
           greaduating in Physics.)
         </p>
         <p>
+          During the time I was studying Physics at the University, I was part
+          of Rio de Janeiro Rocket Team, an extracurricular scientific group for
+          building rockets for national and international competition. Working
+          on it, I was developer of payload system, in Python. We got #1 in Best
+          Rocket category, in Brazil, and #3 in Best Solid Motor Rocket, at
+          Spaceport American Cup, in the USA.
+        </p>
+        <p>
           Now I{"'"}m a front-end developer, expoerience on being the main
           front-end of many web and mobile projects, based all my experience
           focused on that position, which I enjoy the most and get better every
@@ -57,8 +66,8 @@ const About: React.FC = () => {
           {/* About the area */}
           <p>
             Front-end is the best stack for me, where I became professional
-            into. This is where we connect the user to the application and data, and
-            make all the programming logic.
+            into. This is where we connect the user to the application and data,
+            and make all the programming logic.
           </p>
           <h2>Languages and Frameworks</h2>
           {/* Pro level languages and frameworks */}
@@ -116,6 +125,15 @@ const About: React.FC = () => {
             <li>MacOS</li>
           </p>
         </div>
+        <a
+          href={PDFCV}
+          download="GABRIEL_RAMOS_Frontend-Developer_CV"
+          style={{ display: 'contents' }}
+        >
+          <button type="button" className="btn btn-primary btn-lg btn-block">
+            Click to download my resumé (C.V.)
+          </button>
+        </a>
       </div>
     </Container>
   );

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const SidebarContainer = styled.div`
   height: 100vh;
-  width: 25%;
+  width: 20%;
   box-shadow: none;
   display: flex;
   flex-direction: column;
@@ -71,10 +71,12 @@ export const SidebarContainer = styled.div`
   /* Menu options */
   ul {
     width: 100%;
-    text-align: center;
+    padding-left: 20%;
     li {
+      width: 100%;
       padding: 20px 0;
       font-size: 30pt;
+      list-style: none;
       a {
         color: #e1e1e9;
         text-decoration: none;

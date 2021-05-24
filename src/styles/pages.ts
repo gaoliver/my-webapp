@@ -8,15 +8,26 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   overflow: scroll;
+  h1 {
+    font-size: 2.7rem;
+    font-weight: bold;
+    @media (max-width: 800px) {
+      font-size: 2.5rem
+    }
+  }
 
   /* Introduction text justified and centered */
   .intro {
     padding: 0 20%;;
+    display: flex;
+    flex-direction: column;
     @media screen and (max-width: 800px) {
       padding: 0 30px;
     }
     h1 {
-      color: ${(props) => props.theme.colors.pageH1}
+      color: ${(props) => props.theme.colors.pageH1};
+      font-size: 3rem;
+      font-weight: bolder;
     }
     p:first-of-type {
       width: 100%;
@@ -26,6 +37,9 @@ export const Container = styled.div`
       color: ${(props) => props.theme.colors.background};
       font-size: 20pt;
       font-weight: 100;
+      @media (max-width: 800px) {
+        font-size: 1.5rem;
+      }
     }
     p {
       text-align: justify;
@@ -41,10 +55,12 @@ export const Container = styled.div`
       align-items: center;
       h1 {
         font-size: 2rem;
+        text-align: center;
       }
       h2 {
         font-size: 1.3rem;
         margin-top: 40px;
+        text-align: center;
       }
       p {
         font-weight: 400;
