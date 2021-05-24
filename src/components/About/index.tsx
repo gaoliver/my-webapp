@@ -5,8 +5,11 @@ const About: React.FC = () => {
   return (
     <Container id="about-me">
       <div className="col intro">
+        {/* Page title */}
         <h1>About me</h1>
-        <p>I am a programmer. I love my life.</p>
+        {/* Introduction */}
+        <p>My name is Gabriel Ramos 👨🏽‍💻. I am Brazilian 🇧🇷.</p>
+        {/* The text body */}
         <p>
           I started programming when I was 14 years-old. When I won my first
           computer, it was something really impressive to me. While my friends
@@ -47,9 +50,72 @@ const About: React.FC = () => {
           as an important developer, for my knowledge and the results of my
           jobs.
         </p>
-        <p>
-          You can download my resumé (C.V.) in the end of the page.
-        </p>
+        <p>You can download my resumé (C.V.) in the end of the page.</p>
+        {/* My professional profile area */}
+        <div className="profile">
+          <h1>Front-end Developer</h1>
+          {/* About the area */}
+          <p>
+            Front-end is the best stack for me, where I became professional
+            into. This is where we connect the user to the application and data, and
+            make all the programming logic.
+          </p>
+          <h2>Languages and Frameworks</h2>
+          {/* Pro level languages and frameworks */}
+          <p>
+            <b>PRO level:</b>
+            <br />
+            React, React Native, TypeScript, JavaScript, ES6/7/8, HTML, CSS,
+            SCSS, Sass, Redux.
+          </p>
+          <br />
+          {/* Intermediate level */}
+          <p>
+            <b>Intermediate/Academic level:</b>
+            <br />
+            PHP, Python, LaTeX and VBA (Visual Basic).
+          </p>
+          <br />
+          {/* Learning level */}
+          <p>
+            <b>Learning/Low level:</b>
+            <br />
+            Node.js, Ruby, Kotlin, Swift and C#.NET.
+          </p>
+          {/* Developer tools */}
+          <h2>Dev tools</h2>
+          <p>
+            <li>Visual Studio Code</li>
+            <li>Visual Studio</li>
+            <li>Android Studio</li>
+            <li>XCode</li>
+            <li>Atom</li>
+            <li>Sublime Text</li>
+            <li>Wordpress</li>
+            <li>Dreamweaver</li>
+            <li>PyCharm</li>
+            <li>Photoshop</li>
+            <li>Bootstrap</li>
+            <li>Git</li>
+            <li>GitHub</li>
+            <li>BitBucket</li>
+            <li>Microsoft Azure</li>
+            <li>Docker</li>
+            <li>Postgres</li>
+            <li>Microsoft SQL Server</li>
+            <li>Microsoft Office</li>
+            <li>LibreOffice</li>
+            <li>Terminal</li>
+            <li>Android</li>
+            <li>iOS</li>
+            <li>Windows</li>
+            <li>Linux Ubuntu</li>
+            <li>Linux Fedora</li>
+            <li>Linux Manjaro</li>
+            <li>Arch Linux</li>
+            <li>MacOS</li>
+          </p>
+        </div>
       </div>
     </Container>
   );

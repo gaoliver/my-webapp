@@ -32,6 +32,38 @@ export const Container = styled.div`
       margin-top: 20px;
       line-height: 30px;
     }
+    .profile {
+      margin: 40px 10%;
+      padding: 20px;
+      border: 3px dotted ${(props) => props.theme.colors.pageH1};
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.3rem;
+        margin-top: 40px;
+      }
+      p {
+        font-weight: 400;
+        background: none;
+        color: ${(props) => props.theme.colors.text};
+        font-size: 1rem;
+        width: fit-content;
+        text-align: center;
+        line-height: 20px;
+        margin-top: 10px;
+        b {
+          margin-top: 20px;
+        }
+        li {
+          font-size: 1rem;
+          list-style: none;
+        }
+      }
+    }
   }
 
   /* Home */
