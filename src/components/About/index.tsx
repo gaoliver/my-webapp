@@ -120,7 +120,9 @@ const About: React.FC = () => {
             <li>Linux Ubuntu</li>
             <li>Linux Fedora</li>
             <li>Linux Manjaro</li>
+            <li>Linux Mint</li>
             <li>Arch Linux</li>
+            <li>Raspberry Py</li>
             <li>MacOS</li>
           </p>
         </div>
