@@ -13,11 +13,28 @@ import Contact from './components/Contact';
 import NotFound from './components/NotFound';
 
 const App: React.FC = () => {
+  // Change theme by pressing button
   const [theme, setTheme] = usePersistedState('theme', light);
 
   const toggleTheme = () => {
     setTheme(theme.title === 'light' ? dark : light);
   };
+
+  // Auto change theme by hour
+  const getCurrentTime = new Date().getHours();
+
+  const autoTheme = () => {
+    if ((getCurrentTime < 18) && (getCurrentTime > 6)) {
+      setTheme(light)
+    } else {
+      setTheme(dark);
+    }
+  }
+
+  React.useEffect(() => {
+    autoTheme()
+  }, [getCurrentTime])
+
   return (
     <ThemeProvider theme={theme}>
       <Sidebar />
