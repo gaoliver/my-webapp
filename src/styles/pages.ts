@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -38,6 +38,7 @@ export const Container = styled.div`
       font-weight: 100;
       @media (max-width: 800px) {
         font-size: 1.5rem;
+        font-weight: 400;
       }
     }
     p {
@@ -52,6 +53,9 @@ export const Container = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
+      @media (max-width: 800px) {
+        margin: 40px 0 !important;
+      }
       h1 {
         font-size: 2rem;
         text-align: center;

@@ -21,11 +21,13 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <Sidebar />
-      <Home onSwitch={toggleTheme} />
-      <About />
-      <Portfolio />
-      <Contact />
-      <NotFound />
+      <div className="viewContainer">
+        <Home onSwitch={toggleTheme} />
+        <About />
+        <Portfolio />
+        <Contact />
+        <NotFound />
+      </div>
       <GlobalStyle />
     </ThemeProvider>
   );

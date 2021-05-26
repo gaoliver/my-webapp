@@ -37,6 +37,13 @@ export default createGlobalStyle`
 
   #about-me {
     justify-content: flex-start;
-    padding: 20% 0 0 0;
+    padding: 25% 0;
+    overflow: scroll;
+  }
+
+  .viewContainer {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
   }
 `;
