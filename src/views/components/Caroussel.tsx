@@ -21,7 +21,7 @@ const Caroussel = ({ images }: PortfolioImages) => {
         position: 'relative',
         width: width <= 800 ? width - 30 : width / 2.5,
         height: 300,
-        marginTop: '10%'
+        marginTop: width <= 800 ? '10%' : 0
       }}
     >
       <div className="slide-container">
@@ -34,7 +34,7 @@ const Caroussel = ({ images }: PortfolioImages) => {
                   backgroundSize: 'contain',
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
-                  height: width <= 800 ? 300 : 400
+                  height: width <= 800 ? 300 : 550
                 }}
               >
                 <span></span>

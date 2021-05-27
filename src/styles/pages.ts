@@ -104,6 +104,7 @@ export const Container = styled.div`
       .button-click {
         cursor: pointer;
         width: fit-content;
+        color: white;
       }
     }
   }

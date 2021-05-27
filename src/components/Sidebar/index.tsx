@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { SidebarContainer } from '../../styles/sidebar';
 import { useLocation } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 import { ThemeContext } from 'styled-components';
 import { AiFillHome, BsPersonSquare, MdDevices } from 'react-icons/all';
 
@@ -75,24 +76,25 @@ const Sidebar: React.FC = () => {
       {/* Menu */}
       <ul>
         <li>
-          <a id="home-menu" href="#home">
+          <Link id="home-menu" smooth to="/my-webapp#home">
             <AiFillHome size={35} style={{ marginRight: 20 }} /> Home
-          </a>
+          </Link>
         </li>
         <li>
-          <a id="about-me-menu" href="#about-me">
+          <Link id="about-me-menu" smooth to="/my-webapp#about-me">
             <BsPersonSquare size={35} style={{ marginRight: 20 }} /> About
-          </a>
+          </Link>
         </li>
         <li>
-          <a id="portfolio-menu" href="#portfolio">
-            <MdDevices size={35} style={{ marginRight: 20 }} />Portfolio
-          </a>
+          <Link id="portfolio-menu" smooth to="/my-webapp#portfolio">
+            <MdDevices size={35} style={{ marginRight: 20 }} />
+            Portfolio
+          </Link>
         </li>
         <li>
-          <a id="contact-menu" href="#contact">
+          <Link id="contact-menu" smooth to="/my-webapp#contact">
             Contact
-          </a>
+          </Link>
         </li>
       </ul>
     </SidebarContainer>

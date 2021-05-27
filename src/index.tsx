@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import _navigation from "./_navigation";
 import 'bootstrap/dist/css/bootstrap.css';
+import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <_navigation />
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

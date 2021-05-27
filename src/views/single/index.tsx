@@ -29,7 +29,7 @@ export const Single: React.FC = () => {
   }, [getCurrentTime]);
 
   // Get the content
-  const location = useLocation().pathname.replace('/', '');
+  const location = useLocation().pathname.replace('/my-webapp/portfolio/', '');
 
   const index = PORTFOLIO.findIndex((x) => x.slug === location);
   const data = PORTFOLIO[index];

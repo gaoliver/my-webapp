@@ -1,16 +1,27 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch
+} from 'react-router-dom';
 
-import GlobalStyle from './styles/global';
+// Views
+import About from './views/About';
+import Portfolio from './views/Portfolio';
+import Contact from './views/Contact';
+import Home from './views/Home';
+import NotFound from './views/NotFound';
+import { Single } from './views/single';
+
+// Components
+import { PORTFOLIO } from './service/portfolio';
 import dark from './styles/dark';
 import light from './styles/light';
-import Home from './components/Home';
-// import usePersistedState from './utils/usePersistedState';
+import GlobalStyle from './styles/global';
 import Sidebar from './components/Sidebar';
-import About from './components/About';
-import Portfolio from './components/Portfolio';
-import Contact from './components/Contact';
-import NotFound from './components/NotFound';
+// import usePersistedState from './utils/usePersistedState';ƒ
 
 const App: React.FC = () => {
   // Change theme by pressing button
@@ -25,27 +36,60 @@ const App: React.FC = () => {
   const getCurrentTime = new Date().getHours();
 
   const autoTheme = () => {
-    if ((getCurrentTime < 18) && (getCurrentTime > 6)) {
-      setTheme(light)
+    if (getCurrentTime < 18 && getCurrentTime > 6) {
+      setTheme(light);
     } else {
       setTheme(dark);
     }
-  }
+  };
 
+  // Get the Location
+  const location = window.location.pathname;
+
+  // Run on startup
   React.useEffect(() => {
-    autoTheme()
-  }, [getCurrentTime])
+    autoTheme();
+  }, [getCurrentTime]);
+
+  // Redirectioning
+  function redirect() {
+    if (location === '/' || location === '/my-webapp') {
+      return <Redirect exact from="/" to="/my-webapp" />;
+    } else {
+      return <Redirect exact to="/my-webapp#error-404" />;
+    }
+  }
 
   return (
     <ThemeProvider theme={theme}>
-      <Sidebar />
-      <div className="viewContainer">
-        <Home onSwitch={toggleTheme} />
-        <About />
-        <Portfolio />
-        <Contact />
-        <NotFound />
-      </div>
+      <Router>
+        <Switch>
+          {/* Single page */}
+          {PORTFOLIO.map((x) => (
+            <Route path={`/my-webapp/portfolio/${x.slug}`} key={x.id}>
+              <Single />
+            </Route>
+          ))}
+          {/* Redirecting */}
+          {redirect()}
+        </Switch>
+        {/* Pages routes */}
+        <Route exact path="/my-webapp">
+          <Sidebar />
+          {/* Home */}
+          <div className="viewContainer">
+            <Home onSwitch={toggleTheme} />
+            <About />
+            <Portfolio />
+            <Contact />
+            <NotFound />
+          </div>
+        </Route>
+        {/* <Route exact path="/my-webapp/about-me" component={About} />
+          <Route exact path="/my-webapp/portfolio" component={Portfolio} />
+          <Route exact path="/my-webapp/contact" component={Contact} />
+          <Route exact path="/my-webapp/error-404" component={NotFound} /> */}
+      </Router>
       <GlobalStyle />
     </ThemeProvider>
   );
