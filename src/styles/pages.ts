@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -11,13 +11,13 @@ export const Container = styled.div`
     font-size: 2.7rem;
     font-weight: bold;
     @media (max-width: 800px) {
-      font-size: 2.5rem
+      font-size: 2.5rem;
     }
   }
 
   /* Introduction text justified and centered */
   .intro {
-    padding: 0 20%;;
+    padding: 0 20%;
     display: flex;
     flex-direction: column;
     @media screen and (max-width: 800px) {
@@ -82,6 +82,90 @@ export const Container = styled.div`
           list-style: none;
         }
       }
+    }
+  }
+
+  /* Single page */
+  .header {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    .page-header {
+      width: 100%;
+      height: 50px;
+      position: absolute;
+      padding: 10px;
+      background-color: ${(props) => props.theme.colors.primary};
+      ${(props) =>
+        props.theme.title === 'dark'
+          ? 'animation: flicker-sidebar 1.5s infinite alternate'
+          : 'box-shadow: 0px 0px 1px #000 !important;'};
+
+      .button-click {
+        cursor: pointer;
+        width: fit-content;
+      }
+    }
+  }
+  .single-body {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  .padding {
+    padding: 20px;
+    .text {
+      text-align: justify;
+      line-height: 30px;
+      margin: 30px 0;
+    }
+    .tools {
+      font-size: 1.3rem;
+      font-weight: 300;
+      text-align: justify;
+      width: 100%;
+      padding: 10px;
+      color: black;
+      background-color: ${(props) => props.theme.colors.secondary};
+    }
+  }
+  .head-info {
+    h1 {
+      background: ${(props) => props.theme.colors.secondary};
+      color: #121214;
+      padding: 0 10px;
+    }
+    h3 {
+    }
+    div > div > span {
+      float: right;
+      clear: right;
+      font-size: 1rem;
+      font-weight: 200;
+    }
+    p {
+      width: 100%;
+      text-align: justify;
+      margin-top: 20px;
+      background-color: ${(props) => props.theme.colors.secondary};
+      color: black;
+      padding: 10px;
+    }
+  }
+  @keyframes flicker-sidebar {
+    0%,
+    100% {
+      box-shadow: 0 0 2px ${(props) => props.theme.colors.secondary},
+        0 0 5px ${(props) => props.theme.colors.secondary},
+        0 0 10px ${(props) => props.theme.colors.secondary},
+        0 0 20px ${(props) => props.theme.colors.secondary},
+        0 0 30px ${(props) => props.theme.colors.secondary};
+    }
+    0% {
+      box-shadow: 0 0 2px ${(props) => props.theme.colors.secondary},
+        0 0 1px ${(props) => props.theme.colors.secondary},
+        0 0 2px ${(props) => props.theme.colors.secondary},
+        0 0 10px ${(props) => props.theme.colors.secondary};
     }
   }
 

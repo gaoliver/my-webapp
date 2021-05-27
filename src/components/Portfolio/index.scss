@@ -1,0 +1,44 @@
+.icon {
+    margin: 5px;
+    height: 100px;
+    border-radius: 1rem;
+    border: 1px solid white;
+    position: relative;
+    transition: all 0.5s ease;
+    &:hover {
+        cursor: pointer;
+        height: 150px;
+        .background-icon {
+            filter: blur(2px) opacity(0.8);
+        }
+    }
+}
+
+.logo-img {
+    background-color: transparent;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}
+
+.background-icon {
+    width: 95%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    z-index: 0;
+    filter: blur(4px) opacity(0.5);
+    transition: all 0.5s ease;
+}
+
+.content {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    padding-top: 20px;
+    h1 {
+        color: white;
+        margin-left: 20px;
+    }
+}

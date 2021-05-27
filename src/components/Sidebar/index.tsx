@@ -22,7 +22,9 @@ const Sidebar: React.FC = () => {
       setToggleSidebar(false);
     } else {
       if (title === 'dark') {
-        document.getElementById('sidebar-container')?.classList.add('active-dark');
+        document
+          .getElementById('sidebar-container')
+          ?.classList.add('active-dark');
       } else {
         document.getElementById('sidebar-container')?.classList.add('active');
       }

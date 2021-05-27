@@ -109,6 +109,7 @@ const About: React.FC = () => {
             <li>BitBucket</li>
             <li>Microsoft Azure</li>
             <li>Docker</li>
+            <li>Scrum Methodology</li>
             <li>Postgres</li>
             <li>Microsoft SQL Server</li>
             <li>Microsoft Office</li>
