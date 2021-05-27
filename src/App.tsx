@@ -43,28 +43,17 @@ const App: React.FC = () => {
     }
   };
 
-  // Get the Location
-  const pathLocation = window.location.pathname;
-
   // Run on startup
   React.useEffect(() => {
     autoTheme();
   }, [getCurrentTime]);
 
-  // Redirectioning
-  const redirect = () => {
-    if (pathLocation === '/' || pathLocation === '/my-webapp') {
-      return <Redirect exact to="/my-webapp" />;
-    } else {
-      return <Redirect to="/my-webapp#error-404" />;
-    }
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <Router>
+        {/* Pages routes */}
         <Switch>
-          {/* Pages routes */}
+          <Redirect exact from="/" to="/my-webapp" />
           <Route exact path="/my-webapp">
             <Sidebar />
             {/* Home */}
@@ -77,14 +66,10 @@ const App: React.FC = () => {
             </div>
           </Route>
           {/* Single page */}
-          <Route exact path={`/my-webapp/portfolio/:slug`} component={Single} />
-          {/* Redirecting */}
-          {redirect()}
+          <Route path={`/my-webapp/portfolio/:slug`} component={Single} />
+          {/* Error 404 */}
+          <Redirect to="/my-webapp#error-404" />
         </Switch>
-        {/* <Route exact path="/my-webapp/about-me" component={About} />
-          <Route exact path="/my-webapp/portfolio" component={Portfolio} />
-          <Route exact path="/my-webapp/contact" component={Contact} />
-          <Route exact path="/my-webapp/error-404" component={NotFound} /> */}
       </Router>
       <GlobalStyle />
     </ThemeProvider>
