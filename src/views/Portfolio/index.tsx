@@ -11,7 +11,7 @@ const Portfolio: React.FC = () => {
         <div className="row justify-content-around">
           {PORTFOLIO.map((x) => (
             <a
-              href={'/my-webapp/portfolio/' + x.slug}
+              href={'/portfolio/' + x.slug}
               className="col-10 col-lg-5 icon"
               key={x.id}
               style={{ backgroundColor: shade(0.7, x.color) }}

@@ -53,8 +53,7 @@ const App: React.FC = () => {
       <Router>
         {/* Pages routes */}
         <Switch>
-          <Redirect exact from="/" to="/my-webapp" />
-          <Route exact path="/my-webapp">
+          <Route exact path="/">
             <Sidebar />
             {/* Home */}
             <div className="viewContainer">
@@ -66,9 +65,9 @@ const App: React.FC = () => {
             </div>
           </Route>
           {/* Single page */}
-          <Route path={`/my-webapp/portfolio/:slug`} component={Single} />
+          <Route path={`/portfolio/:slug`} component={Single} />
           {/* Error 404 */}
-          <Redirect to="/my-webapp#error-404" />
+          <Redirect to="/#error-404" />
         </Switch>
       </Router>
       <GlobalStyle />

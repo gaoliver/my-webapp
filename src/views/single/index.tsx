@@ -29,7 +29,7 @@ export const Single: React.FC = () => {
   }, [getCurrentTime]);
 
   // Get the content
-  const location = useLocation().pathname.replace('/my-webapp/portfolio/', '');
+  const location = useLocation().pathname.replace('/portfolio/', '');
 
   const index = PORTFOLIO.findIndex((x) => x.slug === location);
   const data = PORTFOLIO[index];
@@ -46,7 +46,7 @@ export const Single: React.FC = () => {
           {/* Header */}
           <div className="page-header">
             {/* Back button */}
-            <Link className="button-click" to="/my-webapp#portfolio" >
+            <Link className="button-click" to="/#portfolio" >
               <IoChevronBackSharp /> back
             </Link>
           </div>
