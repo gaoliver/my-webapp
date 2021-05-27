@@ -1,11 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch
-} from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 
 // Views
 import About from './views/About';
@@ -50,26 +45,24 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Router>
-        {/* Pages routes */}
-        <Switch>
-          <Route exact path="/">
-            <Sidebar />
-            {/* Home */}
-            <div className="viewContainer">
-              <Home onSwitch={toggleTheme} />
-              <About />
-              <Portfolio />
-              <Contact />
-              <NotFound />
-            </div>
-          </Route>
-          {/* Single page */}
-          <Route path={`/my-webapp/portfolio/:slug`} component={Single} />
-          {/* Error 404 */}
-          <Redirect to="/#error-404" />
-        </Switch>
-      </Router>
+      {/* Pages routes */}
+      <Switch>
+        <Route exact path="/">
+          <Sidebar />
+          {/* Home */}
+          <div className="viewContainer">
+            <Home onSwitch={toggleTheme} />
+            <About />
+            <Portfolio />
+            <Contact />
+            <NotFound />
+          </div>
+        </Route>
+        {/* Single page */}
+        <Route exact path={`/my-webapp/portfolio/:slug`} component={Single} />
+        {/* Error 404 */}
+        <Redirect to="/#error-404" />
+      </Switch>
       <GlobalStyle />
     </ThemeProvider>
   );
