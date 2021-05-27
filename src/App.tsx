@@ -65,7 +65,7 @@ const App: React.FC = () => {
             </div>
           </Route>
           {/* Single page */}
-          <Route path={`/portfolio/:slug`} component={Single} />
+          <Route path={`/my-webapp/portfolio/:slug`} component={Single} />
           {/* Error 404 */}
           <Redirect to="/#error-404" />
         </Switch>
