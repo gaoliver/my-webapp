@@ -44,7 +44,7 @@ const App: React.FC = () => {
   };
 
   // Get the Location
-  const location = window.location.pathname;
+  const pathLocation = window.location.pathname;
 
   // Run on startup
   React.useEffect(() => {
@@ -52,13 +52,13 @@ const App: React.FC = () => {
   }, [getCurrentTime]);
 
   // Redirectioning
-  function redirect() {
-    if (location === '/' || location === '/my-webapp') {
+  const redirect = () => {
+    if (pathLocation === '/' || pathLocation === '/my-webapp') {
       return <Redirect exact to="/my-webapp" />;
     } else {
       return <Redirect to="/my-webapp#error-404" />;
     }
-  }
+  };
 
   return (
     <ThemeProvider theme={theme}>
