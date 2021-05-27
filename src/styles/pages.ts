@@ -105,6 +105,7 @@ export const Container = styled.div`
         cursor: pointer;
         width: fit-content;
         color: white;
+        text-decoration: none;
       }
     }
   }

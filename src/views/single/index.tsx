@@ -1,12 +1,12 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { IoChevronBackSharp } from 'react-icons/all';
+import { useLocation, Link } from 'react-router-dom';
 
 import GlobalStyle from '../../styles/global';
 import dark from '../../styles/dark';
 import light from '../../styles/light';
 import { Container } from '../../styles/pages';
-import { useHistory, useLocation } from 'react-router-dom';
 import { PORTFOLIO } from '../../service/portfolio';
 import Caroussel from '../components/Caroussel';
 
@@ -46,9 +46,9 @@ export const Single: React.FC = () => {
           {/* Header */}
           <div className="page-header">
             {/* Back button */}
-            <div className="button-click" onClick={useHistory().goBack}>
+            <Link className="button-click" to="/my-webapp#portfolio" >
               <IoChevronBackSharp /> back
-            </div>
+            </Link>
           </div>
         </div>
         {/* The content body */}

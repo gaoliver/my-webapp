@@ -64,27 +64,23 @@ const App: React.FC = () => {
     <ThemeProvider theme={theme}>
       <Router>
         <Switch>
+          {/* Pages routes */}
+          <Route exact path="/my-webapp">
+            <Sidebar />
+            {/* Home */}
+            <div className="viewContainer">
+              <Home onSwitch={toggleTheme} />
+              <About />
+              <Portfolio />
+              <Contact />
+              <NotFound />
+            </div>
+          </Route>
           {/* Single page */}
-          {PORTFOLIO.map((x) => (
-            <Route exact path={`/my-webapp/portfolio/${x.slug}`} key={x.id}>
-              <Single />
-            </Route>
-          ))}
+          <Route exact path={`/my-webapp/portfolio/:slug`} component={Single} />
           {/* Redirecting */}
           {redirect()}
         </Switch>
-        {/* Pages routes */}
-        <Route exact path="/my-webapp">
-          <Sidebar />
-          {/* Home */}
-          <div className="viewContainer">
-            <Home onSwitch={toggleTheme} />
-            <About />
-            <Portfolio />
-            <Contact />
-            <NotFound />
-          </div>
-        </Route>
         {/* <Route exact path="/my-webapp/about-me" component={About} />
           <Route exact path="/my-webapp/portfolio" component={Portfolio} />
           <Route exact path="/my-webapp/contact" component={Contact} />
