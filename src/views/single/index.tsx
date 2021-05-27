@@ -41,7 +41,7 @@ export const Single: React.FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container style={{ backgroundColor: theme.colors.background }}>
+      <Container style={{ backgroundColor: theme.colors.background, height: "auto", minHeight: "100vh" }}>
         <div className="header">
           {/* Header */}
           <div className="page-header">
