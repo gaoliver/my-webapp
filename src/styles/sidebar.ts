@@ -71,7 +71,7 @@ export const SidebarContainer = styled.div`
   /* Menu options */
   ul {
     width: 100%;
-    padding-left: 20%;
+    padding-left: 10%;
     li {
       width: 100%;
       padding: 20px 0;
@@ -81,6 +81,10 @@ export const SidebarContainer = styled.div`
         color: #e1e1e9;
         text-decoration: none;
         transition: all 0.2s ease;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
         &:hover {
           color: #e1e1e9;
           text-shadow: 0 0 10px ${(props) => props.theme.colors.secondary},

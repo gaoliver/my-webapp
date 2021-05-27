@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { SidebarContainer } from '../../styles/sidebar';
 import { useLocation } from 'react-router-dom';
 import { ThemeContext } from 'styled-components';
+import { AiFillHome, BsPersonSquare, MdDevices } from 'react-icons/all';
 
 import './index.scss';
 
@@ -75,17 +76,17 @@ const Sidebar: React.FC = () => {
       <ul>
         <li>
           <a id="home-menu" href="#home">
-            Home
+            <AiFillHome size={35} style={{ marginRight: 20 }} /> Home
           </a>
         </li>
         <li>
           <a id="about-me-menu" href="#about-me">
-            About
+            <BsPersonSquare size={35} style={{ marginRight: 20 }} /> About
           </a>
         </li>
         <li>
           <a id="portfolio-menu" href="#portfolio">
-            Portfolio
+            <MdDevices size={35} style={{ marginRight: 20 }} />Portfolio
           </a>
         </li>
         <li>
