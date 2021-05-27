@@ -54,9 +54,9 @@ const App: React.FC = () => {
   // Redirectioning
   function redirect() {
     if (location === '/' || location === '/my-webapp') {
-      return <Redirect exact from="/" to="/my-webapp" />;
+      return <Redirect exact to="/my-webapp" />;
     } else {
-      return <Redirect exact to="/my-webapp#error-404" />;
+      return <Redirect to="/my-webapp#error-404" />;
     }
   }
 
@@ -66,7 +66,7 @@ const App: React.FC = () => {
         <Switch>
           {/* Single page */}
           {PORTFOLIO.map((x) => (
-            <Route path={`/my-webapp/portfolio/${x.slug}`} key={x.id}>
+            <Route exact path={`/my-webapp/portfolio/${x.slug}`} key={x.id}>
               <Single />
             </Route>
           ))}
