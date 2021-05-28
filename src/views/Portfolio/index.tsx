@@ -28,7 +28,7 @@ const Portfolio: React.FC = () => {
                   className="logo-img"
                   style={{ backgroundImage: `url(${x.mainImage})` }}
                 />
-                <h1>{x.name}</h1>
+                <h1>{x.name.substring(0, 16)}{x.name.length > 16 ? "..." : null}</h1>
               </div>
             </a>
           ))}
