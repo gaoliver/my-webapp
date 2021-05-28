@@ -23,7 +23,7 @@ export const PORTFOLIO = [
     mainImage: tennisProLogo,
     url: 'https://tennisproapp.com/',
     slug: 'tennis-pro',
-    color: 'yellow',
+    color: 'orange',
     jobInfo: {
       role: 'Front-end developer',
       type: 'Mobile',
