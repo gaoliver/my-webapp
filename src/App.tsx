@@ -11,7 +11,6 @@ import NotFound from './views/NotFound';
 import { Single } from './views/single';
 
 // Components
-import { PORTFOLIO } from './service/portfolio';
 import dark from './styles/dark';
 import light from './styles/light';
 import GlobalStyle from './styles/global';
@@ -59,9 +58,9 @@ const App: React.FC = () => {
           </div>
         </Route>
         {/* Single page */}
-        <Route exact path={`/my-webapp/portfolio/:slug`} component={Single} />
+        <Route path={`/portfolio/:slug`} component={Single} />
         {/* Error 404 */}
-        <Redirect to="/#error-404" />
+        <Redirect to="#error-404" />
       </Switch>
       <GlobalStyle />
     </ThemeProvider>
