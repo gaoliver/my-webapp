@@ -31,3 +31,7 @@ export interface Portfolio {
 export interface PortfolioImages {
   images: Array<string>;
 }
+
+export interface Props {
+  currentTheme?: unknown;
+}

@@ -132,7 +132,7 @@ const About: React.FC = () => {
           download="GABRIEL_RAMOS_Frontend-Developer_CV"
           style={{ display: 'contents' }}
         >
-          <button type="button" className="btn btn-primary btn-lg btn-block">
+          <button type="button" className="btn btn-success btn-lg btn-block">
             Click to download my resumé (C.V.)
           </button>
         </a>

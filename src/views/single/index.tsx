@@ -14,20 +14,18 @@ import Caroussel from '../components/Caroussel';
 export const Single: React.FC = () => {
   const [theme, setTheme] = React.useState(light);
 
-  // Auto change theme by hour
-  const getCurrentTime = new Date().getHours();
+  // Get the theme
+  const getTheme = new URL(
+    window.location.href.replace('/#', '')
+  ).searchParams.get('theme');
 
-  const autoTheme = () => {
-    if (getCurrentTime < 18 && getCurrentTime > 6) {
+  React.useEffect(() => {
+    if (getTheme === 'light') {
       setTheme(light);
     } else {
       setTheme(dark);
     }
-  };
-
-  React.useEffect(() => {
-    autoTheme();
-  }, [getCurrentTime]);
+  }, [getTheme]);
 
   // Get the content
   const location = useLocation().pathname.replace('/portfolio/', '');

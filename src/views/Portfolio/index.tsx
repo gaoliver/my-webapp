@@ -1,17 +1,21 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { shade } from 'polished';
 import React from 'react';
 import { PORTFOLIO } from '../../service/portfolio';
 import { Container } from '../../styles/pages';
 import './index.scss';
 
-const Portfolio: React.FC = () => {
+// Components
+import { Props } from '../../interfaces';
+
+const Portfolio = ({ currentTheme } : Props) => {
   return (
     <Container id="portfolio">
       <div className="container">
         <div className="row justify-content-around">
           {PORTFOLIO.map((x) => (
             <a
-              href={'#portfolio/' + x.slug}
+              href={'#portfolio/' + x.slug + "?theme=" + currentTheme}
               className="col-10 col-lg-5 icon"
               key={x.id}
               style={{ backgroundColor: shade(0.7, x.color) }}

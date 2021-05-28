@@ -38,6 +38,9 @@ export default createGlobalStyle`
   #about-me {
     justify-content: flex-start;
     padding: 25% 0;
+  }
+
+  #about-me, #portfolio {
     overflow: scroll;
   }
 

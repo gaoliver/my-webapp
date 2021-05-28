@@ -52,7 +52,7 @@ const App: React.FC = () => {
           <div className="viewContainer">
             <Home onSwitch={toggleTheme} />
             <About />
-            <Portfolio />
+            <Portfolio currentTheme={theme.title} />
             <Contact />
             <NotFound />
           </div>

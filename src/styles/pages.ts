@@ -133,8 +133,11 @@ export const Container = styled.div`
   }
   .head-info {
     h1 {
-      background: ${(props) => props.theme.colors.secondary};
-      color: #121214;
+      background: ${(props) => props.theme.colors.primary};
+      color: ${(props) =>
+        props.theme.title === 'light'
+          ? props.theme.colors.background
+          : props.theme.colors.text};
       padding: 0 10px;
     }
     h3 {
@@ -152,6 +155,16 @@ export const Container = styled.div`
       background-color: ${(props) => props.theme.colors.secondary};
       color: black;
       padding: 10px;
+    }
+    @media (max-width: 800px) {
+      h1 {
+        font-size: 1.8rem;
+        padding: 10px;
+      }
+      h3 {
+        font-size: 1rem;
+        font-weight: bold;
+      }
     }
   }
   @keyframes flicker-sidebar {

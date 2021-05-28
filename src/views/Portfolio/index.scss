@@ -36,9 +36,19 @@
     position: absolute;
     z-index: 1;
     display: flex;
+    flex-direction: row;
+    align-items: center;
     padding-top: 20px;
+    ;
     h1 {
         color: white;
         margin-left: 20px;
+        margin-bottom: 0;
+    }
+    @media (max-width: 800px) {
+        h1 {
+            font-size: 1.8rem !important;
+            min-height: fit-content;
+        }
     }
 }
