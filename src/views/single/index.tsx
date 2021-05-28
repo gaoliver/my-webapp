@@ -1,7 +1,8 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { IoChevronBackSharp } from 'react-icons/all';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 
 import GlobalStyle from '../../styles/global';
 import dark from '../../styles/dark';
@@ -41,12 +42,18 @@ export const Single: React.FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container style={{ backgroundColor: theme.colors.background, height: "auto", minHeight: "100vh" }}>
+      <Container
+        style={{
+          backgroundColor: theme.colors.background,
+          height: 'auto',
+          minHeight: '100vh'
+        }}
+      >
         <div className="header">
           {/* Header */}
           <div className="page-header">
             {/* Back button */}
-            <Link className="button-click" to="/#portfolio" >
+            <Link className="button-click" to="/#portfolio">
               <IoChevronBackSharp /> back
             </Link>
           </div>
