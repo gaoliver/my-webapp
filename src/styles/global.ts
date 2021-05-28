@@ -40,6 +40,13 @@ export default createGlobalStyle`
     padding: 25% 0;
   }
 
+  #portfolio {
+    @media (max-width: 800px) {
+      justify-content: flex-start;
+      padding: 20% 0;
+    }
+  }
+
   #about-me, #portfolio {
     overflow: scroll;
   }
