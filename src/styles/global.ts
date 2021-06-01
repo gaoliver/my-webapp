@@ -56,4 +56,24 @@ export default createGlobalStyle`
     height: 100vh;
     overflow: hidden;
   }
+
+  .site-footer {
+    position: fixed;
+    z-index: 9999;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-image: linear-gradient(to top, (${(props) => props.theme.colors.background} 50%) 60%, transparent 100%);
+    p {
+        font-size: 1rem;
+        opacity: 0.5;
+        margin-bottom: 0;
+    }
+    @media (max-width: 800px) {
+        justify-content: center;
+    }
+}
 `;
