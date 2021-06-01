@@ -8,32 +8,44 @@ import { AiFillHome, BsPersonSquare, MdDevices } from 'react-icons/all';
 import './index.scss';
 
 const Sidebar: React.FC = () => {
+  // Constants
   const { title } = useContext(ThemeContext);
   const [toggleSidebar, setToggleSidebar] = useState(false);
+
+  // Turn off sidebar function
+  function unactiveSidebar() {
+    if (title === 'dark') {
+      document
+        .getElementById('sidebar-container')
+        ?.classList.remove('active-dark');
+    } else {
+      document.getElementById('sidebar-container')?.classList.remove('active');
+    }
+    setToggleSidebar(false);
+  }
+
+  // Turn on Sidebar function
+  function activeSidebar() {
+    if (title === 'dark') {
+      document
+        .getElementById('sidebar-container')
+        ?.classList.add('active-dark');
+    } else {
+      document.getElementById('sidebar-container')?.classList.add('active');
+    }
+    setToggleSidebar(true);
+  }
+
+  // Toggle sidebar function
   const onClick = () => {
     if (toggleSidebar) {
-      if (title === 'dark') {
-        document
-          .getElementById('sidebar-container')
-          ?.classList.remove('active-dark');
-      } else {
-        document
-          .getElementById('sidebar-container')
-          ?.classList.remove('active');
-      }
-      setToggleSidebar(false);
+      unactiveSidebar();
     } else {
-      if (title === 'dark') {
-        document
-          .getElementById('sidebar-container')
-          ?.classList.add('active-dark');
-      } else {
-        document.getElementById('sidebar-container')?.classList.add('active');
-      }
-      setToggleSidebar(true);
+      activeSidebar();
     }
   };
 
+  // On startup
   useEffect(() => {
     setActivePage();
   });
@@ -41,6 +53,15 @@ const Sidebar: React.FC = () => {
   // Active page effect
   const location = useLocation().hash.replace('#', '');
   const [prevPage, setPrevPage] = useState('');
+
+  // On click out function
+  document.documentElement.onclick = function (event) {
+    const sidebar = document.getElementById('sidebar-container');
+
+    if (event.target !== sidebar && toggleSidebar) {
+      return document.getElementById('menu')?.click();
+    }
+  };
 
   function setActivePage() {
     if (location === '') {
