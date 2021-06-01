@@ -43,8 +43,8 @@ export const Single: React.FC = () => {
       <Container
         style={{
           backgroundColor: theme.colors.background,
-          height: 'auto',
-          minHeight: '100vh'
+          overflow: 'scroll',
+          display: "block"
         }}
       >
         <div className="header">
@@ -101,7 +101,7 @@ export const Single: React.FC = () => {
                 {data.jobInfo.mainTools.toString().replace(/,/g, ', ')}
               </p>
               {/* Button to more info */}
-              <div className="d-grid gap-2">
+              <div className="d-grid gap-2" style={{ paddingBottom: "30px" }}>
                 <button
                   className="btn btn-success"
                   type="button"
