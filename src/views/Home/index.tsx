@@ -3,8 +3,10 @@ import Switch from 'react-switch';
 import { ThemeContext } from 'styled-components';
 
 import './index.scss';
-import lightLogo from '../../assets/images/GabrielRamos-logos_transparent.png';
-import darkLogo from '../../assets/images/GabrielRamos-logos_Background.png';
+// import lightLogo from '../../assets/images/GabrielRamos-logos_transparent.png';
+import lightLogo from '../../assets/images/logo-light.svg';
+// import darkLogo from '../../assets/images/GabrielRamos-logos_Background.png';
+import darkLogo from '../../assets/images/logo-dark.svg';
 import { App } from '../../interfaces';
 import { Container } from '../../styles/pages';
 
