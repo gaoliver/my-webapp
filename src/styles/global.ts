@@ -66,11 +66,13 @@ export default createGlobalStyle`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-image: linear-gradient(to top, (${(props) => props.theme.colors.background} 50%) 60%, transparent 100%);
+    background-image: linear-gradient(to top, ${(props) => props.theme.colors.background + "df"} 50%, transparent 100%);
     p {
         font-size: 1rem;
         opacity: 0.5;
         margin-bottom: 0;
+        padding-top: 10px;
+        font-weight: bold;
     }
     @media (max-width: 800px) {
         justify-content: center;
