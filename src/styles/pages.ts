@@ -88,12 +88,16 @@ export const Container = styled.div`
   /* Single page */
   .header {
     width: 100%;
-    height: 50px;
+    height: 130px;
     position: relative;
     .page-header {
       width: 100%;
-      height: 50px;
+      height: 130px;
       position: absolute;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
       padding: 10px;
       background-color: ${(props) => props.theme.colors.primary};
       ${(props) =>
@@ -107,15 +111,73 @@ export const Container = styled.div`
         color: white;
         text-decoration: none;
       }
+      .head-info {
+        width: 90%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-left: 1px solid white;
+        padding-left: 3%;
+        color: white;
+        .class-title {
+          display: flex;
+          flex-direction: column;
+        }
+        h3 {
+          font-size: 1.2rem;
+        }
+        div > div > span {
+          float: right;
+          clear: right;
+          font-size: 1rem;
+          font-weight: 200;
+        }
+        @media (max-width: 800px) {
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          text-align: left;
+          .work-info {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+          }
+          h1 {
+            font-size: 1.8rem;
+          }
+          h3 {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 0;
+            width: 60%;
+          }
+          div > div > span {
+            font-size: 0.8rem;
+            font-weight: bold;
+          }
+        }
+      }
     }
   }
   .single-body {
     flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
   .padding {
     padding: 20px;
+    .project-intro {
+      width: 100%;
+      text-align: justify;
+      margin-top: 20px;
+      background-color: ${(props) => props.theme.colors.secondary};
+      color: black;
+      padding: 10px;
+    }
     .text {
       text-align: justify;
       line-height: 30px;
@@ -131,42 +193,8 @@ export const Container = styled.div`
       background-color: ${(props) => props.theme.colors.secondary};
     }
   }
-  .head-info {
-    h1 {
-      background: ${(props) => props.theme.colors.primary};
-      color: ${(props) =>
-        props.theme.title === 'light'
-          ? props.theme.colors.background
-          : props.theme.colors.text};
-      padding: 0 10px;
-    }
-    h3 {
-    }
-    div > div > span {
-      float: right;
-      clear: right;
-      font-size: 1rem;
-      font-weight: 200;
-    }
-    p {
-      width: 100%;
-      text-align: justify;
-      margin-top: 20px;
-      background-color: ${(props) => props.theme.colors.secondary};
-      color: black;
-      padding: 10px;
-    }
-    @media (max-width: 800px) {
-      h1 {
-        font-size: 1.8rem;
-        padding: 10px;
-      }
-      h3 {
-        font-size: 1rem;
-        font-weight: bold;
-      }
-    }
-  }
+
+  /* Animation */
   @keyframes flicker-sidebar {
     0%,
     100% {

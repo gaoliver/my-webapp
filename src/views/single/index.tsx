@@ -38,13 +38,36 @@ export const Single: React.FC = () => {
     return window.open(data.url);
   };
 
+  // Responsivity
+  const tela = window.screen.width;
+  const [back, setBack] = React.useState(' back');
+  const [subtitle, setSubtitle] = React.useState(<></>);
+  const [overDate, setOverDate] = React.useState(<></>);
+
+  function responsivity() {
+    if (tela < 800) {
+      setBack('');
+      setSubtitle(<></>);
+      setOverDate(<h3>by {data.company}</h3>);
+    } else {
+      setBack(' back');
+      setSubtitle(<h3>by {data.company}</h3>);
+      setOverDate(<></>);
+    }
+  }
+
+  React.useEffect(() => {
+    return responsivity();
+  }, [tela]);
+
   return (
     <ThemeProvider theme={theme}>
       <Container
         style={{
           backgroundColor: theme.colors.background,
-          overflow: 'scroll',
-          display: "block"
+          height: 'auto',
+          minHeight: '100vh',
+          paddingBottom: 100
         }}
       >
         <div className="header">
@@ -52,8 +75,36 @@ export const Single: React.FC = () => {
           <div className="page-header">
             {/* Back button */}
             <Link className="button-click" to="/#portfolio">
-              <IoChevronBackSharp /> back
+              <IoChevronBackSharp />
+              {back}
             </Link>
+
+            {/* Project infor head */}
+            <div className="head-info">
+              {/* Project name */}
+              <div className="class-title">
+                <h1>{data.name}</h1>
+                {subtitle}
+              </div>
+              {/* Company name */}
+              <div className="work-info">
+                {overDate}
+                <div className="col">
+                  {/* Start date */}
+                  <span>
+                    {`From ${data.jobInfo.startDate.month}, ${data.jobInfo.startDate.year}`}
+                  </span>
+                  {/* End date or current */}
+                  <span>
+                    {`${
+                      data.jobInfo.endDate.month !== ''
+                        ? `to ${data.jobInfo.endDate.month}, ${data.jobInfo.endDate.year}`
+                        : 'in course'
+                    }`}
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         {/* The content body */}
@@ -65,35 +116,12 @@ export const Single: React.FC = () => {
             </div>
             {/* Project info */}
             <div className="col-12 col-lg-6 padding">
-              {/* Project infor head */}
-              <div className="head-info">
-                {/* Project name */}
-                <h1>{data.name}</h1>
-                <div className="row">
-                  {/* Company name */}
-                  <h3 className="col">by {data.company}</h3>
-                  <div className="col">
-                    {/* Start date */}
-                    <span>
-                      {`From ${data.jobInfo.startDate.month}, ${data.jobInfo.startDate.year}`}
-                    </span>
-                    {/* End date or current */}
-                    <span>
-                      {`${
-                        data.jobInfo.endDate.month !== ''
-                          ? `to ${data.jobInfo.endDate.month}, ${data.jobInfo.endDate.year}`
-                          : 'in course'
-                      }`}
-                    </span>
-                  </div>
-                </div>
-                {/* About the role */}
-                <p>
-                  This is a <b>{data.jobInfo.type}</b> project in which I am the{' '}
-                  <b>{data.jobInfo.role}</b>, using{' '}
-                  <b>{data.jobInfo.language}</b> as the main language.
-                </p>
-              </div>
+              {/* About the role */}
+              <p className="project-intro">
+                This is a <b>{data.jobInfo.type}</b> project in which I am the{' '}
+                <b>{data.jobInfo.role}</b>, using <b>{data.jobInfo.language}</b>{' '}
+                as the main language.
+              </p>
               {/* About the whole project */}
               <p className="text">{data.text}</p>
               {/* Tools and languages used */}
@@ -101,7 +129,7 @@ export const Single: React.FC = () => {
                 {data.jobInfo.mainTools.toString().replace(/,/g, ', ')}
               </p>
               {/* Button to more info */}
-              <div className="d-grid gap-2" style={{ paddingBottom: "30px" }}>
+              <div className="d-grid gap-2">
                 <button
                   className="btn btn-success"
                   type="button"

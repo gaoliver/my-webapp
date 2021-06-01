@@ -60,7 +60,13 @@ const App: React.FC = () => {
           </div>
         </Route>
         {/* Single page */}
-        <Route path={`/portfolio/:slug`} component={Single} />
+        <Route path={`/portfolio/:slug`}>
+          <div
+            style={{ display: 'block', height: '100vh', overflow: 'scroll' }}
+          >
+            <Single />
+          </div>
+        </Route>
         {/* Error 404 */}
         <Redirect to="#error-404" />
       </Switch>
