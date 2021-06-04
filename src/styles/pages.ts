@@ -213,14 +213,25 @@ export const Container = styled.div`
   }
 
   /* Home */
+  .job-position {
+    position: relative;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+  }
   #typping {
     overflow: hidden;
+    font-size: larger;
     border-right: 0.15em solid ${(props) => props.theme.colors.text};
     white-space: nowrap;
-    margin: 20px auto;
+    margin: 40px 0 10px 0;
     letter-spacing: 0.15em;
     animation: typing 10s steps(20, end) infinite,
       blink-caret 0.75s step-end infinite;
+  }
+  .company {
+    margin: 10px auto 40px auto;
   }
   /* The typing effect */
   @keyframes typing {
@@ -231,32 +242,13 @@ export const Container = styled.div`
       width: 0;
     }
     30% {
-      width: 330px;
+      width: 100%;
     }
     90% {
-      width: 330px;
+      width: 100%;
     }
     to {
       width: 0;
-    }
-  }
-  @media screen and (max-width: 800px) {
-    @keyframes typing {
-      from {
-        width: 0;
-      }
-      20% {
-        width: 0;
-      }
-      30% {
-        width: 310px;
-      }
-      90% {
-        width: 310px;
-      }
-      to {
-        width: 0;
-      }
     }
   }
 
