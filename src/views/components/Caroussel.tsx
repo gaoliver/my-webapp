@@ -14,8 +14,8 @@ const Caroussel = ({ images }: PortfolioImages) => {
         display: 'block',
         position: 'relative',
         width: width <= 800 ? width - 30 : width / 3,
-        height: 300,
-        marginTop: width <= 800 ? '10%' : 0
+        marginTop: width <= 800 ? '10%' : 0,
+        overflow: "hidden"
       }}
     >
       <div className="slide-container">

@@ -77,7 +77,7 @@ export const Single: React.FC = () => {
           backgroundColor: theme.colors.background,
           height: 'auto',
           minHeight: '100vh',
-          paddingBottom: 100
+          paddingBottom: window.screen.width <= 800 ? 120 : 0
         }}
       >
         <header className="header">

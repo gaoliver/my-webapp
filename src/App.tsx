@@ -19,12 +19,11 @@ import { Footer } from './components/Footer';
 
 const App: React.FC = () => {
   const [theme, setTheme] = React.useState(light);
+  const getCurrentTime = new Date().getHours();
 
   const toggleTheme = () => {
     setTheme(theme.title === 'light' ? dark : light);
   };
-
-  const getCurrentTime = new Date().getHours();
 
   const autoTheme = () => {
     if (getCurrentTime < 18 && getCurrentTime > 6) {
@@ -41,11 +40,9 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <Footer />
-      {/* Pages routes */}
       <Switch>
         <Route exact path="/">
           <Sidebar />
-          {/* Home */}
           <div className="viewContainer">
             <Home onSwitch={toggleTheme} />
             <About />
@@ -54,15 +51,9 @@ const App: React.FC = () => {
             <NotFound />
           </div>
         </Route>
-        {/* Single page */}
         <Route path={`/portfolio/:slug`}>
-          <div
-            style={{ display: 'block', height: '100vh', overflow: 'scroll' }}
-          >
-            <Single />
-          </div>
+          <Single />
         </Route>
-        {/* Error 404 */}
         <Redirect to="#error-404" />
       </Switch>
       <GlobalStyle />
