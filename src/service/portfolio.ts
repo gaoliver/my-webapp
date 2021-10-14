@@ -108,7 +108,7 @@ export const PORTFOLIO: IPortfolio = [
     name: 'SOUB!',
     company: 'Americanas S.A.',
     mainImage: soubLogo,
-    url: '',
+    url: 'https://soubarato.com.br',
     slug: 'soub-app',
     color: 'purple',
     jobInfo: {
