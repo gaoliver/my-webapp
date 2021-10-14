@@ -8,9 +8,6 @@ const Caroussel = ({ images }: PortfolioImages) => {
   // get screen width
   const width = window.screen.width;
 
-  // Images id
-  const count = images.length;
-
   // Generate id
   const getId = Math.random();
 
@@ -19,7 +16,7 @@ const Caroussel = ({ images }: PortfolioImages) => {
       style={{
         display: 'block',
         position: 'relative',
-        width: width <= 800 ? width - 30 : width / 2.5,
+        width: width <= 800 ? width - 30 : width / 3,
         height: 300,
         marginTop: width <= 800 ? '10%' : 0
       }}
