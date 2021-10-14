@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '../../styles/pages';
-import PDFCV from '../../assets/GABRIEL_RAMOS_-_Mobile_App_Developer.pdf';
+import PDFCV from '../../assets/Gabriel_Ramos_CV.pdf';
 
 const About: React.FC = () => {
   return (
@@ -9,25 +9,11 @@ const About: React.FC = () => {
         {/* Page title */}
         <h1>About me</h1>
         {/* Introduction */}
-        <p>My name is Gabriel Ramos 👨🏽‍💻. I am Brazilian 🇧🇷.</p>
+        <p>My name is Gabriel Ramos 👨🏽‍💻.</p>
         {/* The text body */}
         <p>
-          I started programming when I was 14 years-old. When I received my
-          first computer, it was something really impressive to me. While my
-          friends were getting amazed by social networks and games, I was amazed
-          by trying to understand how were those things done.
-        </p>
-        <p>
-          I still remember my first Informatics Teacher. After totaly basic
-          classes, learning only how to use Microsoft Office package, I asked
-          her how to create a website. And she got surprised for a 10 years-old
-          boy asking for learning more about something not necessary for the
-          class. Then I got an afterclass time with her, alone in the lab, to
-          study the basics of HTML and CSS. That was my very kickstart.
-        </p>
-        <p>
           In my 14{"'"}s, I was already coding my own websites and learning more
-          of PHP and JavaScript. So, in High School, I codded NerdLine website,
+          of PHP and JavaScript. So, in High School, I coded NerdLine website,
           an online newspaper about pop culture, comic books, movies and games,
           where I used to work on with my friends. The project had a
           administration portal, for creating the posts. I was the responsible
@@ -35,12 +21,31 @@ const About: React.FC = () => {
           entire project. Some time later, I started using Wordpress.
         </p>
         <p>
-          Since that time, I{"'"}m learning always more about programming, new
-          languages and frameworks, like React and React Native (which ones I
-          use the most today), also C#.NET (which I have used in some big
+          Since that time, I have been learning always more about programming,
+          new languages and frameworks, like React and React Native (which ones
+          I use the most today), also C#.NET (which I have used in some big
           important projects for companies, and for learning) and Python (for
           learning and creating data projects in the University, when I was
           graduating in Physics.)
+        </p>
+        <p>
+          I have worked for Inventa Produtos Digitais, where I was part of many
+          projects for companies and even for the government. During that time,
+          I worked with Wordpress, HTML, CSS, JavaScript, React Native, GIT,
+          Redux and C#/.NET.
+        </p>
+        <p>
+          Then, I got the position as Project Manager and Front End Developer at
+          Loomer Tech, where I created many mobile apps for companies and for
+          internal projects, using React Native, Azure, Redux, GIT, and
+          React.js.
+        </p>
+        <p>
+          By the middle of the same year, I received an opportunity to be React
+          Native Developer at Americanas S.A., the largest international
+          e-commerce in Latin America. And in which I am currently working,
+          using React Native, Redux, AWS, GIT, Jira and everything needed to
+          learn, for making a better work everyday.
         </p>
         <p>
           During this time, studying Physics at the University, I was part of
@@ -51,12 +56,11 @@ const About: React.FC = () => {
           Spaceport American Cup, in the USA.
         </p>
         <p>
-          Now I{"'"}m a front-end developer, experienced on being the main
-          front-end of many web and mobile projects. I based all my experience
-          focused on that position, which I enjoy the most and improve myself
-          every day. The achievement of my professional life is staying ahead of
-          many important projects and being known in development field as an
-          important developer, for my knowledge and the results of my jobs.
+          Then, I became front-end developer of many web and mobile projects. I
+          based all my experience with focus on that position, which I enjoy the
+          most and improve myself every day. The achievement of my professional
+          career is to become a great full stack developer, living and working
+          in the UK.
         </p>
         <p>You can download my resumé (C.V.) in the end of the page.</p>
         {/* My professional profile area */}
@@ -129,7 +133,7 @@ const About: React.FC = () => {
         </div>
         <a
           href={PDFCV}
-          download="GABRIEL_RAMOS_Frontend-Developer_CV"
+          download="Gabriel_Ramos_CV"
           style={{ display: 'contents' }}
         >
           <button type="button" className="btn btn-success btn-lg btn-block">
