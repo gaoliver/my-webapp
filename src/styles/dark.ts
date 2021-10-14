@@ -8,7 +8,8 @@ const theme = {
     // Change
     background: "#121214",
     text: "#e1e1e6",
-    pageH1: "#53D8FB"
+    pageH1: "#53D8FB",
+    link: "#53D8FB"
   }
 };
 

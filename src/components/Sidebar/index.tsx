@@ -98,17 +98,16 @@ const Sidebar: React.FC = () => {
       <ul>
         <li>
           <Link id="home-menu" smooth to="#home">
-            <AiFillHome size={35} style={{ marginRight: 20 }} /> Home
+            Home
           </Link>
         </li>
         <li>
           <Link id="about-me-menu" smooth to="#about-me">
-            <BsPersonSquare size={35} style={{ marginRight: 20 }} /> About
+            About
           </Link>
         </li>
         <li>
           <Link id="portfolio-menu" smooth to="#portfolio">
-            <MdDevices size={35} style={{ marginRight: 20 }} />
             Portfolio
           </Link>
         </li>

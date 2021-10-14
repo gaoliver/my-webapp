@@ -16,18 +16,14 @@ import light from './styles/light';
 import GlobalStyle from './styles/global';
 import Sidebar from './components/Sidebar';
 import { Footer } from './components/Footer';
-// import usePersistedState from './utils/usePersistedState';ƒ
 
 const App: React.FC = () => {
-  // Change theme by pressing button
-  // const [theme, setTheme] = usePersistedState('theme', light);
   const [theme, setTheme] = React.useState(light);
 
   const toggleTheme = () => {
     setTheme(theme.title === 'light' ? dark : light);
   };
 
-  // Auto change theme by hour
   const getCurrentTime = new Date().getHours();
 
   const autoTheme = () => {
@@ -38,7 +34,6 @@ const App: React.FC = () => {
     }
   };
 
-  // Run on startup
   React.useEffect(() => {
     autoTheme();
   }, [getCurrentTime]);

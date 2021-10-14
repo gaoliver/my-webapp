@@ -32,8 +32,8 @@ const Home: React.FC<App> = ({ onSwitch }) => {
         alt="Gabriel Ramos logo"
       />
       <div className="job-position">
-        <h1 id="typping">Front-End Supervisor</h1>
-        <h3 className="company">@ Loomer Tech</h3>
+        <h1 id="typping">React Native Developer</h1>
+        <h3 className="company">@ Americanas S.A.</h3>
       </div>
       <Switch
         onChange={onSwitch}
