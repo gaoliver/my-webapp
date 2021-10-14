@@ -1,73 +1,144 @@
 // Tennis Pro
-import tennisProLogo from '../assets/images/portfolio/tennispro-logo.png';
-import tennisPro1 from '../assets/images/portfolio/tennispro-1.png';
-import tennisPro2 from '../assets/images/portfolio/tennispro-2.png';
-import tennisPro3 from '../assets/images/portfolio/tennispro-3.png';
-import tennisPro4 from '../assets/images/portfolio/tennispro-4.png';
-import tennisPro5 from '../assets/images/portfolio/tennispro-5.png';
-import tennisPro6 from '../assets/images/portfolio/tennispro-6.png';
-import tennisPro7 from '../assets/images/portfolio/tennispro-7.png';
+import tennisProLogo from '../assets/images/portfolio/tennispro/tennispro-logo.png';
+import tennisPro1 from '../assets/images/portfolio/tennispro/tennispro-1.png';
+import tennisPro2 from '../assets/images/portfolio/tennispro/tennispro-2.png';
+import tennisPro3 from '../assets/images/portfolio/tennispro/tennispro-3.png';
+import tennisPro4 from '../assets/images/portfolio/tennispro/tennispro-4.png';
+import tennisPro5 from '../assets/images/portfolio/tennispro/tennispro-5.png';
+import tennisPro6 from '../assets/images/portfolio/tennispro/tennispro-6.png';
+import tennisPro7 from '../assets/images/portfolio/tennispro/tennispro-7.png';
 
 // LOB Imóveis
-import lobImoveisLogo from '../assets/images/portfolio/lobimoveis-logo.png';
-import lobImoveis1 from '../assets/images/portfolio/lobimoveis-1.jpg';
-import lobImoveis2 from '../assets/images/portfolio/lobimoveis-2.jpg';
-import lobImoveis3 from '../assets/images/portfolio/lobimoveis-3.jpg';
+import lobImoveisLogo from '../assets/images/portfolio/lobimoveis/lobimoveis-logo.png';
+import lobImoveis1 from '../assets/images/portfolio/lobimoveis/lobimoveis-1.jpg';
+import lobImoveis2 from '../assets/images/portfolio/lobimoveis/lobimoveis-2.jpg';
+import lobImoveis3 from '../assets/images/portfolio/lobimoveis/lobimoveis-3.jpg';
 
 // Ferti-Peixe
-import fertiPeixeLogo from '../assets/images/portfolio/fertipeixe-logo.png';
-import fertiPeixe1 from '../assets/images/portfolio/fertipeixe-1.png';
-import fertiPeixe2 from '../assets/images/portfolio/fertipeixe-2.png';
-import fertiPeixe3 from '../assets/images/portfolio/fertipeixe-3.png';
-import fertiPeixe4 from '../assets/images/portfolio/fertipeixe-4.png';
-import fertiPeixe5 from '../assets/images/portfolio/fertipeixe-5.png';
+import fertiPeixeLogo from '../assets/images/portfolio/ferti/fertipeixe-logo.png';
+import fertiPeixe1 from '../assets/images/portfolio/ferti/fertipeixe-1.png';
+import fertiPeixe2 from '../assets/images/portfolio/ferti/fertipeixe-2.png';
+import fertiPeixe3 from '../assets/images/portfolio/ferti/fertipeixe-3.png';
+import fertiPeixe4 from '../assets/images/portfolio/ferti/fertipeixe-4.png';
+import fertiPeixe5 from '../assets/images/portfolio/ferti/fertipeixe-5.png';
 
 // Gonçalves e Filhos Importações
-import GFLogo from '../assets/images/portfolio/GF-logo.png';
-import GF1 from '../assets/images/portfolio/GF-1.png';
-import GF2 from '../assets/images/portfolio/GF-2.png';
-import GF3 from '../assets/images/portfolio/GF-3.png';
-import GF4 from '../assets/images/portfolio/GF-4.png';
-import GF5 from '../assets/images/portfolio/GF-5.png';
-import GF6 from '../assets/images/portfolio/GF-6.png';
-import GF7 from '../assets/images/portfolio/GF-7.png';
+import GFLogo from '../assets/images/portfolio/gf/GF-logo.png';
+import GF1 from '../assets/images/portfolio/gf/GF-1.png';
+import GF2 from '../assets/images/portfolio/gf/GF-2.png';
+import GF3 from '../assets/images/portfolio/gf/GF-3.png';
+import GF4 from '../assets/images/portfolio/gf/GF-4.png';
+import GF5 from '../assets/images/portfolio/gf/GF-5.png';
+import GF6 from '../assets/images/portfolio/gf/GF-6.png';
+import GF7 from '../assets/images/portfolio/gf/GF-7.png';
 
 // Femperj
-import femperjLogo from '../assets/images/portfolio/femperj-logo.jpg';
-import femperj1 from '../assets/images/portfolio/femperj-1.jpg';
-import femperj2 from '../assets/images/portfolio/femperj-2.jpg';
-import femperj3 from '../assets/images/portfolio/femperj-3.jpg';
-import femperj4 from '../assets/images/portfolio/femperj-4.jpg';
+import femperjLogo from '../assets/images/portfolio/femperj/femperj-logo.jpg';
+import femperj1 from '../assets/images/portfolio/femperj/femperj-1.jpg';
+import femperj2 from '../assets/images/portfolio/femperj/femperj-2.jpg';
+import femperj3 from '../assets/images/portfolio/femperj/femperj-3.jpg';
+import femperj4 from '../assets/images/portfolio/femperj/femperj-4.jpg';
 
 // Amperj
-import amperjLogo from '../assets/images/portfolio/amperj-logo.png';
-import amperj1 from '../assets/images/portfolio/amperj-1.png';
-import amperj2 from '../assets/images/portfolio/amperj-2.png';
-import amperj3 from '../assets/images/portfolio/amperj-3.png';
-import amperj4 from '../assets/images/portfolio/amperj-4.png';
-import amperj5 from '../assets/images/portfolio/amperj-5.png';
-import amperj6 from '../assets/images/portfolio/amperj-6.png';
-import amperj7 from '../assets/images/portfolio/amperj-7.png';
+import amperjLogo from '../assets/images/portfolio/amperj/amperj-logo.png';
+import amperj1 from '../assets/images/portfolio/amperj/amperj-1.png';
+import amperj2 from '../assets/images/portfolio/amperj/amperj-2.png';
+import amperj3 from '../assets/images/portfolio/amperj/amperj-3.png';
+import amperj4 from '../assets/images/portfolio/amperj/amperj-4.png';
+import amperj5 from '../assets/images/portfolio/amperj/amperj-5.png';
+import amperj6 from '../assets/images/portfolio/amperj/amperj-6.png';
+import amperj7 from '../assets/images/portfolio/amperj/amperj-7.png';
 
 // Milk & Fruit
-import milkLogo from '../assets/images/portfolio/milkefruit-logo.png';
-import milk1 from '../assets/images/portfolio/milkefruit-1.png';
-import milk2 from '../assets/images/portfolio/milkefruit-2.png';
-import milk3 from '../assets/images/portfolio/milkefruit-3.png';
-import milk4 from '../assets/images/portfolio/milkefruit-4.png';
-import milk5 from '../assets/images/portfolio/milkefruit-5.png';
-import milk6 from '../assets/images/portfolio/milkefruit-6.png';
-import milk7 from '../assets/images/portfolio/milkefruit-7.png';
-import milk8 from '../assets/images/portfolio/milkefruit-8.png';
+import milkLogo from '../assets/images/portfolio/milk/milkefruit-logo.png';
+import milk1 from '../assets/images/portfolio/milk/milkefruit-1.png';
+import milk2 from '../assets/images/portfolio/milk/milkefruit-2.png';
+import milk3 from '../assets/images/portfolio/milk/milkefruit-3.png';
+import milk4 from '../assets/images/portfolio/milk/milkefruit-4.png';
+import milk5 from '../assets/images/portfolio/milk/milkefruit-5.png';
+import milk6 from '../assets/images/portfolio/milk/milkefruit-6.png';
+import milk7 from '../assets/images/portfolio/milk/milkefruit-7.png';
+import milk8 from '../assets/images/portfolio/milk/milkefruit-8.png';
 
 // NerdLine
-import nerdLogo from '../assets/images/portfolio/nerdline-logo.png';
-import nerd1 from '../assets/images/portfolio/nerdline-1.png';
-import nerd2 from '../assets/images/portfolio/nerdline-2.png';
-import nerd3 from '../assets/images/portfolio/nerdline-3.png';
-import nerd4 from '../assets/images/portfolio/nerdline-4.png';
+import nerdLogo from '../assets/images/portfolio/nerdline/nerdline-logo.png';
+import nerd1 from '../assets/images/portfolio/nerdline/nerdline-1.png';
+import nerd2 from '../assets/images/portfolio/nerdline/nerdline-2.png';
+import nerd3 from '../assets/images/portfolio/nerdline/nerdline-3.png';
+import nerd4 from '../assets/images/portfolio/nerdline/nerdline-4.png';
 
-export const PORTFOLIO = [
+// Soub!
+import soubLogo from '../assets/images/portfolio/soub/soub-logo.png';
+import soub1 from '../assets/images/portfolio/soub/soub-1.png';
+import soub2 from '../assets/images/portfolio/soub/soub-2.png';
+import soub3 from '../assets/images/portfolio/soub/soub-3.png';
+import soub4 from '../assets/images/portfolio/soub/soub-4.png';
+
+interface IExperience {
+  id: number;
+  name: string;
+  company: string;
+  mainImage: string;
+  url: string;
+  slug: string;
+  color: string;
+  jobInfo: {
+    role: string;
+    type: string;
+    language: string;
+    startDate: {
+      month: string;
+      year: number;
+    };
+    endDate?: {
+      month?: string;
+      year?: number;
+    };
+    mainTools: Array<string>;
+    images: Array<string>;
+  };
+  text?: string;
+}
+
+type IPortfolio = Array<IExperience>;
+
+export const PORTFOLIO: IPortfolio = [
+  {
+    id: 9,
+    name: 'SOUB!',
+    company: 'Americanas S.A.',
+    mainImage: soubLogo,
+    url: '',
+    slug: 'soub-app',
+    color: 'purple',
+    jobInfo: {
+      role: 'React Native Developer',
+      type: 'Mobile',
+      language: 'React Native',
+      startDate: {
+        month: 'July',
+        year: 2021
+      },
+      mainTools: [
+        'React Native',
+        'TypeScript',
+        'Axios',
+        'Redux',
+        'Atomic Design',
+        'Node.js',
+        'GIT',
+        'Scrum Methodology',
+        'AWS',
+        'Jira'
+      ],
+      images: [
+        soub1,
+        soub2,
+        soub3,
+        soub4
+      ]
+    }
+  },
   {
     id: 8,
     name: 'Tennis Pro',

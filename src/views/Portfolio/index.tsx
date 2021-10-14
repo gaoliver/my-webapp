@@ -19,7 +19,7 @@ const Portfolio = ({ currentTheme }: Props) => {
               className="col-10 col-lg-5 icon"
               key={x.id}
               style={{
-                backgroundColor: shade(0.7, x.color),
+                backgroundColor: shade(0.7, x?.color),
                 overflow: 'hidden'
               }}
             >

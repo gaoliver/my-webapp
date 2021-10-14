@@ -30,12 +30,12 @@ export const Single: React.FC = () => {
   // Get the content
   const location = useLocation().pathname.replace('/portfolio/', '');
 
-  const index = PORTFOLIO.findIndex((x) => x.slug === location);
+  const index = PORTFOLIO.findIndex((x) => x?.slug === location);
   const data = PORTFOLIO[index];
 
   // Go to Project website
   const goToProject = () => {
-    return window.open(data.url);
+    return window.open(data?.url);
   };
 
   // Responsivity
@@ -92,13 +92,13 @@ export const Single: React.FC = () => {
                 <div className="col">
                   {/* Start date */}
                   <span>
-                    {`From ${data.jobInfo.startDate.month}, ${data.jobInfo.startDate.year}`}
+                    {`From ${data?.jobInfo?.startDate.month}, ${data?.jobInfo?.startDate.year}`}
                   </span>
                   {/* End date or current */}
                   <span>
                     {`${
-                      data.jobInfo.endDate.month !== ''
-                        ? `to ${data.jobInfo.endDate.month}, ${data.jobInfo.endDate.year}`
+                      data?.jobInfo?.endDate?.month !== undefined
+                        ? `to ${data?.jobInfo?.endDate?.month}, ${data?.jobInfo?.endDate?.year}`
                         : 'in course'
                     }`}
                   </span>
@@ -112,21 +112,21 @@ export const Single: React.FC = () => {
           <div className="row align-content-center">
             {/* Image caroussel */}
             <div className="col-12 col-lg-6 padding">
-              <Caroussel images={data.jobInfo.images} />
+              <Caroussel images={data?.jobInfo?.images} />
             </div>
             {/* Project info */}
             <div className="col-12 col-lg-6 padding">
               {/* About the role */}
               <p className="project-intro">
-                This is a <b>{data.jobInfo.type}</b> project in which I am the{' '}
-                <b>{data.jobInfo.role}</b>, using <b>{data.jobInfo.language}</b>{' '}
+                This is a <b>{data?.jobInfo?.type}</b> project in which I am the{' '}
+                <b>{data?.jobInfo?.role}</b>, using <b>{data?.jobInfo?.language}</b>{' '}
                 as the main language.
               </p>
               {/* About the whole project */}
               <p className="text">{data.text}</p>
               {/* Tools and languages used */}
               <p className="tools">
-                {data.jobInfo.mainTools.toString().replace(/,/g, ', ')}
+                {data?.jobInfo?.mainTools?.toString().replace(/,/g, ', ')}
               </p>
               {/* Button to more info */}
               <div className="d-grid gap-2">
