@@ -80,7 +80,7 @@ export const Single: React.FC = () => {
           paddingBottom: 100
         }}
       >
-        <div className="header">
+        <header className="header">
           <div className="page-header">
             <Link className="button-click" to="/#portfolio">
               <IoChevronBackSharp />
@@ -104,10 +104,11 @@ export const Single: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
+        </header>
+
         <div className="container single-body">
           <div className="row align-content-center">
-            <div className="col-12 col-lg-6 padding">
+            <div className="col-12 col-lg-6">
               <Caroussel images={translator.images} />
             </div>
             <div className="col-12 col-lg-6 padding">
