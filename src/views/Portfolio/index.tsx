@@ -8,17 +8,20 @@ import './index.scss';
 // Components
 import { Props } from '../../interfaces';
 
-const Portfolio = ({ currentTheme } : Props) => {
+const Portfolio = ({ currentTheme }: Props) => {
   return (
     <Container id="portfolio">
       <div className="container">
         <div className="row justify-content-around">
           {PORTFOLIO.map((x) => (
             <a
-              href={'#portfolio/' + x.slug + "?theme=" + currentTheme}
+              href={'#portfolio/' + x.slug + '?theme=' + currentTheme}
               className="col-10 col-lg-5 icon"
               key={x.id}
-              style={{ backgroundColor: shade(0.7, x.color) }}
+              style={{
+                backgroundColor: shade(0.7, x.color),
+                overflow: 'hidden'
+              }}
             >
               {/* Background image */}
               <div
@@ -32,7 +35,10 @@ const Portfolio = ({ currentTheme } : Props) => {
                   className="logo-img"
                   style={{ backgroundImage: `url(${x.mainImage})` }}
                 />
-                <h1>{x.name.substring(0, 16)}{x.name.length > 16 ? "..." : null}</h1>
+                <h1>
+                  {x.name.substring(0, 16)}
+                  {x.name.length > 16 ? '...' : null}
+                </h1>
               </div>
             </a>
           ))}
