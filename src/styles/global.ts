@@ -66,13 +66,13 @@ export default createGlobalStyle`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color: ${(props) => props.theme.colors.background + "df"};
+    background-color: ${(props) => props.theme.colors.background + 'df'};
     gap: 8px;
     p {
-        font-size: 1rem;
+        font-size: 0.9rem;
         opacity: 0.8;
         margin-bottom: 0;
-        padding-top: 10px;
+        padding-top: 5px;
         font-weight: bold;
     }
     a {
@@ -81,6 +81,7 @@ export default createGlobalStyle`
     }
     @media (max-width: 800px) {
         justify-content: center;
+        flex-wrap: wrap;
     }
 }
 `;
