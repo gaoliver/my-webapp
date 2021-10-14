@@ -137,7 +137,8 @@ export const PORTFOLIO: IPortfolio = [
         soub3,
         soub4
       ]
-    }
+    },
+    text: "New Soub! app development in React Native for international e-commerce."
   },
   {
     id: 8,
