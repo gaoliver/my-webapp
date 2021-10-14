@@ -5,7 +5,6 @@ import { PORTFOLIO } from '../../service/portfolio';
 import { Container } from '../../styles/pages';
 import './index.scss';
 
-// Components
 import { Props } from '../../interfaces';
 
 const Portfolio = ({ currentTheme }: Props) => {
@@ -23,14 +22,11 @@ const Portfolio = ({ currentTheme }: Props) => {
                 overflow: 'hidden'
               }}
             >
-              {/* Background image */}
               <div
                 className="background-icon"
                 style={{ backgroundImage: `url(${x.mainImage})` }}
               ></div>
-              {/* Content */}
               <div className="content">
-                {/* <img src={x.mainImage} width="100" alt={x.name + 'logo'} /> */}
                 <div
                   className="logo-img"
                   style={{ backgroundImage: `url(${x.mainImage})` }}

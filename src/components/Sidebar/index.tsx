@@ -3,16 +3,15 @@ import { SidebarContainer } from '../../styles/sidebar';
 import { useLocation } from 'react-router-dom';
 import { HashLink as Link } from 'react-router-hash-link';
 import { ThemeContext } from 'styled-components';
-import { AiFillHome, BsPersonSquare, MdDevices } from 'react-icons/all';
 
 import './index.scss';
 
 const Sidebar: React.FC = () => {
-  // Constants
   const { title } = useContext(ThemeContext);
   const [toggleSidebar, setToggleSidebar] = useState(false);
+  const location = useLocation().hash.replace('#', '');
+  const [prevPage, setPrevPage] = useState('');
 
-  // Turn off sidebar function
   function unactiveSidebar() {
     if (title === 'dark') {
       document
@@ -23,8 +22,6 @@ const Sidebar: React.FC = () => {
     }
     setToggleSidebar(false);
   }
-
-  // Turn on Sidebar function
   function activeSidebar() {
     if (title === 'dark') {
       document
@@ -35,8 +32,6 @@ const Sidebar: React.FC = () => {
     }
     setToggleSidebar(true);
   }
-
-  // Toggle sidebar function
   const onClick = () => {
     if (toggleSidebar) {
       unactiveSidebar();
@@ -45,16 +40,6 @@ const Sidebar: React.FC = () => {
     }
   };
 
-  // On startup
-  useEffect(() => {
-    setActivePage();
-  });
-
-  // Active page effect
-  const location = useLocation().hash.replace('#', '');
-  const [prevPage, setPrevPage] = useState('');
-
-  // On click out function
   document.documentElement.onclick = function (event) {
     const sidebar = document.getElementById('sidebar-container');
 
@@ -82,9 +67,12 @@ const Sidebar: React.FC = () => {
       setPrevPage(location);
     }
   }
+
+  useEffect(() => {
+    setActivePage();
+  });
   return (
     <SidebarContainer id="sidebar-container">
-      {/* Responsive menu */}
       <input
         type="checkbox"
         id="menu"
@@ -94,7 +82,6 @@ const Sidebar: React.FC = () => {
       <label htmlFor="menu" className="menu_responsive">
         <span></span>
       </label>
-      {/* Menu */}
       <ul>
         <li>
           <Link id="home-menu" smooth to="#home">

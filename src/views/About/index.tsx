@@ -6,11 +6,8 @@ const About: React.FC = () => {
   return (
     <Container id="about-me">
       <div className="col intro">
-        {/* Page title */}
         <h1>About me</h1>
-        {/* Introduction */}
         <p>My name is Gabriel Ramos 👨🏽‍💻.</p>
-        {/* The text body */}
         <p>
           In my 14{"'"}s, I was already coding my own websites and learning more
           of PHP and JavaScript. So, in High School, I coded NerdLine website,
@@ -63,17 +60,15 @@ const About: React.FC = () => {
           in the UK.
         </p>
         <p>You can download my resumé (C.V.) in the end of the page.</p>
-        {/* My professional profile area */}
+
         <div className="profile">
           <h1>Front-end Developer</h1>
-          {/* About the area */}
           <p>
             Front-end is the best stack for me, where I became professional
             into. This is where we connect the user to the application and data,
             and make all the programming logic.
           </p>
           <h2>Languages and Frameworks</h2>
-          {/* Pro level languages and frameworks */}
           <p>
             <b>PRO level:</b>
             <br />
@@ -81,20 +76,17 @@ const About: React.FC = () => {
             SCSS, Sass, Redux.
           </p>
           <br />
-          {/* Intermediate level */}
           <p>
             <b>Intermediate/Academic level:</b>
             <br />
             PHP, Python, LaTeX and VBA (Visual Basic).
           </p>
           <br />
-          {/* Learning level */}
           <p>
             <b>Learning/Low level:</b>
             <br />
             Node.js, Ruby, Kotlin, Swift and C#.NET.
           </p>
-          {/* Developer tools */}
           <h2>Dev tools</h2>
           <p>
             <li>Visual Studio Code</li>
@@ -131,6 +123,7 @@ const About: React.FC = () => {
             <li>MacOS</li>
           </p>
         </div>
+
         <a
           href={PDFCV}
           download="Gabriel_Ramos_CV"

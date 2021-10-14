@@ -5,10 +5,7 @@ import 'react-slideshow-image/dist/styles.css';
 import { PortfolioImages } from '../../interfaces';
 
 const Caroussel = ({ images }: PortfolioImages) => {
-  // get screen width
   const width = window.screen.width;
-
-  // Generate id
   const getId = Math.random();
 
   return (

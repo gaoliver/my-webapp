@@ -10,7 +10,6 @@ import { Container } from '../../styles/pages';
 
 const Home: React.FC<App> = ({ onSwitch }) => {
   const { colors, title } = useContext(ThemeContext);
-
   const [logo, setLogo] = useState('');
 
   useEffect(() => {
@@ -22,6 +21,7 @@ const Home: React.FC<App> = ({ onSwitch }) => {
       setLogo(lightLogo);
     }
   }, [title]);
+
   return (
     <Container id="home">
       <img
