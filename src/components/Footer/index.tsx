@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
       </p>
       <p>•</p>
       <p>
-        <a href="http://github.com/eugaoliver" target="_blank" rel="noreferrer">
+        <a href="http://github.com/gaoliver" target="_blank" rel="noreferrer">
           GitHub
         </a>
       </p>
