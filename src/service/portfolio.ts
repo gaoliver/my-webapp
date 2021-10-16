@@ -74,33 +74,9 @@ import soub2 from '../assets/images/portfolio/soub/soub-2.png';
 import soub3 from '../assets/images/portfolio/soub/soub-3.png';
 import soub4 from '../assets/images/portfolio/soub/soub-4.png';
 
-interface IExperience {
-  id: number;
-  name: string;
-  company: string;
-  mainImage: string;
-  url: string;
-  slug: string;
-  color: string;
-  jobInfo: {
-    role: string;
-    type: string;
-    language: string;
-    startDate: {
-      month: string;
-      year: number;
-    };
-    endDate?: {
-      month?: string;
-      year?: number;
-    };
-    mainTools: Array<string>;
-    images: Array<string>;
-  };
-  text?: string;
-}
+import { Portfolio } from '../interfaces';
 
-type IPortfolio = Array<IExperience>;
+type IPortfolio = Array<Portfolio>;
 
 export const PORTFOLIO: IPortfolio = [
   {

@@ -18,14 +18,14 @@ export interface Portfolio {
       month: string;
       year: number;
     };
-    endDate: {
-      month: string;
-      year: number;
+    endDate?: {
+      month?: string;
+      year?: number;
     };
-    mainTools: [string];
-    images: [string];
+    mainTools: Array<string>;
+    images: Array<string>;
   };
-  text: string;
+  text?: string;
 }
 
 export interface PortfolioImages {
