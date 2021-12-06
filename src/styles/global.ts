@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
-import phoneImg from '../assets/images/IMG_7173.jpg';
-import desktopImg from '../assets/images/IMG_7257.jpg';
+import phoneImg from '../assets/images/optimized/mobile_background.webp';
+import desktopImg from '../assets/images/optimized/desktop_background.webp';
 import { opacify } from 'polished';
 
 export default createGlobalStyle`
