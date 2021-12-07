@@ -21,7 +21,7 @@ export const SidebarContainer = styled.div`
     position: absolute;
     z-index: 9999;
     transition: all 1s ease;
-    right: -70px;
+    right: -50px;
     top: 20px;
   }
 
