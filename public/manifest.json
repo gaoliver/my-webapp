@@ -1,5 +1,5 @@
 {
-    "short_name": "Gabriel Ramos CV",
+    "short_name": "Gabriel Ramos App",
     "name": "Frontend/Mobile Developer",
     "icons": [{
             "src": "greenIcon.ico",
@@ -7,18 +7,18 @@
             "type": "image/x-icon"
         },
         {
-            "src": "gaoliver-site-image.png",
+            "src": "GabrielRamos-whiteIcon.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "gaoliver-site-image.png",
+            "src": "GabrielRamos-whiteIcon.png",
             "type": "image/png",
             "sizes": "512x512"
         }
     ],
     "start_url": ".",
     "display": "standalone",
-    "theme_color": "#000000",
-    "background_color": "#ffffff"
+    "theme_color": "#3e6765",
+    "background_color": "#3e6765"
 }
