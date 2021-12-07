@@ -16,8 +16,8 @@ export const SidebarContainer = styled.div`
 
   /* Toggle Menu */
   .menu_responsive {
-    width: 3rem;
-    height: 2rem;
+    width: 2rem;
+    height: 1.3rem;
     position: absolute;
     z-index: 9999;
     transition: all 1s ease;
@@ -34,8 +34,8 @@ export const SidebarContainer = styled.div`
     position: absolute;
     top: 0;
     width: 100%;
-    height: 0.6rem;
-    border-radius: 2px;
+    height: 0.45rem;
+    border-radius: 1.3px;
     transition: all 1s ease;
     background: ${(props) => props.theme.colors.primary};
     ${(props) =>
@@ -49,8 +49,8 @@ export const SidebarContainer = styled.div`
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 0.6rem;
-    border-radius: 2px;
+    height: 0.45rem;
+    border-radius: 1.3px;
     transition: all 0.5s ease;
     background: ${(props) => props.theme.colors.primary};
     ${(props) =>

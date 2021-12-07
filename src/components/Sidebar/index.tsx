@@ -42,6 +42,9 @@ const Sidebar: React.FC = () => {
 
   document.documentElement.onclick = function (event) {
     const sidebar = document.getElementById('sidebar-container');
+    const menuBtn = document.getElementById('menu_btn');
+
+    if (event.target === menuBtn) return;
 
     if (event.target !== sidebar && toggleSidebar) {
       return document.getElementById('menu')?.click();
@@ -71,16 +74,19 @@ const Sidebar: React.FC = () => {
   useEffect(() => {
     setActivePage();
   });
+
   return (
     <SidebarContainer id="sidebar-container">
       <input
         type="checkbox"
         id="menu"
+        name="menu"
+        className="menu_responsive"
         style={{ display: 'none' }}
         onClick={onClick}
       />
       <label htmlFor="menu" className="menu_responsive">
-        <span></span>
+        <span id="menu_btn"></span>
       </label>
       <ul>
         <li>
