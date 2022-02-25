@@ -2,6 +2,8 @@ import React from 'react';
 import { Container } from '../../styles/pages';
 import PDFCV from '../../assets/Gabriel_Ramos_CV.pdf';
 import { HOMEINFO } from '../../service/home-info';
+import { TOOLS } from '../../service/tools';
+import handleList from '../../utils/listFormatter';
 
 const About: React.FC = () => {
   return (
@@ -56,70 +58,33 @@ const About: React.FC = () => {
           on it, I was the developer of payload systems, in Python. We got #1 as
           Best Rocket, in Brazil, and #3 in an international compatition called
           Spaceport American Cup, in the USA, in the category of Best Solid Motor Rocket.
-
         </p>
         <p>You can download my resumé (C.V.) in the end of the page.</p>
 
         <div className="profile">
-          <h1>Front-end Developer</h1>
-          <p>
-            Front-end is the best stack for me, where I became professional
-            into. This is where we connect the user to the application and data,
-            and make all the programming logic.
-          </p>
+          <h1>{HOMEINFO.position}</h1>
+          <p>{TOOLS.description}</p>
           <h2>Languages and Frameworks</h2>
           <p>
             <b>PRO level:</b>
             <br />
-            React, React Native, TypeScript, JavaScript, ES6/7/8, HTML, CSS,
-            SCSS, Sass, Redux.
+            {handleList(TOOLS.languages.pro)}
           </p>
           <br />
           <p>
             <b>Intermediate/Academic level:</b>
             <br />
-            PHP, Python, LaTeX and VBA (Visual Basic).
+            {handleList(TOOLS.languages.intermediate)}
           </p>
           <br />
           <p>
             <b>Learning/Low level:</b>
             <br />
-            Node.js, Ruby, Kotlin, Swift and C#.NET.
+            {handleList(TOOLS.languages.beginner)}
           </p>
           <h2>Dev tools</h2>
           <p>
-            <li>Visual Studio Code</li>
-            <li>Visual Studio</li>
-            <li>Android Studio</li>
-            <li>XCode</li>
-            <li>Atom</li>
-            <li>Sublime Text</li>
-            <li>Wordpress</li>
-            <li>Dreamweaver</li>
-            <li>PyCharm</li>
-            <li>Photoshop</li>
-            <li>Bootstrap</li>
-            <li>Git</li>
-            <li>GitHub</li>
-            <li>BitBucket</li>
-            <li>Microsoft Azure</li>
-            <li>Docker</li>
-            <li>Scrum Methodology</li>
-            <li>Postgres</li>
-            <li>Microsoft SQL Server</li>
-            <li>Microsoft Office</li>
-            <li>LibreOffice</li>
-            <li>Terminal</li>
-            <li>Android</li>
-            <li>iOS</li>
-            <li>Windows</li>
-            <li>Linux Ubuntu</li>
-            <li>Linux Fedora</li>
-            <li>Linux Manjaro</li>
-            <li>Linux Mint</li>
-            <li>Arch Linux</li>
-            <li>Raspberry Py</li>
-            <li>MacOS</li>
+            {TOOLS.tools.map(tool => { return <li key={Math.random()}>{tool}</li> })}
           </p>
         </div>
 
