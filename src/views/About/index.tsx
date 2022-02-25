@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../../styles/pages';
 import PDFCV from '../../assets/Gabriel_Ramos_CV.pdf';
-import { HOMEINFO } from '../../service/home-info';
+import { MYINFO } from '../../service/my-info';
 import { TOOLS } from '../../service/tools';
 import handleList from '../../utils/listFormatter';
 
@@ -10,7 +10,7 @@ const About: React.FC = () => {
     <Container id="about-me">
       <div className="col intro">
         <h1>About me</h1>
-        <p>My name is Gabriel Ramos 👨🏽‍💻. {`(${HOMEINFO.age} y-o)`}</p>
+        <p>My name is Gabriel Ramos 👨🏽‍💻. {`(${MYINFO.age} y-o)`}</p>
         <p>
           I am Frontend and Mobile Developer - with some few experiences as
           Fullstack - since 2018, always searching for learning new languages and
@@ -62,7 +62,7 @@ const About: React.FC = () => {
         <p>You can download my resumé (C.V.) in the end of the page.</p>
 
         <div className="profile">
-          <h1>{HOMEINFO.position}</h1>
+          <h1>{MYINFO.position}</h1>
           <p>{TOOLS.description}</p>
           <h2>Languages and Frameworks</h2>
           <p>

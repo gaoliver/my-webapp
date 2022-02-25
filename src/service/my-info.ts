@@ -1,6 +1,6 @@
 import getAge from '../utils/getAge';
 
-export const HOMEINFO = {
+export const MYINFO = {
   name: 'Gabriel',
   surname: 'Ramos',
   age: getAge('Jul 10 1998'),
