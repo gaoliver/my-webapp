@@ -5,8 +5,8 @@ const Contact: React.FC = () => {
   return (
     <Container id="contact">
       <div className="container">
-        Contact page in development. But you can send me an e-mail by clicking
-        the link on footer.
+        <p>This site is not hosted, so it has no backend.</p>
+        <p>While it is only made of frontend, and I cannot let you message me via website yet, you can contact me via other social networks on footer, or email me directly.</p>
       </div>
     </Container>
   );
