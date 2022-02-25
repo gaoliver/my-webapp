@@ -222,7 +222,14 @@ export const Container = styled.div`
     width: fit-content;
     display: flex;
     flex-direction: column;
-    align-items: center
+    align-items: center;
+    h3 {
+      margin: 10px auto 0 auto;
+    }
+    h4 {
+      font-size: 14pt;
+      margin: 10px auto 40px auto;
+    }
   }
   #typping {
     overflow: hidden;
@@ -233,9 +240,6 @@ export const Container = styled.div`
     letter-spacing: 0.15em;
     animation: typing 10s steps(20, end) infinite,
       blink-caret 0.75s step-end infinite;
-  }
-  .company {
-    margin: 10px auto 40px auto;
   }
   /* The typing effect */
   @keyframes typing {
