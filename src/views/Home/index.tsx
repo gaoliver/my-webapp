@@ -7,6 +7,7 @@ import lightLogo from '../../assets/images/optimized/GabrielRamos-logos_transpar
 import darkLogo from '../../assets/images/optimized/GabrielRamos-logos_Background.webp';
 import { App } from '../../interfaces';
 import { Container } from '../../styles/pages';
+import { HOMEINFO } from '../../service/home-info';
 
 const Home: React.FC<App> = ({ onSwitch }) => {
   const { colors, title } = useContext(ThemeContext);
@@ -32,8 +33,9 @@ const Home: React.FC<App> = ({ onSwitch }) => {
         alt="Gabriel Ramos logo"
       />
       <div className="job-position">
-        <h1 id="typping">React Native Developer</h1>
-        <h3 className="company">@ Americanas S.A.</h3>
+        <h1 id="typping">{HOMEINFO.position}</h1>
+        <h3 className="company">{`@ ${HOMEINFO.company}`}</h3>
+        <h4>{`${HOMEINFO.city}, ${HOMEINFO.country}`}</h4>
       </div>
       <Switch
         onChange={onSwitch}
