@@ -10,7 +10,7 @@ const About: React.FC = () => {
     <Container id="about-me">
       <div className="col intro">
         <h1>About me</h1>
-        <p>My name is Gabriel Ramos 👨🏽‍💻. {`(${HOMEINFO.age}yo)`}</p>
+        <p>My name is Gabriel Ramos 👨🏽‍💻. {`(${HOMEINFO.age} y-o)`}</p>
         <p>
           I am Frontend and Mobile Developer - with some few experiences as
           Fullstack - since 2018, always searching for learning new languages and
