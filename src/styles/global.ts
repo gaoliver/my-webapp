@@ -24,16 +24,6 @@ export default createGlobalStyle`
     @media screen and (max-width: 800px) {
       background-image: url(${phoneImg});
     }
-    .back-icon {
-      padding: 5px,
-      backgroundColor: ${(props) => props.theme.colors.secondary},
-      position: fixed,
-      left: 10px,
-      top: 20px,
-      borderRadius: 100px,
-      aspectRatio: 1,
-      overflow: hidden
-    }
   }
 
   .background-site {

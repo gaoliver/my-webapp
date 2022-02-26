@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const BackButtonComponent = styled.div`
   padding: 5px;
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: ${(props) => props.theme.colors.pageH1};
   position: fixed;
   left: 10px;
   top: 20px;
