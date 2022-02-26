@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { IoChevronBackSharp } from 'react-icons/all';
-import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 import { BackButtonComponent } from './style';
 
 interface BackButtomProps {
@@ -16,7 +16,7 @@ const BackButton = (props: BackButtomProps) => {
   const { link } = translate(props)
 
   return (
-    <Link to={link} onClick={() => link !== "/#" ? history.back() : {}}>
+    <Link to={link}>
       <BackButtonComponent>
         <IoChevronBackSharp color="#FFF" size={30} />
       </BackButtonComponent>
