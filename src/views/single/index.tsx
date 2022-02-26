@@ -7,6 +7,7 @@ import { Container } from '../../styles/pages';
 import { PORTFOLIO } from '../../service/portfolio';
 import Caroussel from '../components/Caroussel';
 import { BackButton } from '../../components';
+import listFormatter from '../../utils/listFormatter';
 
 export const Single: React.FC = () => {
   const [theme, setTheme] = React.useState(light);
@@ -25,7 +26,7 @@ export const Single: React.FC = () => {
     type: data.jobInfo.type ? data.jobInfo.type : '',
     role: data.jobInfo.role ? data.jobInfo.role : '',
     language: data.jobInfo.language ? data.jobInfo.language : '',
-    mainTools: data.jobInfo.mainTools ? data.jobInfo.mainTools : '',
+    mainTools: data.jobInfo.mainTools ? data.jobInfo.mainTools : [],
     text: data.text ? data.text : '',
     images: data.jobInfo.images ? data.jobInfo.images : [],
     startDate: data.jobInfo.startDate
@@ -45,6 +46,13 @@ export const Single: React.FC = () => {
   const goToProject = () => {
     return window.open(translator.url);
   };
+
+  const getEndDate = () => {
+    if (translator.endDate.month === "current") {
+      return `current`
+    }
+    return `${translator.endDate.month}, ${translator.endDate.year}`
+  }
 
   React.useEffect(() => {
     if (getTheme === 'light') {
@@ -83,7 +91,7 @@ export const Single: React.FC = () => {
         <div className="col intro">
           <h1>{translator.name}</h1>
           <p>by {translator.company}</p>
-          <p>{`From ${translator.startDate.month}, ${translator.startDate.year} to ${translator.endDate.month}, ${translator.endDate.year}`}</p>
+          <p>{`From ${translator.startDate.month}, ${translator.startDate.year} to ${getEndDate()}.`}</p>
           <p>
             This is a <b>{translator.type}</b> project in which I am the{' '}
             <b>{translator.role}</b>, using <b>{translator.language}</b> as the
@@ -91,7 +99,7 @@ export const Single: React.FC = () => {
           </p>
           <p>{translator.text}</p>
           <p className="project-intro">
-            {translator.mainTools.toString().replace(/,/g, ', ')}
+            {listFormatter(translator.mainTools)}
           </p>
           <div className="d-grid gap-2">
             <button
