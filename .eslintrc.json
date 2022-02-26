@@ -26,6 +26,7 @@
     "single-quotes": "off",
     "no-use-before-define": "off",
     "semi": "off",
-    "quotes": "off"
+    "quotes": "off",
+    "indent": "warn"
   }
 }
