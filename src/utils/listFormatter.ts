@@ -8,9 +8,11 @@ function handleList(list: Array<string>) {
   return list.map((word) => {
     if (word === list[list.length - 1]) {
       return `and ${word}.`;
-    } else {
-      return `${word}, `;
     }
+    if (word === list[list.length - 2]) {
+      return `${word} `;
+    }
+    return `${word}, `;
   });
 }
 

@@ -95,6 +95,10 @@ export const PORTFOLIO: IPortfolio = [
         month: 'July',
         year: 2021
       },
+      endDate: {
+        month: 'February',
+        year: 2022
+      },
       mainTools: [
         'React Native',
         'TypeScript',
