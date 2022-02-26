@@ -25,13 +25,18 @@ export default createGlobalStyle`
       background-image: url(${phoneImg});
     }
   }
+
+  .background-site {
+    background: ${(props) => props.theme.colors.background};
+  }
+
   #error-404, #home {
     background: ${(props) =>
       opacify(-0.3, props.theme.colors.background)} !important;
   }
 
   #about-me, #portfolio, #contact {
-    background: ${(props) => props.theme.colors.background} !important;
+    background: ${(props) => props.theme.colors.background};
     box-shadow: 0px 0px 40px 40px ${(props) => props.theme.colors.background};
   }
 

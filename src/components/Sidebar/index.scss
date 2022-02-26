@@ -1,20 +1,20 @@
-.active {
-    transform: translateX(0) !important;
-    box-shadow: 2px 0px 5px #000 !important;
+.active-light {
+  transform: translateX(0) !important;
+  box-shadow: 2px 0px 5px #000 !important;
 }
 
 .active-dark {
-    transform: translateX(0) !important;
-    animation: flicker-sidebar 1.5s infinite alternate;
+  transform: translateX(0) !important;
+  animation: flicker-sidebar 1.5s infinite alternate;
 }
 
 #sidebar-container {
-    @media (max-width: 800px) {
-        width: 70%;
-    }
+  @media (max-width: 800px) {
+    width: 70%;
+  }
 }
 
 .active-page {
-    color: #e1e1e9;
-    animation: flicker 0.5s infinite alternate;
+  color: #e1e1e9;
+  animation: flicker 0.5s infinite alternate;
 }

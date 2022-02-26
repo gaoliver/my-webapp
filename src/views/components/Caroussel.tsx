@@ -13,8 +13,7 @@ const Caroussel = ({ images }: PortfolioImages) => {
       style={{
         display: 'block',
         position: 'relative',
-        width: width <= 800 ? width - 30 : width / 3,
-        marginTop: width <= 800 ? '10%' : 0,
+        width: width,
         overflow: "hidden"
       }}
     >
@@ -28,7 +27,7 @@ const Caroussel = ({ images }: PortfolioImages) => {
                   backgroundSize: 'contain',
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
-                  height: width <= 800 ? 300 : 550
+                  height: width < 800 ? 300 : 400
                 }}
               >
                 <span></span>
