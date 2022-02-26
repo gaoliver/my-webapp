@@ -169,33 +169,14 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
   }
-  .padding {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
-    .project-intro {
-      width: 100%;
-      text-align: justify;
-      margin-top: 20px;
-      background-color: ${(props) => props.theme.colors.secondary};
-      color: black;
-      padding: 10px;
-    }
-    .text {
-      text-align: justify;
-      line-height: 30px;
-      margin: 30px 0;
-    }
-    .tools {
-      font-size: 1.3rem;
-      font-weight: 300;
-      text-align: justify;
-      width: 100%;
-      padding: 10px;
-      color: black;
-      background-color: ${(props) => props.theme.colors.secondary};
-    }
+  .project-intro {
+    width: 100%;
+    text-align: justify;
+    margin-top: 20px;
+    background-color: ${(props) => props.theme.colors.secondary};
+    color: black;
+    padding: 10px;
+  }
   }
 
   /* Animation */

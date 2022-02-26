@@ -1,10 +1,6 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import { IoChevronBackSharp } from 'react-icons/all';
 import { useLocation } from 'react-router-dom';
-import { HashLink as Link } from 'react-router-hash-link';
 
-import GlobalStyle from '../../styles/global';
 import dark from '../../styles/dark';
 import light from '../../styles/light';
 import { Container } from '../../styles/pages';
@@ -13,16 +9,14 @@ import Caroussel from '../components/Caroussel';
 
 export const Single: React.FC = () => {
   const [theme, setTheme] = React.useState(light);
+  const [back, setBack] = React.useState(' back');
   const location = useLocation().pathname.replace('/portfolio/', '');
   const index = PORTFOLIO.findIndex((x) => x?.slug === location);
   const data = PORTFOLIO[index];
-  const tela = window.screen.width;
-  const [back, setBack] = React.useState(' back');
-  const [subtitle, setSubtitle] = React.useState(<></>);
-  const [overDate, setOverDate] = React.useState(<></>);
   const getTheme = new URL(
     window.location.href.replace('/#', '')
   ).searchParams.get('theme');
+  const marginTop = window.screen.width < 600 ? '35vh' : '45vh';
 
   const translator = {
     name: data.name ? data.name : '',
@@ -36,31 +30,21 @@ export const Single: React.FC = () => {
     images: data.jobInfo.images ? data.jobInfo.images : [],
     startDate: data.jobInfo.startDate
       ? data.jobInfo.startDate
-      : { month: '', year: new Date().getFullYear() },
+      : {
+        month: '',
+        year: new Date().getFullYear()
+      },
     endDate: data.jobInfo.endDate
       ? data.jobInfo.endDate
-      : { month: 'current', year: new Date().getFullYear() }
+      : {
+        month: 'current',
+        year: new Date().getFullYear()
+      }
   };
 
   const goToProject = () => {
     return window.open(translator.url);
   };
-
-  function responsivity() {
-    if (tela < 800) {
-      setBack('');
-      setSubtitle(<></>);
-      setOverDate(<h3>by {translator.company}</h3>);
-    } else {
-      setBack(' back');
-      setSubtitle(<h3>by {translator.company}</h3>);
-      setOverDate(<></>);
-    }
-  }
-
-  React.useEffect(() => {
-    return responsivity();
-  }, [tela]);
 
   React.useEffect(() => {
     if (getTheme === 'light') {
@@ -71,70 +55,54 @@ export const Single: React.FC = () => {
   }, [getTheme]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container
+    <React.StrictMode>
+      <div
+        className="row background-site"
         style={{
-          backgroundColor: theme.colors.background,
-          height: 'auto',
-          minHeight: '100vh',
-          paddingBottom: window.screen.width <= 800 ? 120 : 0
+          width: '100%',
+          marginBottom: '50px',
+          position: 'fixed',
+          zIndex: -1,
+          top: 0,
+          marginRight: 0,
+          marginLeft: 0
         }}
       >
-        <header className="header">
-          <div className="page-header">
-            <Link className="button-click" to="/#portfolio">
-              <IoChevronBackSharp />
-              {back}
-            </Link>
-            <div className="head-info">
-              <div className="class-title">
-                <h1>{translator.name}</h1>
-                {subtitle}
-              </div>
-              <div className="work-info">
-                {overDate}
-                <div className="col">
-                  <span>
-                    {`From ${translator.startDate.month}, ${translator.startDate.year}`}
-                  </span>
-                  <span>
-                    {`${`to ${translator.endDate.month}, ${translator.endDate.year}`}`}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
-
-        <div className="container single-body">
-          <div className="row align-content-center">
-            <div className="col-12 col-lg-6">
-              <Caroussel images={translator.images} />
-            </div>
-            <div className="col-12 col-lg-6 padding">
-              <p className="project-intro">
-                This is a <b>{translator.type}</b> project in which I am the{' '}
-                <b>{translator.role}</b>, using <b>{translator.language}</b> as
-                the main language.
-              </p>
-              <p className="text">{translator.text}</p>
-              <p className="tools">
-                {translator.mainTools.toString().replace(/,/g, ', ')}
-              </p>
-              <div className="d-grid gap-2">
-                <button
-                  className="btn btn-success"
-                  type="button"
-                  onClick={goToProject}
-                >
-                  Go to the Project
-                </button>
-              </div>
-            </div>
+        <Caroussel images={translator.images} />
+      </div>
+      <Container
+        id="about-me"
+        style={{
+          height: 'auto',
+          overflow: 'visible',
+          marginTop: marginTop,
+          padding: '30px 0 80px 0'
+        }}
+      >
+        <div className="col intro">
+          <h1>{translator.name}</h1>
+          <p>by {translator.company}</p>
+          <p>{`From ${translator.startDate.month}, ${translator.startDate.year} to ${translator.endDate.month}, ${translator.endDate.year}`}</p>
+          <p>
+            This is a <b>{translator.type}</b> project in which I am the{' '}
+            <b>{translator.role}</b>, using <b>{translator.language}</b> as the
+            main language.
+          </p>
+          <p>{translator.text}</p>
+          <p className="project-intro">
+            {translator.mainTools.toString().replace(/,/g, ', ')}
+          </p>
+          <div className="d-grid gap-2">
+            <button
+              className="btn btn-success"
+              type="button"
+              onClick={goToProject}
+            >
+              Go to the Project
+            </button>
           </div>
         </div>
       </Container>
-      <GlobalStyle />
-    </ThemeProvider>
+    </React.StrictMode>
   );
 };
