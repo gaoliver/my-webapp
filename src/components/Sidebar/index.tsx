@@ -18,7 +18,7 @@ const Sidebar: React.FC = () => {
         .getElementById('sidebar-container')
         ?.classList.remove('active-dark');
     } else {
-      document.getElementById('sidebar-container')?.classList.remove('active');
+      document.getElementById('sidebar-container')?.classList.remove('active-light');
     }
     setToggleSidebar(false);
   }
@@ -28,7 +28,7 @@ const Sidebar: React.FC = () => {
         .getElementById('sidebar-container')
         ?.classList.add('active-dark');
     } else {
-      document.getElementById('sidebar-container')?.classList.add('active');
+      document.getElementById('sidebar-container')?.classList.add('active-light');
     }
     setToggleSidebar(true);
   }
