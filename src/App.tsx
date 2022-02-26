@@ -14,8 +14,7 @@ import { Single } from './views/single';
 import dark from './styles/dark';
 import light from './styles/light';
 import GlobalStyle from './styles/global';
-import Sidebar from './components/Sidebar';
-import { Footer } from './components/Footer';
+import { Footer, Sidebar } from './components';
 
 const App: React.FC = () => {
   const [theme, setTheme] = React.useState(light);

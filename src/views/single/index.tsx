@@ -6,10 +6,10 @@ import light from '../../styles/light';
 import { Container } from '../../styles/pages';
 import { PORTFOLIO } from '../../service/portfolio';
 import Caroussel from '../components/Caroussel';
+import { BackButton } from '../../components';
 
 export const Single: React.FC = () => {
   const [theme, setTheme] = React.useState(light);
-  const [back, setBack] = React.useState(' back');
   const location = useLocation().pathname.replace('/portfolio/', '');
   const index = PORTFOLIO.findIndex((x) => x?.slug === location);
   const data = PORTFOLIO[index];
@@ -56,6 +56,7 @@ export const Single: React.FC = () => {
 
   return (
     <React.StrictMode>
+      <BackButton link='/#portfolio' />
       <div
         className="row background-site"
         style={{
