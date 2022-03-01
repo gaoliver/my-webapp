@@ -2,7 +2,8 @@ import React from 'react';
 import { Container } from '../../styles/pages';
 import PDFCV from '../../assets/Gabriel_Ramos_CV.pdf';
 import { MYINFO } from '../../service/my-info';
-import { TOOLS } from '../../service/tools';
+// import { TOOLS } from '../../service/tools';
+import { TOOLS } from '../../service';
 import handleList from '../../utils/listFormatter';
 
 const About: React.FC = () => {
