@@ -26,6 +26,11 @@ export default createGlobalStyle`
     }
   }
 
+  ::selection {
+    background-color: ${(props) => props.theme.colors.pageH1};
+    color: ${(props) => props.theme.colors.background}
+  }
+
   .background-site {
     background: ${(props) => props.theme.colors.background};
   }
