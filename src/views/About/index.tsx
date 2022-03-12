@@ -1,17 +1,20 @@
 import React from 'react';
+import { useSelector } from "react-redux"
 import { Container } from '../../styles/pages';
 import PDFCV from '../../assets/Gabriel_Ramos_CV.pdf';
-import { MYINFO } from '../../service/my-info';
-// import { TOOLS } from '../../service/tools';
-import { TOOLS } from '../../service';
 import handleList from '../../utils/listFormatter';
+import { SiteState } from "../../redux/store"
 
 const About: React.FC = () => {
+  const { TOOLS, MYINFO } = useSelector((state: SiteState) => state)
+
+  React.useEffect(() => console.log("TESTE: ", TOOLS))
+
   return (
     <Container id="about-me">
       <div className="col intro">
         <h1>About me</h1>
-        <p>My name is Gabriel Ramos 👨🏽‍💻. {`(${MYINFO.age} y-o)`}</p>
+        <p>My name is Gabriel Ramos 👨🏽‍💻. {`(${MYINFO?.age} y-o)`}</p>
         <p>
           I am Frontend and Mobile Developer - with some few experiences as
           Fullstack - since 2018, always searching for learning new languages and
@@ -63,29 +66,29 @@ const About: React.FC = () => {
         <p>You can download my resumé (C.V.) in the end of the page.</p>
 
         <div className="profile">
-          <h1>{MYINFO.position}</h1>
-          <p>{TOOLS.description}</p>
+          <h1>{MYINFO?.position}</h1>
+          <p>{TOOLS?.description}</p>
           <h2>Languages and Frameworks</h2>
           <p>
             <b>PRO level:</b>
             <br />
-            {handleList(TOOLS.languages.pro)}
+            {handleList(TOOLS?.languages.pro)}
           </p>
           <br />
           <p>
             <b>Intermediate/Academic level:</b>
             <br />
-            {handleList(TOOLS.languages.intermediate)}
+            {handleList(TOOLS?.languages.intermediate)}
           </p>
           <br />
           <p>
             <b>Learning/Low level:</b>
             <br />
-            {handleList(TOOLS.languages.beginner)}
+            {handleList(TOOLS?.languages.beginner)}
           </p>
           <h2>Dev tools</h2>
           <p>
-            {TOOLS.tools.map(tool => { return <li key={Math.random()}>{tool}</li> })}
+            {TOOLS?.tools.map(tool => { return <li key={Math.random()}>{tool}</li> })}
           </p>
         </div>
 

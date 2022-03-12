@@ -1,6 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Redirect, Route, Switch } from 'react-router-dom';
+import { Provider } from "react-redux"
 
 // Views
 import About from './views/About';
@@ -15,6 +16,7 @@ import dark from './styles/dark';
 import light from './styles/light';
 import GlobalStyle from './styles/global';
 import { Footer, Sidebar } from './components';
+import { store } from './redux';
 
 const App: React.FC = () => {
   const [theme, setTheme] = React.useState(light);
@@ -37,26 +39,28 @@ const App: React.FC = () => {
   }, [getCurrentTime]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <Footer />
-      <Switch>
-        <Route exact path="/">
-          <Sidebar />
-          <div className="viewContainer">
-            <Home onSwitch={toggleTheme} />
-            <About />
-            <Portfolio currentTheme={theme.title} />
-            <Contact />
-            <NotFound />
-          </div>
-        </Route>
-        <Route path={`/portfolio/:slug`}>
-          <Single />
-        </Route>
-        <Redirect to="#error-404" />
-      </Switch>
-      <GlobalStyle />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <Footer />
+        <Switch>
+          <Route exact path="/">
+            <Sidebar />
+            <div className="viewContainer">
+              <Home onSwitch={toggleTheme} />
+              <About />
+              <Portfolio currentTheme={theme.title} />
+              <Contact />
+              <NotFound />
+            </div>
+          </Route>
+          <Route path={`/portfolio/:slug`}>
+            <Single />
+          </Route>
+          <Redirect to="#error-404" />
+        </Switch>
+        <GlobalStyle />
+      </ThemeProvider>
+    </Provider>
   );
 };
 

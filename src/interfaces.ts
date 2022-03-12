@@ -32,6 +32,26 @@ export interface PortfolioImages {
   images: Array<string>;
 }
 
+export interface ToolsModel {
+  description: string;
+  languages: {
+    pro: Array<string>;
+    intermediate: Array<string>;
+    beginner: Array<string>;
+  };
+  tools: Array<string>;
+}
+
+export interface MyInfoModel {
+  name: string;
+  surname: string;
+  age: string;
+  position: string;
+  company: string;
+  city: string;
+  country: string;
+}
+
 export interface Props {
   currentTheme?: unknown;
 }
