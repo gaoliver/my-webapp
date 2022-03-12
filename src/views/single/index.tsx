@@ -1,42 +1,45 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { useSelector, useDispatch } from "react-redux"
 
 import dark from '../../styles/dark';
 import light from '../../styles/light';
 import { Container } from '../../styles/pages';
-import { PORTFOLIO } from '../../service/portfolio';
 import Caroussel from '../components/Caroussel';
 import { BackButton } from '../../components';
 import listFormatter from '../../utils/listFormatter';
+import { getPortfolio, SiteState } from '../../redux';
 
 export const Single: React.FC = () => {
+  const dispatch = useDispatch()
+  const { PORTFOLIO } = useSelector((state: SiteState) => state)
   const [theme, setTheme] = React.useState(light);
   const location = useLocation().pathname.replace('/portfolio/', '');
-  const index = PORTFOLIO.findIndex((x) => x?.slug === location);
-  const data = PORTFOLIO[index];
+  const index = PORTFOLIO?.findIndex((x) => x?.slug === location) || 0;
+  const data = PORTFOLIO?.[index];
   const getTheme = new URL(
     window.location.href.replace('/#', '')
   ).searchParams.get('theme');
   const marginTop = window.screen.width < 600 ? '35vh' : '45vh';
 
   const translator = {
-    name: data.name ? data.name : '',
-    company: data.company ? data.company : '',
-    url: data.url ? data.url : '#',
-    type: data.jobInfo.type ? data.jobInfo.type : '',
-    role: data.jobInfo.role ? data.jobInfo.role : '',
-    language: data.jobInfo.language ? data.jobInfo.language : '',
-    mainTools: data.jobInfo.mainTools ? data.jobInfo.mainTools : [],
-    text: data.text ? data.text : '',
-    images: data.jobInfo.images ? data.jobInfo.images : [],
-    startDate: data.jobInfo.startDate
-      ? data.jobInfo.startDate
+    name: data?.name ? data?.name : '',
+    company: data?.company ? data?.company : '',
+    url: data?.url ? data?.url : '#',
+    type: data?.jobInfo.type ? data?.jobInfo.type : '',
+    role: data?.jobInfo.role ? data?.jobInfo.role : '',
+    language: data?.jobInfo.language ? data?.jobInfo.language : '',
+    mainTools: data?.jobInfo.mainTools ? data?.jobInfo.mainTools : [],
+    text: data?.text ? data?.text : '',
+    images: data?.jobInfo.images ? data?.jobInfo.images : [],
+    startDate: data?.jobInfo.startDate
+      ? data?.jobInfo.startDate
       : {
         month: '',
         year: new Date().getFullYear()
       },
-    endDate: data.jobInfo.endDate
-      ? data.jobInfo.endDate
+    endDate: data?.jobInfo.endDate
+      ? data?.jobInfo.endDate
       : {
         month: 'current',
         year: new Date().getFullYear()
@@ -55,6 +58,8 @@ export const Single: React.FC = () => {
   }
 
   React.useEffect(() => {
+    dispatch(getPortfolio())
+
     if (getTheme === 'light') {
       setTheme(light);
     } else {

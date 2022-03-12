@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { ToolsModel } from '../interfaces';
+import { MyInfoModel, PortfolioModel, ToolsModel } from '../interfaces';
 import { SiteActions } from './actions';
 
 interface InitialStateModel {
   TOOLS: ToolsModel | undefined;
-  MYINFO: undefined;
-  PORTFOLIO: undefined;
+  MYINFO: MyInfoModel | undefined;
+  PORTFOLIO: Array<PortfolioModel> | undefined;
 }
 
 const initialState: InitialStateModel = {
