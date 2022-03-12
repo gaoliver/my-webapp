@@ -1,7 +1,7 @@
 {
   "homepage": "http://gaoliver.github.io/my-webapp",
   "name": "my-webapp",
-  "version": "2.0",
+  "version": "2.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
