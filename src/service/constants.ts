@@ -3,4 +3,4 @@ const toolsUrl =
 const myInfoUrl =
   'https://raw.githubusercontent.com/gaoliver/my-webapp/master/src/service/my-info.json';
 
-export { toolsUrl };
+export { toolsUrl, myInfoUrl };

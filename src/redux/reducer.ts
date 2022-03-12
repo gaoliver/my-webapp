@@ -24,6 +24,11 @@ export const reducer = (
         ...state,
         TOOLS: action.payload
       };
+    case 'ON_SET_INFO':
+      return {
+        ...state,
+        MYINFO: action.payload
+      };
     default:
       return state;
   }

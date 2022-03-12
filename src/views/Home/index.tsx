@@ -1,17 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Switch from 'react-switch';
 import { ThemeContext } from 'styled-components';
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 import './index.scss';
 import lightLogo from '../../assets/images/optimized/GabrielRamos-logos_transparent.webp';
 import darkLogo from '../../assets/images/optimized/GabrielRamos-logos_Background.webp';
 import { App } from '../../interfaces';
 import { Container } from '../../styles/pages';
-import { getInfo, getTools } from '../../redux';
+import { getInfo, getTools, SiteState } from '../../redux';
 
 const Home: React.FC<App> = ({ onSwitch }) => {
   const dispatch = useDispatch()
+  const { MYINFO } = useSelector((state: SiteState) => state)
   const { colors, title } = useContext(ThemeContext);
   const [logo, setLogo] = useState('');
 
@@ -38,9 +39,9 @@ const Home: React.FC<App> = ({ onSwitch }) => {
         alt="Gabriel Ramos logo"
       />
       <div className="job-position">
-        <h1 id="typping">{MYINFO.position}</h1>
-        <h3 className="company">{`@ ${MYINFO.company}`}</h3>
-        <h4>{`${MYINFO.city}, ${MYINFO.country}`}</h4>
+        <h1 id="typping">{MYINFO?.position}</h1>
+        <h3 className="company">{`@ ${MYINFO?.company}`}</h3>
+        <h4>{`${MYINFO?.city}, ${MYINFO?.country}`}</h4>
       </div>
       <Switch
         onChange={onSwitch}

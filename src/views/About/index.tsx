@@ -8,8 +8,6 @@ import { SiteState } from "../../redux/store"
 const About: React.FC = () => {
   const { TOOLS, MYINFO } = useSelector((state: SiteState) => state)
 
-  React.useEffect(() => console.log("TESTE: ", TOOLS))
-
   return (
     <Container id="about-me">
       <div className="col intro">
