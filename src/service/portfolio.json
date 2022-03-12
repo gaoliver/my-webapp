@@ -327,7 +327,7 @@
     "id": 1,
     "name": "Milk & Fruit website",
     "company": "Leites e Frutas Sorvetes e Produtos Alimentícios LTDA",
-    "mainImage": "https://raw.githubusercontent.com/gaoliver/my-webapp/master/src/assets/images/optimized/portfolio/milkefruit/milkefruit-logo.webp",
+    "mainImage": "https://raw.githubusercontent.com/gaoliver/my-webapp/master/src/assets/images/optimized/portfolio/milk/milkefruit-logo.webp",
     "url": "https://milkefruit.com.br",
     "slug": "milk-e-fruit-website",
     "color": "green",
@@ -353,14 +353,14 @@
         "LocaWeb"
       ],
       "images": [
-        "https://raw.githubusercontent.com/gaoliver/my-webapp/master/src/assets/images/optimized/portfolio/milkefruit/milkefruit-1.webp",
-        "https://raw.githubusercontent.com/gaoliver/my-webapp/master/src/assets/images/optimized/portfolio/milkefruit/milkefruit-2.webp",
-        "https://raw.githubusercontent.com/gaoliver/my-webapp/master/src/assets/images/optimized/portfolio/milkefruit/milkefruit-3.webp",
-        "https://raw.githubusercontent.com/gaoliver/my-webapp/master/src/assets/images/optimized/portfolio/milkefruit/milkefruit-4.webp",
-        "https://raw.githubusercontent.com/gaoliver/my-webapp/master/src/assets/images/optimized/portfolio/milkefruit/milkefruit-5.webp",
-        "https://raw.githubusercontent.com/gaoliver/my-webapp/master/src/assets/images/optimized/portfolio/milkefruit/milkefruit-6.webp",
-        "https://raw.githubusercontent.com/gaoliver/my-webapp/master/src/assets/images/optimized/portfolio/milkefruit/milkefruit-7.webp",
-        "https://raw.githubusercontent.com/gaoliver/my-webapp/master/src/assets/images/optimized/portfolio/milkefruit/milkefruit-8.webp"
+        "https://raw.githubusercontent.com/gaoliver/my-webapp/master/src/assets/images/optimized/portfolio/milk/milkefruit-1.webp",
+        "https://raw.githubusercontent.com/gaoliver/my-webapp/master/src/assets/images/optimized/portfolio/milk/milkefruit-2.webp",
+        "https://raw.githubusercontent.com/gaoliver/my-webapp/master/src/assets/images/optimized/portfolio/milk/milkefruit-3.webp",
+        "https://raw.githubusercontent.com/gaoliver/my-webapp/master/src/assets/images/optimized/portfolio/milk/milkefruit-4.webp",
+        "https://raw.githubusercontent.com/gaoliver/my-webapp/master/src/assets/images/optimized/portfolio/milk/milkefruit-5.webp",
+        "https://raw.githubusercontent.com/gaoliver/my-webapp/master/src/assets/images/optimized/portfolio/milk/milkefruit-6.webp",
+        "https://raw.githubusercontent.com/gaoliver/my-webapp/master/src/assets/images/optimized/portfolio/milk/milkefruit-7.webp",
+        "https://raw.githubusercontent.com/gaoliver/my-webapp/master/src/assets/images/optimized/portfolio/milk/milkefruit-8.webp"
       ]
     },
     "text": "Work made freom scratch. This website is for the relation between the company and the clients, where clients can see everything about the business and get the food catalog, contact and news."
