@@ -1,18 +1,21 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { shade } from 'polished';
 import React from 'react';
-import { PORTFOLIO } from '../../service/portfolio';
+import { shade } from 'polished';
+import { useSelector } from "react-redux"
 import { Container } from '../../styles/pages';
 import './index.scss';
 
 import { Props } from '../../interfaces';
+import { SiteState } from '../../redux';
 
 const Portfolio = ({ currentTheme }: Props) => {
+  const { PORTFOLIO } = useSelector((state: SiteState) => state)
+
   return (
     <Container id="portfolio">
       <div className="container">
         <div className="row justify-content-around">
-          {PORTFOLIO.map((x) => (
+          {PORTFOLIO?.map((x) => (
             <a
               href={'#portfolio/' + x.slug + '?theme=' + currentTheme}
               className="col-10 col-lg-5 icon"

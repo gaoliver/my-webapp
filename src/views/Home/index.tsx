@@ -8,7 +8,7 @@ import lightLogo from '../../assets/images/optimized/GabrielRamos-logos_transpar
 import darkLogo from '../../assets/images/optimized/GabrielRamos-logos_Background.webp';
 import { App } from '../../interfaces';
 import { Container } from '../../styles/pages';
-import { getInfo, getTools, SiteState } from '../../redux';
+import { getInfo, getPortfolio, getTools, SiteState } from '../../redux';
 
 const Home: React.FC<App> = ({ onSwitch }) => {
   const dispatch = useDispatch()
@@ -19,6 +19,7 @@ const Home: React.FC<App> = ({ onSwitch }) => {
   useEffect(() => {
     dispatch(getTools())
     dispatch(getInfo())
+    dispatch(getPortfolio())
 
     if (title === 'dark') {
       document.getElementById('logo_img')?.classList.add('logo_img_dark');

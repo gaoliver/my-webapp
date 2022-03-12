@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import axios from 'axios';
 import { Dispatch } from 'react';
-import { MyInfoModel, ToolsModel } from '../interfaces';
-import { myInfoUrl, toolsUrl } from '../service/constants';
+import { MyInfoModel, PortfolioModel, ToolsModel } from '../interfaces';
+import { myInfoUrl, portfolioUrl, toolsUrl } from '../service/constants';
 
 export interface SetTools {
   readonly type: 'ON_SET_TOOLS';
@@ -14,7 +14,12 @@ export interface SetInfo {
   payload: MyInfoModel;
 }
 
-export type SiteActions = SetTools | SetInfo;
+export interface SetPortfolio {
+  readonly type: 'ON_SET_PORTFOLIO';
+  payload: Array<PortfolioModel>;
+}
+
+export type SiteActions = SetTools | SetInfo | SetPortfolio;
 
 export const getTools = () => {
   let data: ToolsModel;
@@ -41,5 +46,19 @@ export const getInfo = () => {
       payload: data
     });
     console.log('getMyInfo done.');
+  };
+};
+
+export const getPortfolio = () => {
+  let data: Array<PortfolioModel>;
+  return async (dispatch: Dispatch<SiteActions>) => {
+    await axios.get(portfolioUrl).then((res) => {
+      data = res.data;
+    });
+    dispatch({
+      type: 'ON_SET_PORTFOLIO',
+      payload: data
+    });
+    console.log('getPortfolio done.');
   };
 };

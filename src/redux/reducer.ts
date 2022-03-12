@@ -29,6 +29,11 @@ export const reducer = (
         ...state,
         MYINFO: action.payload
       };
+    case 'ON_SET_PORTFOLIO':
+      return {
+        ...state,
+        PORTFOLIO: action.payload
+      };
     default:
       return state;
   }

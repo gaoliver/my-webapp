@@ -2,7 +2,7 @@ export interface App {
   onSwitch: () => void;
 }
 
-export interface Portfolio {
+export interface PortfolioModel {
   id: number;
   name: string;
   company: string;
