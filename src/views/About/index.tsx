@@ -4,15 +4,19 @@ import { Container } from '../../styles/pages';
 import PDFCV from '../../assets/Gabriel_Ramos_CV.pdf';
 import handleList from '../../utils/listFormatter';
 import { SiteState } from "../../redux/store"
+import getAge from '../../utils/getAge';
 
 const About: React.FC = () => {
   const { TOOLS, MYINFO } = useSelector((state: SiteState) => state)
+  const translate = {
+    age: MYINFO?.age ? MYINFO.age : ""
+  }
 
   return (
     <Container id="about-me">
       <div className="col intro">
         <h1>About me</h1>
-        <p>My name is Gabriel Ramos 👨🏽‍💻. {`(${MYINFO?.age} y-o)`}</p>
+        <p>My name is Gabriel Ramos 👨🏽‍💻. {`(${getAge(translate.age)} y-o)`}</p>
         <p>
           I am Frontend and Mobile Developer - with some few experiences as
           Fullstack - since 2018, always searching for learning new languages and
