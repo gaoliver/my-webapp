@@ -19,7 +19,7 @@ export default createGlobalStyle`
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: ${(props) => props.theme.colors.text};
-    font: 400 16pt Titillium, sans-serif;
+    font: 400 133.34% Titillium, sans-serif;
     transition: all 0.5s ease;
     @media screen and (max-width: 800px) {
       background-image: url(${phoneImg});
