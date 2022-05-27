@@ -18,7 +18,7 @@ export default createGlobalStyle`
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: ${(props) => props.theme.colors.text};
+    color: ${(props) => props.theme.text};
     font: 400 133.34% Titillium, sans-serif;
     transition: all 0.5s ease;
     @media screen and (max-width: 800px) {
@@ -27,71 +27,7 @@ export default createGlobalStyle`
   }
 
   ::selection {
-    background-color: ${(props) => props.theme.colors.pageH1};
-    color: ${(props) => props.theme.colors.background}
+    background-color: ${(props) => props.theme.selection};
+    color: ${(props) => props.theme.selectedText}
   }
-
-  .background-site {
-    background: ${(props) => props.theme.colors.background};
-  }
-
-  #error-404, #home {
-    background: ${(props) =>
-      opacify(-0.3, props.theme.colors.background)} !important;
-  }
-
-  #about-me, #portfolio, #contact {
-    background: ${(props) => props.theme.colors.background};
-    box-shadow: 0px 0px 40px 40px ${(props) => props.theme.colors.background};
-  }
-
-  #about-me {
-    justify-content: flex-start;
-    padding: 25% 0;
-  }
-
-  #portfolio {
-    @media (max-width: 800px) {
-      justify-content: flex-start;
-      padding: 20% 0;
-    }
-  }
-
-  #about-me, #portfolio {
-    overflow: scroll;
-  }
-
-  .viewContainer {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  .site-footer {
-    position: fixed;
-    z-index: 9999;
-    bottom: 0;
-    width: 100%;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    background-color: ${(props) => props.theme.colors.background + 'df'};
-    gap: 8px;
-    p {
-        font-size: 0.9rem;
-        opacity: 0.8;
-        margin-bottom: 0;
-        padding-top: 5px;
-        font-weight: bold;
-    }
-    a {
-      text-decoration: none;
-      color: ${(props) => props.theme.colors.link};
-    }
-    @media (max-width: 800px) {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-}
 `;

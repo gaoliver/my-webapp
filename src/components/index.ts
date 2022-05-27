@@ -1,5 +1,3 @@
-import BackButton from './BackButton';
-import Footer from './Footer';
-import Sidebar from './Sidebar';
-
-export { BackButton, Footer, Sidebar };
+export * from "./_atoms"
+export * from "./_molecules"
+export * from "./_organisms"

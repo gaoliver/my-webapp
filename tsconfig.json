@@ -18,12 +18,21 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@assets/*": ["./assets/*"],
+      "@mocks/*": ["./mocks/*"],
+      "@components/*": ["./src/components/*"],
+      "@contents/*": ["./src/contents/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@utils/*": ["./src/utils/*"],
+    }
   },
   "include": [
     "src"
   ],
   "files": [
     "src/styles/styled.d.ts"
-  ],
+  ]
 }
