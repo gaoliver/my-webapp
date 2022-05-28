@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -19,20 +15,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": ".",
-    "paths": {
-      "@assets/*": ["./assets/*"],
-      "@mocks/*": ["./mocks/*"],
-      "@components/*": ["./src/components/*"],
-      "@contents/*": ["./src/contents/*"],
-      "@styles/*": ["./src/styles/*"],
-      "@utils/*": ["./src/utils/*"],
-    }
+    "baseUrl": "./src"
   },
-  "include": [
-    "src"
-  ],
-  "files": [
-    "src/styles/styled.d.ts"
-  ]
+  "include": ["src"]
 }

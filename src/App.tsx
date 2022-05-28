@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import GlobalStyle from '@styles/global';
-import { dark, light } from '@styles/theme';
+import { dark, light } from 'styles/theme';
+import GlobalStyle from 'styles/global';
 
 const App: React.FC = () => {
   const [theme, setTheme] = React.useState(light);
