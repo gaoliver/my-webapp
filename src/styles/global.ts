@@ -14,9 +14,7 @@ export default createGlobalStyle`
     scroll-behavior: smooth;
   }
   body {
-    width: 100%;
-    height: 100vh;
-    /* background-image: url(${desktopImg}); */
+    background-image: url(${desktopImg});
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -24,7 +22,7 @@ export default createGlobalStyle`
     color: ${(props) => props.theme.text};
     transition: all 0.5s ease;
     @media screen and (max-width: 800px) {
-      /* background-image: url(${phoneImg}); */
+      background-image: url(${phoneImg});
     }
   }
 
