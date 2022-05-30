@@ -12,6 +12,9 @@
         "deploy": "gh-pages -d build"
     },
     "dependencies": {
+        "@chakra-ui/react": "^2.1.2",
+        "@emotion/react": "^11",
+        "@emotion/styled": "^11",
         "@testing-library/jest-dom": "^5.11.4",
         "@testing-library/react": "^11.1.0",
         "@testing-library/user-event": "^12.1.10",
@@ -28,16 +31,17 @@
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-promise": "^4.2.1",
         "eslint-plugin-react": "^7.23.2",
+        "framer-motion": "^6",
         "gh-pages": "^3.2.0",
         "node-sass": "^4.14",
         "polished": "^4.1.2",
-        "react": "^17.0.2",
+        "react": "^18.1.0",
         "react-dom": "^17.0.2",
         "react-icons": "^4.2.0",
-        "react-scripts": "4.0.3",
+        "react-scripts": "5.0.0",
         "react-switch": "^6.0.0",
         "styled-components": "^5.3.0",
-        "typescript": "^4.1.2",
+        "typescript": "^4.5.2",
         "web-vitals": "^1.0.1"
     },
     "eslintConfig": {
