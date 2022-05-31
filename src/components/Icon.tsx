@@ -1,4 +1,5 @@
 import { IconOption, icons } from 'constants/icons';
+import { rgb } from 'polished';
 import React, { FC, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 
@@ -24,14 +25,15 @@ const StyledIconWrapper = styled.span<
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  height: ${props => props.height};
-  width: ${props => props.width};
+  height: ${(props) => props.height};
+  width: ${(props) => props.width};
   ${(props) => props.rotate && `transform: rotate(${props.rotate}deg);`};
   svg {
     width: 100%;
     height: 100%;
   }
   path {
+    fill: ${props => props.color} !important;
   }
 `;
 
@@ -56,9 +58,6 @@ export const Icon: FC<IconProps> = ({
       <IconComponent
         height="100%"
         width="100%"
-        style={{
-          fill: 'currentColor'
-        }}
       />
     </StyledIconWrapper>
   );

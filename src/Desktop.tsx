@@ -11,7 +11,7 @@ const PageWrapper = styled.div`
   display: flex;
   height: 100vh;
   width: 100%;
-  background-color: ${props => rgba(props.theme.primary, 0.9)};
+  background-color: ${props => rgba(props.theme.primary, 0.7)};
 `;
 
 export const Desktop: FC<DesktopProps> = () => {

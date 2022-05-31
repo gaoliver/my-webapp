@@ -18,7 +18,7 @@ export const light = {
 export const dark = {
   ...themeColors,
   text: colors.white,
-  window: colors.grey30,
+  window: colors.black,
   selection: colors.secondary,
   selectedText: colors.black
 };
