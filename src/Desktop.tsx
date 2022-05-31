@@ -1,4 +1,4 @@
-import { Taskbar } from 'components/_desktop';
+import { Taskbar, Window } from 'components/_desktop';
 import { rgba } from 'polished';
 import React, { FC } from 'react';
 import styled from 'styled-components';
@@ -17,7 +17,7 @@ const PageWrapper = styled.div`
 export const Desktop: FC<DesktopProps> = () => {
   return (
     <PageWrapper>
-      <div>Desktop</div>
+      <Window></Window>
       <Taskbar />
     </PageWrapper>
   );

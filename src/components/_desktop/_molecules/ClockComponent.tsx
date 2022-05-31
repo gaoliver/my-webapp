@@ -12,11 +12,11 @@ const DateTimeWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   font-size: 0.9rem;
-`
+`;
 
 const StyledText = styled.time`
-  color: ${props => props.theme.text};
-`
+  color: ${(props) => props.theme.text};
+`;
 
 export const ClockComponent = () => {
   const [dateTime, setDateTime] = useState<DateTimeProps>();
@@ -28,7 +28,13 @@ export const ClockComponent = () => {
     setDateTime({ date: setDate, time: setTime });
   };
 
-  useEffect(() => updateDateTime(), [new Date()]);
+  useEffect(() => {
+    updateDateTime();
+
+    setInterval(() => {
+      updateDateTime();
+    }, 1000);
+  }, []);
 
   return (
     <DateTimeWrapper>

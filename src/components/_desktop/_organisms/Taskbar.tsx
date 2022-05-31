@@ -17,7 +17,7 @@ const TaskbarWrapper = styled.div`
 
 export const Taskbar: FC = () => {
   return (
-    <TaskbarWrapper>
+    <TaskbarWrapper id='taskbar'>
       <TaskbarIcon>
         <Icon icon="logo" height="40px" color={useTheme().text} />
       </TaskbarIcon>
