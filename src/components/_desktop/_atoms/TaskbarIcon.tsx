@@ -1,4 +1,4 @@
-import { lighten } from 'polished';
+import { buttonInteraction } from 'constants/buttonInteraction';
 import React, { FC, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 
@@ -10,13 +10,9 @@ const TaskbarIconWrapper = styled.button`
   padding: 8px;
   border: 0;
   background-color: transparent;
+  ${buttonInteraction}
   :hover {
-    background-color: ${props => lighten(0.1, props.theme.window)};
-    transition: ease-in-out 0.2s;
-    cursor: pointer;
-  }
-  :active {
-    filter: brightness(0.8);
+    background-color: ${props => props.theme.window};
   }
 `;
 
