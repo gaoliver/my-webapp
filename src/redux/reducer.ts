@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import { light } from 'src/styles';
+import { Theme } from 'src/styles/styled';
 import { MyInfoModel, PortfolioModel, ToolsModel } from '../interfaces';
 import { AppActions } from './actions';
 
@@ -15,6 +17,8 @@ interface InitialStateModel {
   MYINFO: MyInfoModel | undefined;
   PORTFOLIO: Array<PortfolioModel> | undefined;
   windowsList: WindowListProps[];
+  taskSettings: boolean;
+  theme: Theme;
 }
 
 const initialState: InitialStateModel = {
@@ -22,7 +26,9 @@ const initialState: InitialStateModel = {
   TOOLS: undefined,
   MYINFO: undefined,
   PORTFOLIO: undefined,
-  windowsList: []
+  windowsList: [],
+  taskSettings: false,
+  theme: light
 };
 
 export const reducer = (
@@ -48,6 +54,18 @@ export const reducer = (
         ...state,
         lastType: action.type,
         windowsList: action.payload
+      };
+    case 'TOGGLE_TASK_SETTINGS':
+      return {
+        ...state,
+        lastType: action.type,
+        taskSettings: !state.taskSettings
+      };
+    case 'TOGGLE_THEME':
+      return {
+        ...state,
+        lastType: action.type,
+        theme: action.payload
       };
     case 'ON_SET_TOOLS':
       return {

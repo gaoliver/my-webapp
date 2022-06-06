@@ -4,8 +4,14 @@ import { Icon } from 'src/components/_shared';
 import { TaskbarIcon } from '../_atoms';
 import { ClockComponent } from '../_molecules/ClockComponent';
 import { rgba } from 'polished';
-import { addNewWindow, store, WindowListProps } from 'src/redux';
+import {
+  addNewWindow,
+  store,
+  toggleTaskSettings,
+  WindowListProps
+} from 'src/redux';
 import { useDispatch } from 'react-redux';
+import { BsFillCaretUpFill } from 'react-icons/bs';
 
 type TaskbarProps = {
   windowsList: WindowListProps[];
@@ -27,6 +33,7 @@ const WindowButton = styled.button<
 >`
   padding: 0 10px;
   height: 100%;
+  color: ${(props) => rgba(props.theme.text, props.isActive ? 1 : 0.3)};
   background-color: ${(props) =>
     props.isActive ? props.theme.window : 'transparent'};
   border: none;
@@ -34,16 +41,21 @@ const WindowButton = styled.button<
   transition: ease-in-out 0.3s;
   :hover {
     cursor: pointer;
-    background-color: ${props => rgba(props.theme.window, 0.3)}
+    background-color: ${(props) => rgba(props.theme.window, 0.3)};
   }
 `;
 
 export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
   const dispatch = useDispatch();
   const { MYINFO } = store.getState();
+  const theme = useTheme();
 
   const linkedinContent = () => {
     return <>LinkedIn</>;
+  };
+
+  const instagramContent = () => {
+    return <>Instagram</>;
   };
 
   function openWindow(id: string, title: string, content: JSX.Element) {
@@ -73,10 +85,15 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
       <TaskbarIcon>
         <Icon icon="logo" height="40px" color={useTheme().text} />
       </TaskbarIcon>
-      <TaskbarIcon style={{ position: 'fixed', right: 0 }}>
-        <ClockComponent />
-      </TaskbarIcon>
-      <TaskbarIcon>
+      <TaskbarIcon
+        onClick={() =>
+          openWindow(
+            'instagram',
+            `${MYINFO?.name} - Instagram`,
+            instagramContent()
+          )
+        }
+      >
         <Icon icon="instagram" />
       </TaskbarIcon>
       <TaskbarIcon
@@ -91,6 +108,21 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
         <Icon icon="linkedin" />
       </TaskbarIcon>
       <RenderList />
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          position: 'fixed',
+          right: 0
+        }}
+      >
+        <TaskbarIcon onClick={() => dispatch(toggleTaskSettings())}>
+          <BsFillCaretUpFill color={rgba(theme.text, 0.5)} />
+        </TaskbarIcon>
+        <TaskbarIcon>
+          <ClockComponent />
+        </TaskbarIcon>
+      </div>
     </TaskbarWrapper>
   );
 };

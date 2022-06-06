@@ -27,6 +27,7 @@ const WindowWrapper = styled.div<
   overflow: hidden;
   resize: both;
   background-color: ${(props) => rgba(props.theme.window, 0.4)};
+  border: 0.5px solid ${colors.black}
 `;
 
 const HeaderWindow = styled.div`

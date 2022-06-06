@@ -4,9 +4,12 @@ import { dark, light } from 'src/styles/theme';
 import GlobalStyle from 'src/styles/global';
 import { Desktop } from './Desktop';
 import { Mobile } from './Mobile';
+import { toggleTheme, useAppSelector } from './redux';
+import { useDispatch } from 'react-redux';
 
 const App: React.FC = () => {
-  const [theme, setTheme] = React.useState(light);
+  const { theme } = useAppSelector((state) => state);
+  const dispatch = useDispatch()
   const getCurrentTime = new Date().getHours();
   const [screenSize, setScreenSize] = useState({
     height: window.screen.height,
@@ -21,24 +24,20 @@ const App: React.FC = () => {
     });
   });
 
-  const handleToggleTheme = () => {
-    setTheme(theme === light ? dark : light);
-  };
-
   const autoTheme = () => {
     if (getCurrentTime < 18 && getCurrentTime > 6) {
-      setTheme(light);
+      dispatch(toggleTheme())
     } else {
-      setTheme(dark);
+      dispatch(toggleTheme())
     }
   };
 
   const RenderPlatform = useCallback(() => {
     if (aspectRatio < 1) {
-      return <Desktop onToggleTheme={handleToggleTheme} />;
+      return <Desktop />;
     }
 
-    return <Mobile onToggleTheme={handleToggleTheme} />;
+    return <Mobile onToggleTheme={() => null} />;
   }, [aspectRatio]);
 
   useEffect(() => {

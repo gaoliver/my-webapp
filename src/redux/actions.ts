@@ -5,6 +5,8 @@ import { Dispatch } from 'react';
 import { MyInfoModel, PortfolioModel, ToolsModel } from '../interfaces';
 import { WindowListProps } from './reducer';
 import { store } from './store';
+import { Theme } from 'src/styles/styled';
+import { dark, light } from 'src/styles';
 
 export interface AddNewWindow {
   readonly type: 'ADD_NEW_WINDOW';
@@ -19,6 +21,14 @@ export interface MinimizeWindow {
 export interface CloseWindow {
   readonly type: 'CLOSE_WINDOW';
   payload: WindowListProps[];
+}
+
+export interface ToggleTaskSettings {
+  readonly type: 'TOGGLE_TASK_SETTINGS';
+}
+export interface ToggleTheme {
+  readonly type: 'TOGGLE_THEME';
+  payload: Theme;
 }
 
 export interface SetTools {
@@ -42,7 +52,26 @@ export type AppActions =
   | SetPortfolio
   | AddNewWindow
   | MinimizeWindow
-  | CloseWindow;
+  | CloseWindow
+  | ToggleTaskSettings
+  | ToggleTheme;
+
+export const toggleTaskSettings = () => {
+  return async (dispatch: Dispatch<AppActions>) => {
+    dispatch({
+      type: 'TOGGLE_TASK_SETTINGS'
+    });
+  };
+};
+
+export const toggleTheme = () => {
+  return async (dispatch: Dispatch<AppActions>) => {
+    dispatch({
+      type: 'TOGGLE_THEME',
+      payload: store.getState().theme === light ? dark : light
+    });
+  };
+};
 
 export const addNewWindow = (
   id: string,

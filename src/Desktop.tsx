@@ -1,4 +1,4 @@
-import { Taskbar, Window } from 'src/components/_desktop';
+import { Taskbar, Window, TaskSettings } from 'src/components/_desktop';
 import { rgba } from 'polished';
 import React, { FC, useEffect } from 'react';
 import styled from 'styled-components';
@@ -11,10 +11,6 @@ import {
 } from 'src/redux';
 import { useDispatch } from 'react-redux';
 
-interface DesktopProps {
-  onToggleTheme: () => void;
-}
-
 const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -24,7 +20,7 @@ const PageWrapper = styled.div`
   background-color: ${(props) => rgba(props.theme.primary, 0.7)};
 `;
 
-export const Desktop: FC<DesktopProps> = () => {
+export const Desktop: FC = () => {
   const dispatch = useDispatch();
   const { windowsList } = useAppSelector((state: AppState) => state);
 
@@ -37,8 +33,8 @@ export const Desktop: FC<DesktopProps> = () => {
   }
 
   useEffect(() => {
-    dispatch(getInfo())
-  }, [])
+    dispatch(getInfo());
+  }, []);
 
   return (
     <PageWrapper>
@@ -62,6 +58,7 @@ export const Desktop: FC<DesktopProps> = () => {
             </Window>
           );
         })}
+        <TaskSettings />
       </div>
       <Taskbar windowsList={windowsList} onClickWindow={handleToggleWindow} />
     </PageWrapper>
