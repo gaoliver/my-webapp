@@ -1,4 +1,4 @@
-import { IconOption, icons } from 'constants/icons';
+import { IconOption, icons } from 'src/constants/icons';
 import { rgb } from 'polished';
 import React, { FC, HTMLAttributes } from 'react';
 import styled from 'styled-components';

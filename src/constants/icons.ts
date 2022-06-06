@@ -1,7 +1,7 @@
-import { ReactComponent as Logo } from 'assets/svg/gabrielramos-logo.svg';
-import { ReactComponent as LogoWithBackground } from 'assets/svg/gabrielramos-logowithbackground.svg';
-import { ReactComponent as Instagram } from 'assets/svg/instagram.svg';
-import { ReactComponent as LinkedIn } from 'assets/svg/linkedin.svg';
+import { ReactComponent as Logo } from 'src/assets/svg/gabrielramos-logo.svg';
+import { ReactComponent as LogoWithBackground } from 'src/assets/svg/gabrielramos-logowithbackground.svg';
+import { ReactComponent as Instagram } from 'src/assets/svg/instagram.svg';
+import { ReactComponent as LinkedIn } from 'src/assets/svg/linkedin.svg';
 
 export const icons = {
   logo: Logo,

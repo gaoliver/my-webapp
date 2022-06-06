@@ -1,17 +1,27 @@
-import React, { FC, HTMLAttributes, useRef, useState } from 'react';
+import React, { FC, HTMLAttributes, useEffect, useRef, useState } from 'react';
 import styled, { useTheme } from 'styled-components';
-import { WindowButton } from '../_atoms';
+import { WindowButton } from 'src/components/_desktop/_atoms';
 import { IoClose, IoExpand, IoRemove } from 'react-icons/io5';
-import { colors } from 'constants/colors';
+import { colors } from 'src/constants/colors';
 import { rgba } from 'polished';
+import { store, useAppSelector } from 'src/redux';
+
+type WindowProps = {
+  onMinimize: (id: string) => void;
+  onClose: (id: string) => void;
+  title: string;
+  id: string;
+};
 
 const WindowWrapper = styled.div<
   HTMLAttributes<HTMLDivElement> & { isFullSize?: boolean }
 >`
   position: absolute;
   z-index: 100;
-  width: ${(props) => (props.isFullSize ? '100%' : '800px')};
-  height: ${(props) => (props.isFullSize ? '94%' : '500px')};
+  width: 800px;
+  min-width: 300px;
+  height: 500px;
+  min-height: 200px;
   border-radius: 5px;
   box-shadow: ${(props) => (props.isFullSize ? 'none' : '3px 3px #0008')};
   overflow: hidden;
@@ -28,11 +38,45 @@ const HeaderWindow = styled.div`
   background-color: ${(props) => props.theme.window};
 `;
 
-export const Window: FC = ({ children }) => {
+const HeaderTitle = styled.h3`
+  flex: 1;
+  text-align: center;
+  padding: 8px 5px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+`;
+
+export const Window: FC<WindowProps> = ({
+  children,
+  onClose,
+  onMinimize,
+  title,
+  id
+}) => {
   const [position, setPosition] = useState({ x1: 300, y1: 70, x2: 0, y2: 0 });
   const [fullSize, setFullSize] = useState<boolean>(false);
+  const { windowsList } = useAppSelector((state) => state);
+  const windowItem = windowsList.find((item) => item.id === id);
+  const isMinimized = windowItem?.minimized;
+
   const theme = useTheme();
   const windowRef = useRef<HTMLDivElement>(null);
+
+  function toggleVisibility() {
+    if (!windowRef.current) return;
+
+    windowRef.current.style.transform = 'scale(1)';
+    windowRef.current.style.transition = 'none';
+
+    if (windowItem) {
+      windowRef.current.style.opacity = '1';
+      windowRef.current.style.display = 'block';
+    } else {
+      windowRef.current.style.opacity = '0';
+      windowRef.current.style.display = 'block';
+    }
+  }
 
   function limiter(pos: number, direction: 'X' | 'Y') {
     const rightLimit =
@@ -81,34 +125,84 @@ export const Window: FC = ({ children }) => {
     setPosition((pos) => ({ ...pos, x2: 0, y2: 0 }));
   }
 
-  function onResize() {
+  function handleTransition() {
     if (!windowRef.current) return;
 
     windowRef.current.style.transition = 'ease-in-out 0.3s';
 
-    setPosition((pos) => ({ ...pos, x1: 0, y1: 0 }));
-    setFullSize((props) => !props);
-
     setTimeout(() => {
       if (!windowRef.current) return;
-      windowRef.current.style.transition = 'none';
+      return (windowRef.current.style.transition = 'none');
     }, 300);
   }
 
+  function onResizeWindow() {
+    if (!windowRef.current) return;
+
+    handleTransition();
+
+    if (!fullSize) {
+      windowRef.current.style.height = '100%';
+      windowRef.current.style.width = '100%';
+      setPosition((pos) => ({ ...pos, x1: 0, y1: 0 }));
+    } else {
+      windowRef.current.style.height = '500px';
+      windowRef.current.style.width = '800px';
+      setPosition((pos) => ({ ...pos, x1: 300, y1: 70 }));
+    }
+
+    setFullSize((props) => !props);
+  }
+
+  function handleMinimize() {
+    if (!windowRef.current) return;
+
+    handleTransition();
+
+    if (!isMinimized) {
+      return (windowRef.current.style.transform = `translateY(0px)`);
+    }
+
+    return (windowRef.current.style.transform = `translateY(${window.screen.height}px) scaleX(0.4)`);
+  }
+
+  function handleCloseWindow() {
+    if (!windowRef.current) return;
+
+    handleTransition();
+
+    windowRef.current.style.transform = 'scale(1.1)';
+    windowRef.current.style.opacity = '0';
+
+    setTimeout(() => {
+      onClose(id);
+    }, 200);
+  }
+
+  useEffect(() => {
+    if (store.getState().lastType === 'MINIMIZE_WINDOW') {
+      handleMinimize();
+    } else {
+      toggleVisibility();
+    }
+  }, [windowItem]);
+
   return (
     <WindowWrapper
+      id={id}
       ref={windowRef}
       isFullSize={fullSize}
       style={{ top: position.y1, left: position.x1 }}
     >
       <HeaderWindow onMouseDown={handleDragElement}>
-        <WindowButton>
+        <HeaderTitle>{title}</HeaderTitle>
+        <WindowButton onClick={() => onMinimize(id)}>
           <IoRemove size={20} color={theme.text} />
         </WindowButton>
-        <WindowButton onClick={onResize}>
+        <WindowButton onClick={onResizeWindow}>
           <IoExpand size={17} color={theme.text} />
         </WindowButton>
-        <WindowButton buttonColor={colors.red}>
+        <WindowButton onClick={handleCloseWindow} buttonColor={colors.red}>
           <IoClose size={20} color={theme.text} />
         </WindowButton>
       </HeaderWindow>

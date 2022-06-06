@@ -1,5 +1,5 @@
-import { buttonInteraction } from 'constants/buttonInteraction';
-import { colors } from 'constants/colors';
+import { buttonInteraction } from 'src/constants/buttonInteraction';
+import { colors } from 'src/constants/colors';
 import React, { FC, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 

@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
-import phoneImg from 'assets/images/optimized/mobile_background.webp';
-import desktopImg from 'assets/images/optimized/desktop_background.webp';
+import phoneImg from 'src/assets/images/optimized/mobile_background.webp';
+import desktopImg from 'src/assets/images/optimized/desktop_background.webp';
 
 export default createGlobalStyle`
   :root {

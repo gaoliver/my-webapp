@@ -1,6 +1,7 @@
-import { buttonInteraction } from 'constants/buttonInteraction';
+import { buttonInteraction } from 'src/constants/buttonInteraction';
 import React, { FC, HTMLAttributes } from 'react';
 import styled from 'styled-components';
+import { rgba } from 'polished';
 
 type TaskbarIconProps = HTMLAttributes<HTMLButtonElement>
 
@@ -12,7 +13,7 @@ const TaskbarIconWrapper = styled.button`
   background-color: transparent;
   ${buttonInteraction}
   :hover {
-    background-color: ${props => props.theme.window};
+    background-color: ${props => rgba(props.theme.window, 0.3)};
   }
 `;
 

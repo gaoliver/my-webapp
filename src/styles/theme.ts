@@ -1,4 +1,4 @@
-import { colors } from 'constants/colors';
+import { colors } from 'src/constants/colors';
 
 export const themeColors = {
   primary: colors.primary,
@@ -10,7 +10,7 @@ export const themeColors = {
 export const light = {
   ...themeColors,
   text: colors.black,
-  window: colors.silver,
+  window: colors.white,
   selection: colors.primaryDark,
   selectedText: colors.white
 };

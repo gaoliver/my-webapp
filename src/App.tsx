@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { dark, light } from 'styles/theme';
-import GlobalStyle from 'styles/global';
-import { Desktop } from 'Desktop';
-import { Mobile } from 'Mobile';
+import { dark, light } from 'src/styles/theme';
+import GlobalStyle from 'src/styles/global';
+import { Desktop } from './Desktop';
+import { Mobile } from './Mobile';
 
 const App: React.FC = () => {
   const [theme, setTheme] = React.useState(light);
