@@ -36,7 +36,8 @@ const WindowsListWrapper = styled.div`
 `;
 
 const WindowButton = styled.button<
-  HTMLAttributes<HTMLButtonElement> & { isActive: boolean }>`
+  HTMLAttributes<HTMLButtonElement> & { isActive: boolean }
+>`
   padding: 0 25px;
   flex: 1;
   height: 100%;
@@ -76,7 +77,13 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
           <WindowButton
             onClick={() => onClickWindow(item.id)}
             key={item.id}
-            isActive={store.getState().windowOnFocus === item.id}
+            isActive={
+              store
+                .getState()
+                .windowsList.find((window) => window.id === item.id)?.minimized
+                ? false
+                : store.getState().windowOnFocus === item.id
+            }
           >
             {item.id}
           </WindowButton>

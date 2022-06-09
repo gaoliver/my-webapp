@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import axios from 'axios';
 import { myInfoUrl, portfolioUrl, toolsUrl } from 'src/mocks/index';
-import { Dispatch } from 'react';
+import { Dispatch, ReactNode } from 'react';
 import { MyInfoModel, PortfolioModel, ToolsModel } from '../interfaces';
 import { WindowListProps } from './reducer';
 import { store } from './store';
@@ -82,7 +82,7 @@ export const toggleTheme = (theme?: Theme) => {
 export const addNewWindow = (
   id: string,
   title: string,
-  content: JSX.Element
+  content: ReactNode
 ) => {
   return async (dispatch: Dispatch<AppActions>) => {
     dispatch({

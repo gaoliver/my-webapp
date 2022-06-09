@@ -1,4 +1,4 @@
-import { Taskbar, Window, TaskSettings } from 'src/components/_desktop';
+import { Taskbar, Window, TaskSettings, DesktopIcon } from 'src/components/_desktop';
 import { rgba } from 'polished';
 import React, { FC, useEffect } from 'react';
 import styled from 'styled-components';
@@ -11,8 +11,11 @@ import {
 } from 'src/redux';
 import { useDispatch } from 'react-redux';
 
+import testImage from "src/assets/images/GabrielRamos-blackIcon.png"
+
 const PageWrapper = styled.div`
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   flex: 1;
   height: 100vh;
@@ -45,6 +48,9 @@ export const Desktop: FC = () => {
           position: 'relative'
         }}
       >
+        <DesktopIcon label="Teste de ícone de ícone esse é o teste que eu tô fazendo" imageSource={testImage} id="teste">
+          <>Olá!</>
+        </DesktopIcon>
         {windowsList.map((window) => {
           return (
             <Window
