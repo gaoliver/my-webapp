@@ -8,6 +8,8 @@ import styled from 'styled-components';
 import { Button } from '../_atoms';
 import { fonts, fontWeights } from 'src/constants/fonts';
 
+import ProfilePicture from "src/assets/images/professinal_profile_edited.png"
+
 const AboutMeWrapper = styled.section`
   display: flex;
   height: fit-content;
@@ -16,6 +18,12 @@ const AboutMeWrapper = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  img {
+    width: 200px;
+    border-radius: 100%;
+    margin: 20px 0 30px 0;
+  }
 
   .intro {
     padding: 0 20%;
@@ -92,6 +100,7 @@ export const AboutMe: React.FC = () => {
 
   return (
     <AboutMeWrapper id="about-me">
+      <img src={ProfilePicture} alt="Profile picture" />
       <div className="col intro">
         <h1>About me</h1>
         <p>
