@@ -133,7 +133,7 @@ export const ProjectContent: FC<ProjectContentProps> = ({ project }) => {
             <DesktopIcon
               id={image}
               imageSource={image}
-              label={`Image ${index + 1}`}
+              label={`${project.name} - Image ${index + 1}`}
             >
               <ImageContainer style={{ backgroundImage: `url(${image})` }} />
             </DesktopIcon>
