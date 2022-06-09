@@ -6,9 +6,11 @@ import { ClockComponent } from '../_molecules/ClockComponent';
 import { rgba } from 'polished';
 import {
   addNewWindow,
+  minimizeWindow,
   store,
   toggleTaskSettings,
-  WindowListProps
+  WindowListProps,
+  windowOnFocus
 } from 'src/redux';
 import { useDispatch } from 'react-redux';
 import { BsFillCaretUpFill } from 'react-icons/bs';
@@ -74,6 +76,16 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
   function openWindow(id: string, title: string, content: JSX.Element) {
     dispatch(addNewWindow(id, title, content));
   }
+
+  function cleanUpDesktop() {
+    const filteredList = windowsList.filter((window) => !window.minimized);
+
+    filteredList.forEach((window) => dispatch(minimizeWindow(window.id)));
+
+    dispatch(windowOnFocus(''));
+    dispatch('');
+  }
+
   const RenderList = () => {
     return (
       <>
@@ -98,7 +110,7 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
 
   return (
     <TaskbarWrapper id="taskbar">
-      <TaskbarIcon>
+      <TaskbarIcon onClick={cleanUpDesktop}>
         <Icon
           icon="logo-transparent"
           height="35px"
