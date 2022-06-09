@@ -28,6 +28,12 @@ const TaskbarWrapper = styled.div`
   backdrop-filter: blur(10px);
 `;
 
+const WindowsListWrapper = styled.div`
+  display: flex;
+  width: 80%;
+  height: 100%;
+`;
+
 const WindowButton = styled.button<
   HTMLAttributes<HTMLButtonElement> & { isActive: boolean }
 >`
@@ -66,6 +72,7 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
       <>
         {windowsList.map((item) => (
           <WindowButton
+            style={{ padding: '0 20px' }}
             onClick={() => onClickWindow(item.id)}
             key={item.id}
             isActive={
@@ -83,7 +90,12 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
   return (
     <TaskbarWrapper id="taskbar">
       <TaskbarIcon>
-        <Icon icon="logo" height="40px" color={useTheme().text} />
+        <Icon
+          icon="logo-transparent"
+          height="35px"
+          color={useTheme().text}
+          style={{ opacity: 0.9 }}
+        />
       </TaskbarIcon>
       <TaskbarIcon
         onClick={() =>
@@ -94,7 +106,7 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
           )
         }
       >
-        <Icon icon="instagram" />
+        <Icon icon="instagram" height="30px" />
       </TaskbarIcon>
       <TaskbarIcon
         onClick={() =>
@@ -105,9 +117,11 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
           )
         }
       >
-        <Icon icon="linkedin" />
+        <Icon icon="linkedin" height="30px" />
       </TaskbarIcon>
-      <RenderList />
+      <WindowsListWrapper>
+        <RenderList />
+      </WindowsListWrapper>
       <div
         style={{
           display: 'flex',

@@ -19,6 +19,7 @@ interface InitialStateModel {
   windowsList: WindowListProps[];
   taskSettings: boolean;
   theme: Theme;
+  windowOnFocus?: string;
 }
 
 const initialState: InitialStateModel = {
@@ -28,7 +29,8 @@ const initialState: InitialStateModel = {
   PORTFOLIO: undefined,
   windowsList: [],
   taskSettings: false,
-  theme: light
+  theme: light,
+  windowOnFocus: undefined
 };
 
 export const reducer = (
@@ -42,6 +44,12 @@ export const reducer = (
         ...state,
         lastType: action.type,
         windowsList: [...state.windowsList]
+      };
+    case 'WINDOW_ON_FOCUS':
+      return {
+        ...state,
+        lastType: action.type,
+        windowOnFocus: action.payload
       };
     case 'MINIMIZE_WINDOW':
       return {

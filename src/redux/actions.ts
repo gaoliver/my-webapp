@@ -13,6 +13,11 @@ export interface AddNewWindow {
   payload: WindowListProps;
 }
 
+export interface WindowOnFocus {
+  readonly type: 'WINDOW_ON_FOCUS';
+  payload: string;
+}
+
 export interface MinimizeWindow {
   readonly type: 'MINIMIZE_WINDOW';
   payload: WindowListProps[];
@@ -54,7 +59,8 @@ export type AppActions =
   | MinimizeWindow
   | CloseWindow
   | ToggleTaskSettings
-  | ToggleTheme;
+  | ToggleTheme
+  | WindowOnFocus;
 
 export const toggleTaskSettings = () => {
   return async (dispatch: Dispatch<AppActions>) => {
@@ -64,11 +70,11 @@ export const toggleTaskSettings = () => {
   };
 };
 
-export const toggleTheme = () => {
+export const toggleTheme = (theme?: Theme) => {
   return async (dispatch: Dispatch<AppActions>) => {
     dispatch({
       type: 'TOGGLE_THEME',
-      payload: store.getState().theme === light ? dark : light
+      payload: theme || (store.getState().theme === light ? dark : light)
     });
   };
 };
@@ -82,6 +88,17 @@ export const addNewWindow = (
     dispatch({
       type: 'ADD_NEW_WINDOW',
       payload: { id, title, minimized: false, content }
+    });
+  };
+};
+
+export const windowOnFocus = (
+  id: string
+) => {
+  return async (dispatch: Dispatch<AppActions>) => {
+    dispatch({
+      type: 'WINDOW_ON_FOCUS',
+      payload: id
     });
   };
 };

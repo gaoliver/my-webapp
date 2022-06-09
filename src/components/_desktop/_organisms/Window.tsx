@@ -4,7 +4,9 @@ import { WindowButton } from 'src/components/_desktop/_atoms';
 import { IoClose, IoExpand, IoRemove } from 'react-icons/io5';
 import { colors } from 'src/constants/colors';
 import { rgba } from 'polished';
-import { store, useAppSelector } from 'src/redux';
+import { store, useAppSelector, windowOnFocus } from 'src/redux';
+import { useDispatch } from 'react-redux';
+import { handleWindowPosition } from 'src/utils/handleWindowPosition';
 
 type WindowProps = {
   onMinimize: (id: string) => void;
@@ -17,7 +19,7 @@ const WindowWrapper = styled.div<
   HTMLAttributes<HTMLDivElement> & { isFullSize?: boolean }
 >`
   position: absolute;
-  z-index: 100;
+  z-index: ${(props) => handleWindowPosition(props.id || '')};
   width: 800px;
   min-width: 300px;
   height: 500px;
@@ -26,8 +28,11 @@ const WindowWrapper = styled.div<
   box-shadow: ${(props) => (props.isFullSize ? 'none' : '3px 3px #0008')};
   overflow: hidden;
   resize: both;
-  background-color: ${(props) => rgba(props.theme.window, 0.4)};
-  border: 0.5px solid ${colors.black}
+  background-color: ${(props) => rgba(props.theme.window, 0.7)};
+  border: 0.5px solid ${colors.black};
+  filter: opacity(
+    ${(props) => (store.getState().windowOnFocus === props.id ? '1' : '0.6')}
+  );
 `;
 
 const HeaderWindow = styled.div`
@@ -58,11 +63,18 @@ export const Window: FC<WindowProps> = ({
   const [position, setPosition] = useState({ x1: 300, y1: 70, x2: 0, y2: 0 });
   const [fullSize, setFullSize] = useState<boolean>(false);
   const { windowsList } = useAppSelector((state) => state);
+  const dispatch = useDispatch();
   const windowItem = windowsList.find((item) => item.id === id);
   const isMinimized = windowItem?.minimized;
 
   const theme = useTheme();
   const windowRef = useRef<HTMLDivElement>(null);
+
+  window.addEventListener('click', (e) => {
+    if (e.target == null) {
+      dispatch(windowOnFocus(''));
+    }
+  });
 
   function toggleVisibility() {
     if (!windowRef.current) return;
@@ -71,8 +83,8 @@ export const Window: FC<WindowProps> = ({
     windowRef.current.style.transition = 'none';
 
     if (windowItem) {
-      windowRef.current.style.opacity = '1';
       windowRef.current.style.display = 'block';
+      dispatch(windowOnFocus(id));
     } else {
       windowRef.current.style.opacity = '0';
       windowRef.current.style.display = 'block';
@@ -194,6 +206,7 @@ export const Window: FC<WindowProps> = ({
       ref={windowRef}
       isFullSize={fullSize}
       style={{ top: position.y1, left: position.x1 }}
+      onClick={() => dispatch(windowOnFocus(id))}
     >
       <HeaderWindow onMouseDown={handleDragElement}>
         <HeaderTitle>{title}</HeaderTitle>

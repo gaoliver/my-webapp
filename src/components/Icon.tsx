@@ -1,5 +1,4 @@
 import { IconOption, icons } from 'src/constants/icons';
-import { rgb } from 'polished';
 import React, { FC, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 
@@ -20,6 +19,7 @@ const StyledIconWrapper = styled.span<
     color?: string;
   }
 >`
+  display: block;
   position: relative;
   line-height: 0;
   flex-shrink: 0;
@@ -33,7 +33,7 @@ const StyledIconWrapper = styled.span<
     height: 100%;
   }
   path {
-    fill: ${props => props.color} !important;
+    fill: ${(props) => props.color} !important;
   }
 `;
 
@@ -55,10 +55,7 @@ export const Icon: FC<IconProps> = ({
       color={props.color}
       {...props}
     >
-      <IconComponent
-        height="100%"
-        width="100%"
-      />
+      <IconComponent height="100%" width="100%" />
     </StyledIconWrapper>
   );
 };

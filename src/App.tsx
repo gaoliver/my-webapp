@@ -5,10 +5,11 @@ import { Desktop } from './Desktop';
 import { Mobile } from './Mobile';
 import { toggleTheme, useAppSelector } from './redux';
 import { useDispatch } from 'react-redux';
+import { dark, light } from './styles';
 
 const App: React.FC = () => {
   const { theme } = useAppSelector((state) => state);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const getCurrentTime = new Date().getHours();
   const [screenSize, setScreenSize] = useState({
     height: window.screen.height,
@@ -25,9 +26,9 @@ const App: React.FC = () => {
 
   const autoTheme = () => {
     if (getCurrentTime < 18 && getCurrentTime > 6) {
-      dispatch(toggleTheme())
+      dispatch(toggleTheme(light));
     } else {
-      dispatch(toggleTheme())
+      dispatch(toggleTheme(dark));
     }
   };
 
