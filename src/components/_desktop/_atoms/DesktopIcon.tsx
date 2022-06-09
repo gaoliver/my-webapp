@@ -86,6 +86,8 @@ export const DesktopIcon: FC<DesktopIconProps> = ({
       ref={iconRef}
       onClick={selectIcon}
       onDoubleClick={openWindow}
+      onDrag={selectIcon}
+      draggable
     >
       <ImageStyled src={imageSource} draggable={false} />
       <LabelStyled>{label}</LabelStyled>
