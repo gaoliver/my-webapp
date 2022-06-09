@@ -12,6 +12,7 @@ import {
   AppState,
   closeWindow,
   getInfo,
+  getPortfolio,
   getTools,
   minimizeWindow,
   useAppSelector
@@ -66,6 +67,7 @@ export const Desktop: FC = () => {
   useEffect(() => {
     dispatch(getInfo());
     dispatch(getTools());
+    dispatch(getPortfolio());
   }, []);
 
   return (
