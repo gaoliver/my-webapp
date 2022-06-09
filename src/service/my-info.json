@@ -18,6 +18,12 @@
       "title": "Instagram",
       "url": "https://www.instagram.com/eugaoliver/",
       "image": "instagram"
+    },
+    {
+      "id": "github",
+      "title": "GitHub",
+      "url": "https://github.com/gaoliver",
+      "image": "github"
     }
   ]
 }
