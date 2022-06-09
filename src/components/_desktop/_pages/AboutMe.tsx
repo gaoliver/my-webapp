@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import { Button } from '../_atoms';
 import { fonts, fontWeights } from 'src/constants/fonts';
 
-const AboutMeWrapper = styled.div`
+const AboutMeWrapper = styled.section`
   display: flex;
   height: fit-content;
   padding: 20px 0;

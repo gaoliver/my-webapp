@@ -2,7 +2,8 @@ import {
   Taskbar,
   Window,
   TaskSettings,
-  DesktopIcon
+  DesktopIcon,
+  Portfolio
 } from 'src/components/_desktop';
 import { rgba } from 'polished';
 import React, { FC, useEffect } from 'react';
@@ -16,9 +17,10 @@ import {
   useAppSelector
 } from 'src/redux';
 import { useDispatch } from 'react-redux';
-
-import testImage from 'src/assets/images/GabrielRamos-blackIcon.png';
 import { AboutMe } from './components/_shared';
+
+import blackIcon from 'src/assets/images/GabrielRamos-blackIcon.png';
+import folderIcon from 'src/assets/images/folder.png';
 
 const PageWrapper = styled.div`
   display: flex;
@@ -34,9 +36,24 @@ const PageWrapper = styled.div`
   }
 `;
 
+const HomeInfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
+  width: 500px;
+  height: 200px;
+  place-self: center;
+  transform: translateY(30vh);
+  align-items: center;
+  justify-content: center;
+  color: ${(props) => props.theme.window};
+  user-select: none;
+`;
+
 export const Desktop: FC = () => {
   const dispatch = useDispatch();
-  const { windowsList } = useAppSelector((state: AppState) => state);
+  const { windowsList, MYINFO } = useAppSelector((state: AppState) => state);
 
   function handleToggleWindow(id: string) {
     dispatch(minimizeWindow(id));
@@ -53,6 +70,11 @@ export const Desktop: FC = () => {
 
   return (
     <PageWrapper>
+      <HomeInfoWrapper>
+        <h1>{`${MYINFO?.name} ${MYINFO?.surname}`}</h1>
+        <h2>{MYINFO?.position}</h2>
+        <h3>{`@ ${MYINFO?.company}`}</h3>
+      </HomeInfoWrapper>
       <div
         id="desktop"
         style={{
@@ -60,12 +82,11 @@ export const Desktop: FC = () => {
           position: 'relative'
         }}
       >
-        <DesktopIcon
-          label="About me"
-          imageSource={testImage}
-          id="about_me"
-        >
+        <DesktopIcon label="About me" imageSource={blackIcon} id="about_me">
           <AboutMe />
+        </DesktopIcon>
+        <DesktopIcon label="Portfolio" imageSource={folderIcon} id="portfolio">
+          <Portfolio />
         </DesktopIcon>
         {windowsList.map((window) => {
           return (

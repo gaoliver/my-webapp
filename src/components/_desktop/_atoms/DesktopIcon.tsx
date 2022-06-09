@@ -2,6 +2,7 @@ import { rgba } from 'polished';
 import React, { FC, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { colors } from 'src/constants/colors';
+import { fonts } from 'src/constants/fonts';
 import { addNewWindow } from 'src/redux';
 import styled from 'styled-components';
 
@@ -19,20 +20,25 @@ const DesktopIconWrapper = styled.button`
   align-items: center;
   justify-content: space-between;
   margin: 5px;
-  padding: 10px;
+  padding: 6px;
   border: none;
   background-color: transparent;
   user-select: none;
   border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid transparent;
 
   &.selected {
-    background-color: ${(props) => rgba(props.theme.window, 0.2)};
+    background-color: ${rgba(colors.white, 0.2)};
+    border: 1px dotted ${colors.silver};
   }
 `;
 
 const ImageStyled = styled.img`
   display: block;
   height: 60%;
+  width: 100%;
+  object-fit: contain;
   filter: drop-shadow(0px 0px 2px ${colors.black});
 `;
 
@@ -46,6 +52,7 @@ const LabelStyled = styled.span`
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   overflow: hidden;
+  ${fonts.label}
 `;
 
 export const DesktopIcon: FC<DesktopIconProps> = ({
@@ -63,11 +70,11 @@ export const DesktopIcon: FC<DesktopIconProps> = ({
     }
   });
 
-  window.addEventListener("contextmenu", function(event) {
+  window.addEventListener('contextmenu', function (event) {
     if (iconRef.current?.contains(event.target as Node)) {
-      event.preventDefault()
+      event.preventDefault();
     }
-  })
+  });
 
   function selectIcon() {
     iconRef.current?.classList.add('selected');

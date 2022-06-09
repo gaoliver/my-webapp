@@ -20,8 +20,9 @@ type WindowProps = {
   id: string;
 };
 
-const WindowWrapper = styled.div<
-  HTMLAttributes<HTMLDivElement> & { isFullSize?: boolean }>`
+const WindowWrapper = styled.article<
+  HTMLAttributes<HTMLDivElement> & { isFullSize?: boolean }
+>`
   position: absolute;
   z-index: ${(props) => handleWindowPosition(props.id || '')};
   width: 800px;
