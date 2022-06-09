@@ -5,5 +5,19 @@
   "position": "Frontend Developer",
   "company": "Dept Agency",
   "city": "Rotterdam",
-  "country": "NL"
+  "country": "NL",
+  "social": [
+    {
+      "id": 1,
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/in/gabrielocramos/",
+      "image": "linkedin"
+    },
+    {
+      "id": 2,
+      "title": "Instagram",
+      "url": "https://www.instagram.com/eugaoliver/",
+      "image": "instagram"
+    }
+  ]
 }
