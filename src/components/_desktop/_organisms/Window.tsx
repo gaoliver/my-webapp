@@ -229,9 +229,11 @@ export const Window: FC<WindowProps> = ({ children, onClose, title, id }) => {
       isFullSize={fullSize}
       style={{ top: position.y1, left: position.x1 }}
       onClick={() => dispatch(windowOnFocus(id))}
-      onDoubleClick={onResizeWindow}
     >
-      <HeaderWindow onMouseDown={handleDragElement}>
+      <HeaderWindow
+        onMouseDown={handleDragElement}
+        onDoubleClick={onResizeWindow}
+      >
         <HeaderTitle>{title}</HeaderTitle>
         <WindowButton onClick={() => dispatch(minimizeWindow(id))}>
           <IoRemove size={20} color={theme.text} />
