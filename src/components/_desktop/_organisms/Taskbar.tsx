@@ -117,6 +117,7 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
       </TaskbarIcon>
       {MYINFO?.social.map((social) => (
         <TaskbarIcon
+          id={social.id}
           key={social.id}
           onClick={() =>
             openWindow(

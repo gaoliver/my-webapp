@@ -1,6 +1,6 @@
 import { IconOption, icons } from 'src/constants/icons';
 import React, { FC, HTMLAttributes } from 'react';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 
 export type IconProps = React.HTMLAttributes<HTMLDivElement> & {
   icon: IconOption;
@@ -34,6 +34,7 @@ const StyledIconWrapper = styled.span<
   }
   path {
     fill: ${(props) => props.color} !important;
+    object-fit: fill;
   }
 `;
 
@@ -52,7 +53,7 @@ export const Icon: FC<IconProps> = ({
       rotate={rotate}
       width={width || size}
       height={height || size}
-      color={props.color}
+      color={icon === 'github' ? useTheme().text : props.color}
       {...props}
     >
       <IconComponent height="100%" width="100%" />
