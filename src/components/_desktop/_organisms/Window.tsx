@@ -3,7 +3,6 @@ import styled, { useTheme } from 'styled-components';
 import { WindowButton } from 'src/components/_desktop/_atoms';
 import { IoClose, IoExpand, IoRemove } from 'react-icons/io5';
 import { colors } from 'src/constants/colors';
-import { rgba } from 'polished';
 import {
   minimizeWindow,
   store,
@@ -12,6 +11,8 @@ import {
 } from 'src/redux';
 import { useDispatch } from 'react-redux';
 import { handleWindowPosition } from 'src/utils/handleWindowPosition';
+import { darken, rgba } from 'polished';
+import { light } from 'src/styles';
 
 type WindowProps = {
   onClose: (id: string) => void;
@@ -20,8 +21,7 @@ type WindowProps = {
 };
 
 const WindowWrapper = styled.div<
-  HTMLAttributes<HTMLDivElement> & { isFullSize?: boolean }
->`
+  HTMLAttributes<HTMLDivElement> & { isFullSize?: boolean }>`
   position: absolute;
   z-index: ${(props) => handleWindowPosition(props.id || '')};
   width: 800px;
@@ -32,10 +32,11 @@ const WindowWrapper = styled.div<
   box-shadow: ${(props) => (props.isFullSize ? 'none' : '3px 3px #0008')};
   overflow: hidden;
   resize: both;
-  background-color: ${(props) => rgba(props.theme.window, 0.7)};
+  background-color: ${(props) =>
+    darken(props.theme === light ? 0.05 : 0, props.theme.window)};
   border: 0.5px solid ${colors.black};
-  filter: opacity(
-    ${(props) => (store.getState().windowOnFocus === props.id ? '1' : '0.6')}
+  filter: brightness(
+    ${(props) => (store.getState().windowOnFocus === props.id ? '1' : '0.9')}
   );
 `;
 
@@ -46,6 +47,7 @@ const HeaderWindow = styled.div`
   flex-direction: row;
   justify-content: flex-end;
   background-color: ${(props) => props.theme.window};
+  border-bottom: 1px solid ${(props) => rgba(props.theme.text, 0.1)};
 `;
 
 const HeaderTitle = styled.h3`
@@ -200,6 +202,16 @@ export const Window: FC<WindowProps> = ({ children, onClose, title, id }) => {
       toggleVisibility();
     }
   }, [windowItem]);
+
+  useEffect(() => {
+    const findIndex = windowsList.findIndex((window) => window.id === id);
+
+    setPosition((pos) => ({
+      ...pos,
+      x1: 300 + findIndex * 50,
+      y1: 70 + findIndex * 50
+    }));
+  }, []);
 
   return (
     <WindowWrapper

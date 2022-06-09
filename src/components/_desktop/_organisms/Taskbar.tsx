@@ -26,7 +26,7 @@ const TaskbarWrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 45px;
-  background-color: ${(props) => rgba(props.theme.window, 0.7)};
+  background-color: ${(props) => rgba(props.theme.window, 0.9)};
   backdrop-filter: blur(10px);
 `;
 
@@ -79,9 +79,7 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
 
   function cleanUpDesktop() {
     const filteredList = windowsList.filter((window) => !window.minimized);
-
     filteredList.forEach((window) => dispatch(minimizeWindow(window.id)));
-
     dispatch(windowOnFocus(''));
   }
 
@@ -150,7 +148,7 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
           right: 0
         }}
       >
-        <TaskbarIcon onClick={() => dispatch(toggleTaskSettings())}>
+        <TaskbarIcon onClick={() => dispatch(toggleTaskSettings())} style={{ minWidth: 30 }}>
           <BsFillCaretUpFill color={rgba(theme.text, 0.5)} />
         </TaskbarIcon>
         <TaskbarIcon>
