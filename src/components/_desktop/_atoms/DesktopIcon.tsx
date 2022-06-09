@@ -66,6 +66,12 @@ export const DesktopIcon: FC<DesktopIconProps> = ({
     }
   });
 
+  window.addEventListener("contextmenu", function(event) {
+    if (iconRef.current?.contains(event.target as Node)) {
+      event.preventDefault()
+    }
+  })
+
   function selectIcon() {
     iconRef.current?.classList.add('selected');
   }
