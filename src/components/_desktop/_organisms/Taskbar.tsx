@@ -56,7 +56,7 @@ const WindowButton = styled.button<
 
   :hover {
     cursor: pointer;
-    background-color: ${(props) => rgba(props.theme.window, 0.3)};
+    background-color: ${props => props.theme.window}
   }
 `;
 
