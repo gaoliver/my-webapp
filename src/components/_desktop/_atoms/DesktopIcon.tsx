@@ -22,6 +22,8 @@ const DesktopIconWrapper = styled.button`
   padding: 10px;
   border: none;
   background-color: transparent;
+  user-select: none;
+  border-radius: 5px;
 
   &.selected {
     background-color: ${(props) => rgba(props.theme.window, 0.2)};

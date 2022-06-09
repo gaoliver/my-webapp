@@ -1,4 +1,9 @@
-import { Taskbar, Window, TaskSettings, DesktopIcon } from 'src/components/_desktop';
+import {
+  Taskbar,
+  Window,
+  TaskSettings,
+  DesktopIcon
+} from 'src/components/_desktop';
 import { rgba } from 'polished';
 import React, { FC, useEffect } from 'react';
 import styled from 'styled-components';
@@ -11,7 +16,7 @@ import {
 } from 'src/redux';
 import { useDispatch } from 'react-redux';
 
-import testImage from "src/assets/images/GabrielRamos-blackIcon.png"
+import testImage from 'src/assets/images/GabrielRamos-blackIcon.png';
 
 const PageWrapper = styled.div`
   display: flex;
@@ -21,6 +26,10 @@ const PageWrapper = styled.div`
   height: 100vh;
   width: 100%;
   background-color: ${(props) => rgba(props.theme.primary, 0.7)};
+  ::selection {
+    height: auto;
+    background-color: aliceblue;
+  }
 `;
 
 export const Desktop: FC = () => {
@@ -48,7 +57,11 @@ export const Desktop: FC = () => {
           position: 'relative'
         }}
       >
-        <DesktopIcon label="Teste de ícone de ícone esse é o teste que eu tô fazendo" imageSource={testImage} id="teste">
+        <DesktopIcon
+          label="Teste de ícone de ícone esse é o teste que eu tô fazendo"
+          imageSource={testImage}
+          id="teste"
+        >
           <>Olá!</>
         </DesktopIcon>
         {windowsList.map((window) => {
