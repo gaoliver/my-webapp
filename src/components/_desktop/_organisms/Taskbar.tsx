@@ -17,6 +17,7 @@ import { BsFillCaretUpFill } from 'react-icons/bs';
 import { EmbedModel } from './EmbedModel';
 import { IconOption } from 'src/constants/icons';
 import { SocialNetwork } from 'src/interfaces';
+import { fonts } from 'src/constants/fonts';
 
 type TaskbarProps = {
   windowsList: WindowListProps[];
@@ -51,7 +52,7 @@ const WindowButton = styled.button<
   background-color: ${(props) =>
     props.isActive ? props.theme.window : 'transparent'};
   border: none;
-  font-size: 1.2rem;
+  font-size: ${fonts.button.fontSize};
   transition: ease-in-out 0.3s;
   text-overflow: ellipsis;
   overflow: hidden;

@@ -41,7 +41,7 @@ const WindowWrapper = styled.div<
 
   .window--content {
     width: 100%;
-    height: 100%;
+    height: 93%;
     overflow: scroll;
   }
 `;
@@ -58,6 +58,8 @@ const HeaderWindow = styled.div`
 
 const HeaderTitle = styled.h3`
   flex: 1;
+  font-size: 1.1rem;
+  opacity: 0.7;
   text-align: center;
   padding: 8px 5px 0;
   overflow: hidden;

@@ -37,11 +37,8 @@ const ImageStyled = styled.img`
 `;
 
 const LabelStyled = styled.span`
-  display: flex;
   width: 100%;
   height: 30%;
-  justify-content: center;
-  align-items: center;
   color: ${colors.white};
   filter: drop-shadow(0px 0px 2px ${colors.black});
   display: -webkit-box;

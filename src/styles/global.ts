@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import phoneImg from 'src/assets/images/optimized/mobile_background.webp';
 import desktopImg from 'src/assets/images/optimized/desktop_background.webp';
+import { fonts } from 'src/constants/fonts';
 
 export default createGlobalStyle`
   :root {
@@ -29,4 +30,23 @@ export default createGlobalStyle`
     background-color: ${(props) => props.theme.selection};
     color: ${(props) => props.theme.selectedText}
   }
+
+  h1 {
+    ${fonts.h1}
+  }
+  h2 {
+    ${fonts.h2}
+  }
+  h3 {
+    ${fonts.h3}
+  }
+  p {
+    ${fonts.body}
+    line-height: 25px;
+    margin-top: 30px;
+  }
+  button {
+    ${fonts.button}
+  }
+
 `;

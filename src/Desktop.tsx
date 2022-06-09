@@ -11,12 +11,14 @@ import {
   AppState,
   closeWindow,
   getInfo,
+  getTools,
   minimizeWindow,
   useAppSelector
 } from 'src/redux';
 import { useDispatch } from 'react-redux';
 
 import testImage from 'src/assets/images/GabrielRamos-blackIcon.png';
+import { AboutMe } from './components/_shared';
 
 const PageWrapper = styled.div`
   display: flex;
@@ -46,6 +48,7 @@ export const Desktop: FC = () => {
 
   useEffect(() => {
     dispatch(getInfo());
+    dispatch(getTools());
   }, []);
 
   return (
@@ -58,11 +61,11 @@ export const Desktop: FC = () => {
         }}
       >
         <DesktopIcon
-          label="Teste de ícone de ícone esse é o teste que eu tô fazendo"
+          label="About me"
           imageSource={testImage}
-          id="teste"
+          id="about_me"
         >
-          <>Olá!</>
+          <AboutMe />
         </DesktopIcon>
         {windowsList.map((window) => {
           return (

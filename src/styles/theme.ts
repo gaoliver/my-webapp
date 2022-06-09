@@ -12,7 +12,9 @@ export const light = {
   text: colors.black,
   window: colors.white,
   selection: colors.primaryDark,
-  selectedText: colors.white
+  selectedText: colors.white,
+  h1: colors.primary,
+  button: colors.primary
 };
 
 export const dark = {
@@ -20,5 +22,7 @@ export const dark = {
   text: colors.white,
   window: colors.black,
   selection: colors.secondary,
-  selectedText: colors.black
+  selectedText: colors.black,
+  h1: colors.secondary,
+  button: colors.primary
 };

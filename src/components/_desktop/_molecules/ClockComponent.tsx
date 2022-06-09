@@ -1,5 +1,6 @@
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
+import { fonts } from 'src/constants/fonts';
 import styled from 'styled-components';
 
 type DateTimeProps = {
@@ -11,7 +12,7 @@ const DateTimeWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 0.9rem;
+  ${fonts.label}
 `;
 
 const StyledText = styled.time`
