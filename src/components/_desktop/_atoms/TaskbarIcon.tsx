@@ -7,7 +7,8 @@ type TaskbarIconProps = HTMLAttributes<HTMLButtonElement>
 
 const TaskbarIconWrapper = styled.button`
   height: 45px;
-  width: fit-content;
+  min-width: 60px;
+  max-width: fit-content;
   padding: 8px;
   border: 0;
   background-color: transparent;

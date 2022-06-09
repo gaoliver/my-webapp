@@ -39,7 +39,11 @@ export const reducer = (
 ) => {
   switch (action.type) {
     case 'ADD_NEW_WINDOW':
-      state.windowsList.push(action.payload);
+      if (
+        !state.windowsList.find((window) => window.id === action.payload.id)
+      ) {
+        state.windowsList.push(action.payload);
+      }
       return {
         ...state,
         lastType: action.type,
@@ -48,7 +52,6 @@ export const reducer = (
     case 'WINDOW_ON_FOCUS':
       return {
         ...state,
-        lastType: action.type,
         windowOnFocus: action.payload
       };
     case 'MINIMIZE_WINDOW':

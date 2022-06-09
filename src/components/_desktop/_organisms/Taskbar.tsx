@@ -32,14 +32,15 @@ const WindowsListWrapper = styled.div`
   display: flex;
   width: 80%;
   height: 100%;
+  margin-left: 10px;
 `;
 
 const WindowButton = styled.button<
   HTMLAttributes<HTMLButtonElement> & { isActive: boolean }
 >`
-  padding: 0 10px;
+  padding: 0 25px;
   height: 100%;
-  color: ${(props) => rgba(props.theme.text, props.isActive ? 1 : 0.3)};
+  color: ${(props) => rgba(props.theme.text, props.isActive ? 1 : 0.7)};
   background-color: ${(props) =>
     props.isActive ? props.theme.window : 'transparent'};
   border: none;
@@ -72,13 +73,9 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
       <>
         {windowsList.map((item) => (
           <WindowButton
-            style={{ padding: '0 20px' }}
             onClick={() => onClickWindow(item.id)}
             key={item.id}
-            isActive={
-              !store.getState().windowsList.find((x) => x.id === item.id)
-                ?.minimized || false
-            }
+            isActive={store.getState().windowOnFocus === item.id}
           >
             {item.id}
           </WindowButton>

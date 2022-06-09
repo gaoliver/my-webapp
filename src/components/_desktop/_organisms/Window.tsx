@@ -4,12 +4,16 @@ import { WindowButton } from 'src/components/_desktop/_atoms';
 import { IoClose, IoExpand, IoRemove } from 'react-icons/io5';
 import { colors } from 'src/constants/colors';
 import { rgba } from 'polished';
-import { store, useAppSelector, windowOnFocus } from 'src/redux';
+import {
+  minimizeWindow,
+  store,
+  useAppSelector,
+  windowOnFocus
+} from 'src/redux';
 import { useDispatch } from 'react-redux';
 import { handleWindowPosition } from 'src/utils/handleWindowPosition';
 
 type WindowProps = {
-  onMinimize: (id: string) => void;
   onClose: (id: string) => void;
   title: string;
   id: string;
@@ -56,7 +60,6 @@ const HeaderTitle = styled.h3`
 export const Window: FC<WindowProps> = ({
   children,
   onClose,
-  onMinimize,
   title,
   id
 }) => {
@@ -69,12 +72,6 @@ export const Window: FC<WindowProps> = ({
 
   const theme = useTheme();
   const windowRef = useRef<HTMLDivElement>(null);
-
-  window.addEventListener('click', (e) => {
-    if (e.target == null) {
-      dispatch(windowOnFocus(''));
-    }
-  });
 
   function toggleVisibility() {
     if (!windowRef.current) return;
@@ -173,6 +170,7 @@ export const Window: FC<WindowProps> = ({
     handleTransition();
 
     if (!isMinimized) {
+      dispatch(windowOnFocus(id))
       return (windowRef.current.style.transform = `translateY(0px)`);
     }
 
@@ -210,7 +208,7 @@ export const Window: FC<WindowProps> = ({
     >
       <HeaderWindow onMouseDown={handleDragElement}>
         <HeaderTitle>{title}</HeaderTitle>
-        <WindowButton onClick={() => onMinimize(id)}>
+        <WindowButton onClick={() => dispatch(minimizeWindow(id))}>
           <IoRemove size={20} color={theme.text} />
         </WindowButton>
         <WindowButton onClick={onResizeWindow}>

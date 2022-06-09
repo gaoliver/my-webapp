@@ -52,7 +52,6 @@ export const Desktop: FC = () => {
               id={window.id}
               title={window.title}
               onClose={onCloseWindow}
-              onMinimize={handleToggleWindow}
             >
               {window.content}
             </Window>
