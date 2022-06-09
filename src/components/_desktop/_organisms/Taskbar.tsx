@@ -83,7 +83,6 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
     filteredList.forEach((window) => dispatch(minimizeWindow(window.id)));
 
     dispatch(windowOnFocus(''));
-    dispatch('');
   }
 
   const RenderList = () => {
