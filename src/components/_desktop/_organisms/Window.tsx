@@ -229,6 +229,7 @@ export const Window: FC<WindowProps> = ({ children, onClose, title, id }) => {
       isFullSize={fullSize}
       style={{ top: position.y1, left: position.x1 }}
       onClick={() => dispatch(windowOnFocus(id))}
+      onDoubleClick={onResizeWindow}
     >
       <HeaderWindow onMouseDown={handleDragElement}>
         <HeaderTitle>{title}</HeaderTitle>
