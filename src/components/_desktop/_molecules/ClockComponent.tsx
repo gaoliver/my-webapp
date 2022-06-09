@@ -22,8 +22,8 @@ export const ClockComponent = () => {
   const [dateTime, setDateTime] = useState<DateTimeProps>();
 
   const updateDateTime = () => {
-    const setDate = moment().format('D/MM/YYYY');
-    const setTime = moment().format('H:mm:ss');
+    const setDate = moment().format('DD/MM/YYYY');
+    const setTime = moment().format('HH:mm:ss');
 
     setDateTime({ date: setDate, time: setTime });
   };
