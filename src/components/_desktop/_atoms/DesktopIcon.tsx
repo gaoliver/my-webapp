@@ -77,7 +77,7 @@ export const DesktopIcon: FC<DesktopIconProps> = ({
   }
 
   function openWindow() {
-    dispatch(addNewWindow(id, label, children));
+    dispatch(addNewWindow(id, label, children as JSX.Element));
     iconRef.current?.classList.remove('selected');
   }
 

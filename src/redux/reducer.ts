@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { ReactNode } from 'react';
 import { light } from 'src/styles';
 import { Theme } from 'src/styles/styled';
 import { MyInfoModel, PortfolioModel, ToolsModel } from '../interfaces';
@@ -9,7 +8,7 @@ export type WindowListProps = {
   id: string;
   title: string;
   minimized: boolean;
-  content: ReactNode;
+  content: JSX.Element;
 };
 
 interface InitialStateModel {

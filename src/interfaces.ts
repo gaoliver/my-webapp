@@ -50,6 +50,14 @@ export interface MyInfoModel {
   company: string;
   city: string;
   country: string;
+  social: SocialNetwork[]
+}
+
+export type SocialNetwork = {
+  id: string
+      title: string
+      url: string
+      image: string
 }
 
 export interface Props {

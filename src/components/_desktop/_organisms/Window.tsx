@@ -38,6 +38,12 @@ const WindowWrapper = styled.div<
   filter: brightness(
     ${(props) => (store.getState().windowOnFocus === props.id ? '1' : '0.9')}
   );
+
+  .window--content {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+  }
 `;
 
 const HeaderWindow = styled.div`
@@ -233,7 +239,7 @@ export const Window: FC<WindowProps> = ({ children, onClose, title, id }) => {
           <IoClose size={20} color={theme.text} />
         </WindowButton>
       </HeaderWindow>
-      {children}
+      <div className="window--content">{children}</div>
     </WindowWrapper>
   );
 };

@@ -14,6 +14,9 @@ import {
 } from 'src/redux';
 import { useDispatch } from 'react-redux';
 import { BsFillCaretUpFill } from 'react-icons/bs';
+import { EmbedModel } from './EmbedModel';
+import { IconOption } from 'src/constants/icons';
+import { SocialNetwork } from 'src/interfaces';
 
 type TaskbarProps = {
   windowsList: WindowListProps[];
@@ -56,7 +59,7 @@ const WindowButton = styled.button<
 
   :hover {
     cursor: pointer;
-    background-color: ${props => props.theme.window}
+    background-color: ${(props) => props.theme.window};
   }
 `;
 
@@ -65,12 +68,8 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
   const { MYINFO } = store.getState();
   const theme = useTheme();
 
-  const linkedinContent = () => {
-    return <>LinkedIn</>;
-  };
-
-  const instagramContent = () => {
-    return <>Instagram</>;
+  const renderSocialContent = (social: SocialNetwork) => {
+    return <EmbedModel url={social.url} icon={social.image} notWorking />;
   };
 
   function openWindow(id: string, title: string, content: JSX.Element) {
@@ -115,28 +114,20 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
           style={{ opacity: 0.9 }}
         />
       </TaskbarIcon>
-      <TaskbarIcon
-        onClick={() =>
-          openWindow(
-            'instagram',
-            `${MYINFO?.name} - Instagram`,
-            instagramContent()
-          )
-        }
-      >
-        <Icon icon="instagram" height="30px" />
-      </TaskbarIcon>
-      <TaskbarIcon
-        onClick={() =>
-          openWindow(
-            'linkedin',
-            `${MYINFO?.name} - LinkedIn`,
-            linkedinContent()
-          )
-        }
-      >
-        <Icon icon="linkedin" height="30px" />
-      </TaskbarIcon>
+      {MYINFO?.social.map((social) => (
+        <TaskbarIcon
+          key={social.id}
+          onClick={() =>
+            openWindow(
+              social.id,
+              `${MYINFO?.name} - ${social.title}`,
+              renderSocialContent(social)
+            )
+          }
+        >
+          <Icon icon={social.image as IconOption} height="30px" />
+        </TaskbarIcon>
+      ))}
       <WindowsListWrapper>
         <RenderList />
       </WindowsListWrapper>
@@ -148,7 +139,10 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
           right: 0
         }}
       >
-        <TaskbarIcon onClick={() => dispatch(toggleTaskSettings())} style={{ minWidth: 30 }}>
+        <TaskbarIcon
+          onClick={() => dispatch(toggleTaskSettings())}
+          style={{ minWidth: 30 }}
+        >
           <BsFillCaretUpFill color={rgba(theme.text, 0.5)} />
         </TaskbarIcon>
         <TaskbarIcon>
