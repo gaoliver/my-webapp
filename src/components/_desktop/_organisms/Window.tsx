@@ -55,14 +55,10 @@ const HeaderTitle = styled.h3`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  user-select: none;
 `;
 
-export const Window: FC<WindowProps> = ({
-  children,
-  onClose,
-  title,
-  id
-}) => {
+export const Window: FC<WindowProps> = ({ children, onClose, title, id }) => {
   const [position, setPosition] = useState({ x1: 300, y1: 70, x2: 0, y2: 0 });
   const [fullSize, setFullSize] = useState<boolean>(false);
   const { windowsList } = useAppSelector((state) => state);
@@ -91,6 +87,7 @@ export const Window: FC<WindowProps> = ({
   function limiter(pos: number, direction: 'X' | 'Y') {
     const rightLimit =
       window.screen.width - (windowRef.current?.offsetWidth || 0);
+    const leftLimit = 0;
     const topLimit = 0;
     const bottomLimit =
       (document.getElementById('taskbar')?.offsetTop || 0) -
@@ -99,12 +96,16 @@ export const Window: FC<WindowProps> = ({
     if (!windowRef.current) return 0;
 
     if (direction === 'X') {
-      return Math.min(pos - position.x2, rightLimit);
+      if (windowRef.current.offsetLeft <= leftLimit) {
+        return Math.max(pos, leftLimit);
+      }
+      return Math.min(pos, rightLimit);
     }
 
     if (windowRef.current.offsetTop <= topLimit) {
       return Math.max(pos - position.y2, topLimit);
     }
+
     return Math.min(pos - position.y2, bottomLimit);
   }
 
@@ -116,6 +117,8 @@ export const Window: FC<WindowProps> = ({
 
     document.addEventListener('mouseup', closeDragging);
     document.addEventListener('mousemove', handleDragging);
+
+    dispatch(windowOnFocus(id));
   }
 
   function handleDragging(e: MouseEvent) {
@@ -124,8 +127,8 @@ export const Window: FC<WindowProps> = ({
 
     setPosition((pos) => ({
       ...pos,
-      x1: limiter(e.clientX, 'X'),
-      y1: limiter(e.clientY, 'Y')
+      x1: limiter(e.clientX - (pos.x2 - position.x1), 'X'),
+      y1: limiter(e.clientY - (pos.y2 - position.y1), 'Y')
     }));
   }
 
@@ -170,7 +173,7 @@ export const Window: FC<WindowProps> = ({
     handleTransition();
 
     if (!isMinimized) {
-      dispatch(windowOnFocus(id))
+      dispatch(windowOnFocus(id));
       return (windowRef.current.style.transform = `translateY(0px)`);
     }
 
