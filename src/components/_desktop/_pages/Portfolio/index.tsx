@@ -6,7 +6,6 @@ import { ProjectContent } from './ProjectContent';
 
 const PortfolioWrapper = styled.section`
   display: block;
-  justify-content: flex-start;
   width: 100%;
   height: 100%;
 `;

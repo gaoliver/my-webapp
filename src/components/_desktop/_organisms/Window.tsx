@@ -37,7 +37,7 @@ const WindowWrapper = styled.article<
     darken(props.theme === light ? 0.05 : 0, props.theme.window)};
   border: 0.5px solid ${colors.black};
   filter: brightness(
-    ${(props) => (store.getState().windowOnFocus === props.id ? '1' : '0.9')}
+    ${(props) => (store.getState().windowOnFocus === props.id ? '1' : '0.8')}
   );
 
   .window--content {
