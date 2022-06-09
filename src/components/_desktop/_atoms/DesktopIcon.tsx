@@ -14,12 +14,12 @@ export type DesktopIconProps = {
 const DesktopIconWrapper = styled.button`
   display: flex;
   flex-direction: column;
-  width: 100px;
+  width: 110px;
   height: 120px;
   align-items: center;
   justify-content: space-between;
   margin: 5px;
-  padding: 5px;
+  padding: 10px;
   border: none;
   background-color: transparent;
 
@@ -70,6 +70,7 @@ export const DesktopIcon: FC<DesktopIconProps> = ({
 
   function openWindow() {
     dispatch(addNewWindow(id, label, children));
+    iconRef.current?.classList.remove('selected');
   }
 
   return (

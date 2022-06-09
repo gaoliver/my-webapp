@@ -48,6 +48,10 @@ const WindowButton = styled.button<
   border: none;
   font-size: 1.2rem;
   transition: ease-in-out 0.3s;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
   :hover {
     cursor: pointer;
     background-color: ${(props) => rgba(props.theme.window, 0.3)};
@@ -85,7 +89,7 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
                 : store.getState().windowOnFocus === item.id
             }
           >
-            {item.id}
+            {item.title}
           </WindowButton>
         ))}
       </>
