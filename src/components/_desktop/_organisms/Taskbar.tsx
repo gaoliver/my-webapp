@@ -30,16 +30,17 @@ const TaskbarWrapper = styled.div`
 
 const WindowsListWrapper = styled.div`
   display: flex;
-  width: 80%;
+  width: 75%;
   height: 100%;
-  margin-left: 10px;
+  overflow: scroll;
 `;
 
 const WindowButton = styled.button<
-  HTMLAttributes<HTMLButtonElement> & { isActive: boolean }
->`
+  HTMLAttributes<HTMLButtonElement> & { isActive: boolean }>`
   padding: 0 25px;
+  flex: 1;
   height: 100%;
+  max-width: 25%;
   color: ${(props) => rgba(props.theme.text, props.isActive ? 1 : 0.7)};
   background-color: ${(props) =>
     props.isActive ? props.theme.window : 'transparent'};
