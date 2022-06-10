@@ -6,6 +6,10 @@
   "company": "DEPT®",
   "city": "Rotterdam",
   "country": "NL",
+  "contact": {
+    "telephone": "31651564209",
+    "email": "gabriel.o.c.ramos@gmail.com"
+  },
   "social": [
     {
       "id": "linkedin",
