@@ -1,12 +1,18 @@
 import { rgba } from 'polished';
 import React, { FC, useEffect } from 'react';
 import styled from 'styled-components';
-import { AppScreen, Portfolio, ScreenIcon, Taskbar } from './components/_mobile';
+import {
+  AppScreen,
+  Portfolio,
+  ScreenIcon,
+  Taskbar
+} from './components/_mobile';
 
 import blackIcon from 'src/assets/images/GabrielRamos-blackIcon.png';
 import folderIcon from 'src/assets/images/folder.png';
 import EmailIcon from 'src/assets/images/email.png';
 import {
+  closeAllApps,
   closeWindow,
   getInfo,
   getPortfolio,
@@ -51,6 +57,10 @@ export const Mobile: FC = () => {
     dispatch(closeWindow(id));
   }
 
+  function goToHome() {
+    dispatch(closeAllApps());
+  }
+
   function handleSocialImage(id: SocialOptions) {
     switch (id) {
       case 'github':
@@ -76,16 +86,16 @@ export const Mobile: FC = () => {
     <ScreenWrapper>
       <InnerPage>
         <FolderIconContainer>
-          <ScreenIcon id="about-me" imageSource={blackIcon} label="About me asdv asdv asdv asdv ">
+          <ScreenIcon
+            id="about-me"
+            imageSource={blackIcon}
+            label="About me asdv asdv asdv asdv "
+          >
             <AboutMe />
           </ScreenIcon>
         </FolderIconContainer>
         <FolderIconContainer>
-          <ScreenIcon
-            id="portfolio"
-            imageSource={folderIcon}
-            label="Portfolio"
-          >
+          <ScreenIcon id="portfolio" imageSource={folderIcon} label="Portfolio">
             <Portfolio />
           </ScreenIcon>
         </FolderIconContainer>
@@ -121,8 +131,8 @@ export const Mobile: FC = () => {
       })}
 
       <Taskbar
-        onBack={() => onCloseWindow(windowsList[0].id)}
-        onHome={() => onCloseWindow(windowsList[0].id)}
+        onBack={() => onCloseWindow(windowsList[windowsList.length - 1].id)}
+        onHome={goToHome}
       />
     </ScreenWrapper>
   );

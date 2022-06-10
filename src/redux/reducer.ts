@@ -125,6 +125,12 @@ export const reducer = (
         lastType: action.type,
         windowsList: action.payload
       };
+    case 'CLOSE_ALL_APP':
+      return {
+        ...state,
+        lastType: action.type,
+        windowsList: []
+      };
     case 'TOGGLE_TASK_SETTINGS':
       return {
         ...state,
