@@ -9,7 +9,7 @@ import { taskbarIconsShadow } from 'src/constants/taskbarIconsShadow';
 import { useDispatch } from 'react-redux';
 import { toggleTheme } from 'src/redux';
 
-const TaskbarWrapper = styled.nav`
+const TaskbarWrapper = styled.footer`
   display: flex;
   position: fixed;
   align-items: center;

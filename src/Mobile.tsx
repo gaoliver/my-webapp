@@ -1,22 +1,57 @@
 import { rgba } from 'polished';
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { Taskbar } from './components/_mobile';
+import { ScreenIcon, Taskbar } from './components/_mobile';
 
-const PageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+import blackIcon from 'src/assets/images/GabrielRamos-blackIcon.png';
+import folderIcon from 'src/assets/images/folder.png';
+import EmailIcon from 'src/assets/images/email.png';
+
+const ScreenWrapper = styled.div`
+  display: block;
   overflow: hidden;
-  height: ${screen.availHeight}px;
+  height: 100vh;
   width: 100%;
-  background-color: ${(props) => rgba(props.theme.primary, 0.5)};
+  background-color: ${(props) => rgba(props.theme.primary, 0.4)};
+`;
+
+const InnerPage = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+`;
+
+const FolderIconContainer = styled.div`
+  display: inline-block;
 `;
 
 export const Mobile: FC = () => {
   return (
-    <PageWrapper>
-      <div>Mobile</div>
+    <ScreenWrapper>
+      <InnerPage>
+        <FolderIconContainer>
+          <ScreenIcon
+            id="about-me"
+            imageSource={blackIcon}
+            label="About me"
+          ></ScreenIcon>
+        </FolderIconContainer>
+        <FolderIconContainer>
+          <ScreenIcon
+            id="portfolio"
+            imageSource={folderIcon}
+            label="Portfolio"
+          ></ScreenIcon>
+        </FolderIconContainer>
+        <FolderIconContainer>
+          <ScreenIcon
+            id="contact"
+            imageSource={EmailIcon}
+            label="Contact"
+          ></ScreenIcon>
+        </FolderIconContainer>
+      </InnerPage>
       <Taskbar />
-    </PageWrapper>
+    </ScreenWrapper>
   );
 };

@@ -27,7 +27,7 @@ type TaskbarProps = {
   onClickWindow: (id: string) => void;
 };
 
-const TaskbarWrapper = styled.div`
+const TaskbarWrapper = styled.footer`
   display: flex;
   flex-direction: row;
   align-items: center;
