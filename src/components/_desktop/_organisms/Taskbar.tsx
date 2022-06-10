@@ -52,7 +52,7 @@ const WindowButton = styled.button<
   background-color: ${(props) =>
     props.isActive ? props.theme.window : 'transparent'};
   border: none;
-  font-size: ${fonts.button.fontSize};
+  font-size: ${fonts.body.fontSize};
   transition: ease-in-out 0.3s;
   text-overflow: ellipsis;
   overflow: hidden;
