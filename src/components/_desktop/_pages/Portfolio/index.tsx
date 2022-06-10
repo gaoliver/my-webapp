@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { DesktopIcon } from '../../_atoms';
+import { FolderIcon } from '../../_atoms';
 import { useAppSelector } from 'src/redux';
 import { ProjectContent } from './ProjectContent';
 
@@ -10,7 +10,7 @@ const PortfolioWrapper = styled.section`
   height: 100%;
 `;
 
-const DesktopIconContainer = styled.div`
+const FolderIconContainer = styled.div`
   display: inline-block;
 `;
 
@@ -20,15 +20,15 @@ export const Portfolio = () => {
   return (
     <PortfolioWrapper>
       {PORTFOLIO?.map((project) => (
-        <DesktopIconContainer key={project.id}>
-          <DesktopIcon
+        <FolderIconContainer key={project.id}>
+          <FolderIcon
             id={project.slug}
             label={project.name}
             imageSource={project.mainImage}
           >
             <ProjectContent project={project} />
-          </DesktopIcon>
-        </DesktopIconContainer>
+          </FolderIcon>
+        </FolderIconContainer>
       ))}
     </PortfolioWrapper>
   );

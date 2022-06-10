@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { PortfolioModel } from 'src/interfaces';
 import listFormatter from 'src/utils/listFormatter';
 import styled from 'styled-components';
-import { Button, DesktopIcon } from '../../_atoms';
+import { Button, FolderIcon } from '../../_atoms';
 
 export type ProjectContentProps = {
   project: PortfolioModel;
@@ -130,13 +130,13 @@ export const ProjectContent: FC<ProjectContentProps> = ({ project }) => {
 
         {translator.images.map((image, index) => (
           <div className="project--gallery-images" key={image}>
-            <DesktopIcon
+            <FolderIcon
               id={image}
               imageSource={image}
               label={`${project.name} - Image ${index + 1}`}
             >
               <ImageContainer style={{ backgroundImage: `url(${image})` }} />
-            </DesktopIcon>
+            </FolderIcon>
           </div>
         ))}
       </div>
