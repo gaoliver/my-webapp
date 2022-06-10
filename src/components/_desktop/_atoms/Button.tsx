@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, HTMLAttributes } from 'react';
 import { colors } from 'src/constants/colors';
 import { fonts } from 'src/constants/fonts';
 import styled from 'styled-components';
@@ -9,10 +9,12 @@ export type ButtonProps = {
   fontColor?: string;
 };
 
-const ButtonWrapper = styled.button`
+const ButtonWrapper = styled.button<
+  HTMLAttributes<HTMLButtonElement> & { fontSize?: string }
+>`
   padding: 15px 30px;
   background-color: ${(props) => props.color || props.theme.primary};
-  color: ${colors.white};
+  color: ${props => props.fontSize || colors.white};
   border-radius: 5px;
   border: none;
   transition: ease-in-out 0.1s;
