@@ -6,6 +6,8 @@ import styled, { useTheme } from 'styled-components';
 import { BiCircle, BiLeftArrow, BiSquareRounded } from 'react-icons/bi';
 import { dark } from 'src/styles';
 import { taskbarIconsShadow } from 'src/constants/taskbarIconsShadow';
+import { useDispatch } from 'react-redux';
+import { toggleTheme } from 'src/redux';
 
 const TaskbarWrapper = styled.nav`
   display: flex;
@@ -37,6 +39,8 @@ const MobileNavIcon = styled(TaskbarIcon)`
 `;
 
 export const Taskbar: FC = () => {
+  const dispatch = useDispatch();
+
   return (
     <TaskbarWrapper>
       <MobileNavIcon isMobile>
@@ -45,7 +49,7 @@ export const Taskbar: FC = () => {
       <MobileNavIcon isMobile>
         <BiCircle size={35} color={rgba(useTheme().text, 0.4)} />
       </MobileNavIcon>
-      <MobileNavIcon isMobile>
+      <MobileNavIcon isMobile onClick={() => dispatch(toggleTheme())}>
         <BiSquareRounded size={35} color={rgba(useTheme().text, 0.4)} />
       </MobileNavIcon>
     </TaskbarWrapper>
