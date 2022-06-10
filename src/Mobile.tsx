@@ -6,7 +6,13 @@ import { AppScreen, ScreenIcon, Taskbar } from './components/_mobile';
 import blackIcon from 'src/assets/images/GabrielRamos-blackIcon.png';
 import folderIcon from 'src/assets/images/folder.png';
 import EmailIcon from 'src/assets/images/email.png';
-import { closeWindow, getInfo, getPortfolio, getTools, useAppSelector } from './redux';
+import {
+  closeWindow,
+  getInfo,
+  getPortfolio,
+  getTools,
+  useAppSelector
+} from './redux';
 import { AboutMe } from './components/_shared';
 import { useDispatch } from 'react-redux';
 
@@ -78,7 +84,10 @@ export const Mobile: FC = () => {
         );
       })}
 
-      <Taskbar />
+      <Taskbar
+        onBack={() => onCloseWindow(windowsList[0].id)}
+        onHome={() => onCloseWindow(windowsList[0].id)}
+      />
     </ScreenWrapper>
   );
 };

@@ -2,11 +2,7 @@ import React, { FC, HTMLAttributes, useEffect, useRef } from 'react';
 import styled, { useTheme } from 'styled-components';
 import { WindowButton } from 'src/components/_desktop/_atoms';
 import { BiChevronLeft } from 'react-icons/bi';
-import {
-  store,
-  useAppSelector,
-  windowOnFocus
-} from 'src/redux';
+import { store, useAppSelector, windowOnFocus } from 'src/redux';
 import { useDispatch } from 'react-redux';
 import { darken, rgba } from 'polished';
 import { light } from 'src/styles';
@@ -79,28 +75,10 @@ export const AppScreen: FC<WindowProps> = ({
   title,
   id
 }) => {
-  const { windowsList } = useAppSelector((state) => state);
   const dispatch = useDispatch();
-  const windowItem = windowsList.find((item) => item.id === id);
-  const isMinimized = windowItem?.minimized;
 
   const theme = useTheme();
   const windowRef = useRef<HTMLDivElement>(null);
-
-  function toggleVisibility() {
-    if (!windowRef.current) return;
-
-    windowRef.current.style.transform = 'scale(1)';
-    windowRef.current.style.transition = 'none';
-
-    if (windowItem) {
-      windowRef.current.style.display = 'block';
-      dispatch(windowOnFocus(id));
-    } else {
-      windowRef.current.style.opacity = '0';
-      windowRef.current.style.display = 'block';
-    }
-  }
 
   function handleTransition() {
     if (!windowRef.current) return;

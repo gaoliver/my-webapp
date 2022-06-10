@@ -9,6 +9,17 @@ import { taskbarIconsShadow } from 'src/constants/taskbarIconsShadow';
 import { useDispatch } from 'react-redux';
 import { toggleTheme } from 'src/redux';
 
+type TaskbarMobileProps = {
+  onBack: () => void;
+  onHome: () => void;
+};
+
+enum ActionsNavigation {
+  BACK = 'Back',
+  HOME = 'Home',
+  TOOGLE = 'Toggle'
+}
+
 const TaskbarWrapper = styled.footer`
   display: flex;
   position: fixed;
@@ -38,18 +49,48 @@ const MobileNavIcon = styled(TaskbarIcon)`
   }
 `;
 
-export const Taskbar: FC = () => {
+export const Taskbar: FC<TaskbarMobileProps> = ({ onBack, onHome }) => {
   const dispatch = useDispatch();
+
+  function actionVibrate(action: ActionsNavigation) {
+    navigator.vibrate(10);
+
+    switch (action) {
+      case ActionsNavigation.TOOGLE:
+        dispatch(toggleTheme());
+        break;
+
+      case ActionsNavigation.HOME:
+        onHome()
+        break;
+
+      case ActionsNavigation.BACK:
+        onBack()
+        break;
+
+      default:
+        break;
+    }
+  }
 
   return (
     <TaskbarWrapper>
-      <MobileNavIcon isMobile>
+      <MobileNavIcon
+        isMobile
+        onClick={() => actionVibrate(ActionsNavigation.BACK)}
+      >
         <BiLeftArrow size={35} color={rgba(useTheme().text, 0.4)} />
       </MobileNavIcon>
-      <MobileNavIcon isMobile>
+      <MobileNavIcon
+        isMobile
+        onClick={() => actionVibrate(ActionsNavigation.HOME)}
+      >
         <BiCircle size={35} color={rgba(useTheme().text, 0.4)} />
       </MobileNavIcon>
-      <MobileNavIcon isMobile onClick={() => dispatch(toggleTheme())}>
+      <MobileNavIcon
+        isMobile
+        onClick={() => actionVibrate(ActionsNavigation.TOOGLE)}
+      >
         <BiSquareRounded size={35} color={rgba(useTheme().text, 0.4)} />
       </MobileNavIcon>
     </TaskbarWrapper>
