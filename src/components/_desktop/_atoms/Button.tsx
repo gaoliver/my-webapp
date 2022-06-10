@@ -10,11 +10,11 @@ export type ButtonProps = {
 };
 
 const ButtonWrapper = styled.button<
-  HTMLAttributes<HTMLButtonElement> & { fontSize?: string }
+  HTMLAttributes<HTMLButtonElement> & { fontColor?: string }
 >`
   padding: 15px 30px;
   background-color: ${(props) => props.color || props.theme.primary};
-  color: ${props => props.fontSize || colors.white};
+  color: ${props => props.fontColor || colors.white};
   border-radius: 5px;
   border: none;
   transition: ease-in-out 0.1s;
