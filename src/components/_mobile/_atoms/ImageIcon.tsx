@@ -15,9 +15,9 @@ type ScreenIconProps = {
 const ScreenIconWrapper = styled.button`
   display: flex;
   flex-direction: column;
-  width: ${window.screen.width / 5}px;
+  width: ${window.screen.width / 3.5}px;
   aspect-ratio: 0;
-  margin: 10px 0;
+  margin: 5px;
   border: none;
   background-color: transparent;
   user-select: none;
@@ -28,25 +28,10 @@ const ScreenIconImage = styled.img`
   width: 100%;
   aspect-ratio: 1;
   background-color: ${colors.white};
-  padding: 10px;
-  border-radius: 15px;
-  object-fit: contain;
+  object-fit: cover;
 `;
 
-const LabelStyled = styled.span`
-  width: 100%;
-  flex: 1;
-  margin-top: 5px;
-  color: ${props => props.theme.text};
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  ${fonts.label}
-`;
-
-export const FolderScreenIcon: FC<ScreenIconProps> = ({
+export const ImageIcon: FC<ScreenIconProps> = ({
   id,
   imageSource,
   label,
@@ -65,7 +50,6 @@ export const FolderScreenIcon: FC<ScreenIconProps> = ({
   return (
     <ScreenIconWrapper onClick={openWindow}>
       <ScreenIconImage src={imageSource} />
-      <LabelStyled>{label}</LabelStyled>
     </ScreenIconWrapper>
   );
 };

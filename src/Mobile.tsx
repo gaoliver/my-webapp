@@ -1,7 +1,7 @@
 import { rgba } from 'polished';
 import React, { FC, useEffect } from 'react';
 import styled from 'styled-components';
-import { AppScreen, ScreenIcon, Taskbar } from './components/_mobile';
+import { AppScreen, Portfolio, ScreenIcon, Taskbar } from './components/_mobile';
 
 import blackIcon from 'src/assets/images/GabrielRamos-blackIcon.png';
 import folderIcon from 'src/assets/images/folder.png';
@@ -76,7 +76,7 @@ export const Mobile: FC = () => {
     <ScreenWrapper>
       <InnerPage>
         <FolderIconContainer>
-          <ScreenIcon id="about-me" imageSource={blackIcon} label="About me">
+          <ScreenIcon id="about-me" imageSource={blackIcon} label="About me asdv asdv asdv asdv ">
             <AboutMe />
           </ScreenIcon>
         </FolderIconContainer>
@@ -85,7 +85,9 @@ export const Mobile: FC = () => {
             id="portfolio"
             imageSource={folderIcon}
             label="Portfolio"
-          ></ScreenIcon>
+          >
+            <Portfolio />
+          </ScreenIcon>
         </FolderIconContainer>
         <FolderIconContainer>
           <ScreenIcon id="contact" imageSource={EmailIcon} label="Contact">
