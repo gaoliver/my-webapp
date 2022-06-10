@@ -25,9 +25,12 @@ const ScreenWrapper = styled.div`
 `;
 
 const InnerPage = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, ${window.screen.width / 3}px);
+  grid-template-rows: 140px 1fr 1fr;
   width: 100%;
   height: 100%;
-  padding: 15px 10px;
+  padding: 15px ${window.screen.width / 15}px;
 `;
 
 const FolderIconContainer = styled.div`
@@ -51,7 +54,11 @@ export const Mobile: FC = () => {
     <ScreenWrapper>
       <InnerPage>
         <FolderIconContainer>
-          <ScreenIcon id="about-me" imageSource={blackIcon} label="About me asdvas asdvasdv asdv">
+          <ScreenIcon
+            id="about-me"
+            imageSource={blackIcon}
+            label="About me"
+          >
             <AboutMe />
           </ScreenIcon>
         </FolderIconContainer>
