@@ -50,15 +50,21 @@ export interface MyInfoModel {
   company: string;
   city: string;
   country: string;
-  social: SocialNetwork[]
+  contact: ContactModel;
+  social: SocialNetwork[];
 }
 
+export type ContactModel = {
+  telephone: string;
+  email: string;
+};
+
 export type SocialNetwork = {
-  id: string
-      title: string
-      url: string
-      image: string
-}
+  id: string;
+  title: string;
+  url: string;
+  image: string;
+};
 
 export interface Props {
   currentTheme?: unknown;

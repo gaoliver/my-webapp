@@ -27,10 +27,10 @@ const ButtonWrapper = styled.button`
   }
 `;
 
-export const Button: FC<ButtonProps> = ({ label, ...props }) => {
+export const Button: FC<ButtonProps> = ({ label, children, ...props }) => {
   return (
     <ButtonWrapper style={{ ...fonts.button }} type="button" {...props}>
-      {label}
+      {label}{children}
     </ButtonWrapper>
   );
 };
