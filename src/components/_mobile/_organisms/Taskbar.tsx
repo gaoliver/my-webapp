@@ -2,7 +2,7 @@ import { rgba } from 'polished';
 import React, { FC } from 'react';
 import { TaskbarIcon } from 'src/components/_shared';
 import { colors } from 'src/constants/colors';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 import { BiCircle, BiLeftArrow, BiSquareRounded } from 'react-icons/bi';
 import { dark } from 'src/styles';
 import { taskbarIconsShadow } from 'src/constants/taskbarIconsShadow';
@@ -40,13 +40,13 @@ export const Taskbar: FC = () => {
   return (
     <TaskbarWrapper>
       <MobileNavIcon isMobile>
-        <BiLeftArrow size={35} />
+        <BiLeftArrow size={35} color={rgba(useTheme().text, 0.4)} />
       </MobileNavIcon>
       <MobileNavIcon isMobile>
-        <BiCircle size={35} />
+        <BiCircle size={35} color={rgba(useTheme().text, 0.4)} />
       </MobileNavIcon>
       <MobileNavIcon isMobile>
-        <BiSquareRounded size={35} />
+        <BiSquareRounded size={35} color={rgba(useTheme().text, 0.4)} />
       </MobileNavIcon>
     </TaskbarWrapper>
   );
