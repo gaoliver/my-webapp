@@ -42,7 +42,16 @@ const WindowWrapper = styled.article<
     width: 100%;
     height: 90%;
     overflow: scroll;
-    padding-bottom: 100px;
+
+    section {
+      padding-bottom: 100px;
+    }
+
+    #contact-page {
+      p, button {
+        width: 350px
+      }
+    }
   }
 `;
 

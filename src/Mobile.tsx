@@ -13,7 +13,7 @@ import {
   getTools,
   useAppSelector
 } from './redux';
-import { AboutMe } from './components/_shared';
+import { AboutMe, Contact } from './components/_shared';
 import { useDispatch } from 'react-redux';
 
 const ScreenWrapper = styled.div`
@@ -74,14 +74,9 @@ export const Mobile: FC = () => {
             id="contact"
             imageSource={EmailIcon}
             label="Contact"
-          ></ScreenIcon>
-        </FolderIconContainer>
-        <FolderIconContainer>
-          <ScreenIcon
-            id="contact"
-            imageSource={EmailIcon}
-            label="Contact"
-          ></ScreenIcon>
+          >
+            <Contact />
+          </ScreenIcon>
         </FolderIconContainer>
       </InnerPage>
 
