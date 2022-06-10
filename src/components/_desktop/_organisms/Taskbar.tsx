@@ -39,7 +39,7 @@ const TaskbarWrapper = styled.footer`
 
 const WindowsListWrapper = styled.div`
   display: flex;
-  width: 75%;
+  width: 73%;
   height: 100%;
   overflow: scroll;
   align-items: center;
