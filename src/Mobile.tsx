@@ -13,8 +13,14 @@ import {
   getTools,
   useAppSelector
 } from './redux';
-import { AboutMe, Contact } from './components/_shared';
+import { AboutMe, Contact, EmbedModel } from './components/_shared';
 import { useDispatch } from 'react-redux';
+
+import Instagram from 'src/assets/svg/instagram.svg';
+import LinkedIn from 'src/assets/svg/linkedin.svg';
+import GitHub from 'src/assets/svg/github.svg';
+
+type SocialOptions = 'instagram' | 'linkedin' | 'github';
 
 const ScreenWrapper = styled.div`
   display: block;
@@ -39,10 +45,26 @@ const FolderIconContainer = styled.div`
 
 export const Mobile: FC = () => {
   const dispatch = useDispatch();
-  const { windowsList } = useAppSelector((state) => state);
+  const { windowsList, MYINFO } = useAppSelector((state) => state);
 
   function onCloseWindow(id: string) {
     dispatch(closeWindow(id));
+  }
+
+  function handleSocialImage(id: SocialOptions) {
+    switch (id) {
+      case 'github':
+        return GitHub;
+
+      case 'instagram':
+        return Instagram;
+
+      case 'linkedin':
+        return LinkedIn;
+
+      default:
+        return '';
+    }
   }
 
   useEffect(() => {
@@ -54,11 +76,7 @@ export const Mobile: FC = () => {
     <ScreenWrapper>
       <InnerPage>
         <FolderIconContainer>
-          <ScreenIcon
-            id="about-me"
-            imageSource={blackIcon}
-            label="About me"
-          >
+          <ScreenIcon id="about-me" imageSource={blackIcon} label="About me">
             <AboutMe />
           </ScreenIcon>
         </FolderIconContainer>
@@ -70,14 +88,21 @@ export const Mobile: FC = () => {
           ></ScreenIcon>
         </FolderIconContainer>
         <FolderIconContainer>
-          <ScreenIcon
-            id="contact"
-            imageSource={EmailIcon}
-            label="Contact"
-          >
+          <ScreenIcon id="contact" imageSource={EmailIcon} label="Contact">
             <Contact />
           </ScreenIcon>
         </FolderIconContainer>
+        {MYINFO?.social.map((social) => (
+          <FolderIconContainer key={social.id}>
+            <ScreenIcon
+              id={social.id}
+              label={social.title}
+              imageSource={handleSocialImage(social.id as SocialOptions)}
+            >
+              <EmbedModel url={social.url} icon={social.id} notWorking />
+            </ScreenIcon>
+          </FolderIconContainer>
+        ))}
       </InnerPage>
 
       {windowsList.map((window) => {
