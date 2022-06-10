@@ -3,7 +3,8 @@ import {
   Window,
   TaskSettings,
   DesktopIcon,
-  Portfolio
+  Portfolio,
+  Contact
 } from 'src/components/_desktop';
 import { rgba } from 'polished';
 import React, { FC, useEffect } from 'react';
@@ -22,6 +23,7 @@ import { AboutMe } from './components/_shared';
 
 import whiteIcon from 'src/assets/images/GabrielRamos-whiteIcon.png';
 import folderIcon from 'src/assets/images/folder.png';
+import EmailIcon from 'src/assets/images/email.png';
 
 const PageWrapper = styled.div`
   display: flex;
@@ -31,10 +33,6 @@ const PageWrapper = styled.div`
   height: 100vh;
   width: 100%;
   background-color: ${(props) => rgba(props.theme.primary, 0.7)};
-  ::selection {
-    height: auto;
-    background-color: aliceblue;
-  }
 `;
 
 const HomeInfoWrapper = styled.div`
@@ -50,6 +48,11 @@ const HomeInfoWrapper = styled.div`
   justify-content: center;
   color: ${(props) => props.theme.window};
   user-select: none;
+`;
+
+const DesktopWrapper = styled.article`
+  flex: 1;
+  position: relative;
 `;
 
 export const Desktop: FC = () => {
@@ -77,19 +80,17 @@ export const Desktop: FC = () => {
         <h2>{MYINFO?.position}</h2>
         <h3>{`@ ${MYINFO?.company}`}</h3>
       </HomeInfoWrapper>
-      <div
-        id="desktop"
-        style={{
-          flex: 1,
-          position: 'relative'
-        }}
-      >
+      <DesktopWrapper id="desktop">
         <DesktopIcon label="About me" imageSource={whiteIcon} id="about_me">
           <AboutMe />
         </DesktopIcon>
         <DesktopIcon label="Portfolio" imageSource={folderIcon} id="portfolio">
           <Portfolio />
         </DesktopIcon>
+        <DesktopIcon label="Contact" imageSource={EmailIcon} id="contact">
+          <Contact />
+        </DesktopIcon>
+
         {windowsList.map((window) => {
           return (
             <Window
@@ -103,7 +104,7 @@ export const Desktop: FC = () => {
           );
         })}
         <TaskSettings />
-      </div>
+      </DesktopWrapper>
       <Taskbar windowsList={windowsList} onClickWindow={handleToggleWindow} />
     </PageWrapper>
   );

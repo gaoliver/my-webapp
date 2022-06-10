@@ -18,6 +18,9 @@ import { EmbedModel } from './EmbedModel';
 import { IconOption } from 'src/constants/icons';
 import { SocialNetwork } from 'src/interfaces';
 import { fonts } from 'src/constants/fonts';
+import { colors } from 'src/constants/colors';
+import { taskbarIconsShadow } from 'src/constants/taskbarIconsShadow';
+import { dark } from 'src/styles';
 
 type TaskbarProps = {
   windowsList: WindowListProps[];
@@ -39,29 +42,28 @@ const WindowsListWrapper = styled.div`
   width: 75%;
   height: 100%;
   overflow: scroll;
+  align-items: center;
 `;
 
-const WindowButton = styled.button<
-  HTMLAttributes<HTMLButtonElement> & { isActive: boolean }
+const WindowButton = styled(TaskbarIcon)<
+  typeof TaskbarIcon & { isActive: boolean }
 >`
-  padding: 0 25px;
   flex: 1;
-  height: 100%;
   max-width: 25%;
-  color: ${(props) => rgba(props.theme.text, props.isActive ? 1 : 0.7)};
+  color: ${(props) => rgba(props.theme.text, props.isActive ? 1 : 0.8)};
   background-color: ${(props) =>
     props.isActive ? props.theme.window : 'transparent'};
   border: none;
   font-size: ${fonts.body.fontSize};
-  transition: ease-in-out 0.3s;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-
-  :hover {
-    cursor: pointer;
-    background-color: ${(props) => props.theme.window};
-  }
+  ${(props) => props.isActive && taskbarIconsShadow}
+  ${(props) =>
+    props.theme === dark &&
+    props.isActive && {
+      border: `0.5px solid ${rgba(colors.white, 0.5)}`
+    }}
 `;
 
 export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
@@ -112,7 +114,7 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
           icon="logo-transparent"
           height="35px"
           color={useTheme().text}
-          style={{ opacity: 0.9 }}
+          style={{ opacity: 0.9, top: '3px' }}
         />
       </TaskbarIcon>
       {MYINFO?.social.map((social) => (
@@ -127,7 +129,7 @@ export const Taskbar: FC<TaskbarProps> = ({ windowsList, onClickWindow }) => {
             )
           }
         >
-          <Icon icon={social.image as IconOption} height="30px" />
+          <Icon icon={social.image as IconOption} height="100%" />
         </TaskbarIcon>
       ))}
       <WindowsListWrapper>
