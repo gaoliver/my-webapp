@@ -12,7 +12,7 @@ const TaskSettingsWrapper = styled.div`
   border-radius: 5px;
   background-color: ${(props) => props.theme.window};
   bottom: 5px;
-  right: 70px;
+  right: 90px;
   transition: ease-in-out 0.3s;
 `;
 
