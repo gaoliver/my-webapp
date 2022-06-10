@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import { colors } from 'src/constants/colors';
 import { fonts } from 'src/constants/fonts';
+import { addNewWindow } from 'src/redux';
+import { useDispatch } from 'react-redux';
 
 export type ScreenIconProps = {
   imageSource: string;
@@ -50,12 +52,18 @@ export const ScreenIcon: FC<ScreenIconProps> = ({
   label,
   children
 }) => {
+  const dispatch = useDispatch();
+
   document.addEventListener('contextmenu', function (event) {
     event.preventDefault();
   });
 
+  function openWindow() {
+    dispatch(addNewWindow(id, label, children as JSX.Element));
+  }
+
   return (
-    <ScreenIconWrapper>
+    <ScreenIconWrapper onClick={openWindow}>
       <ScreenIconImage src={imageSource} />
       <LabelStyled>{label}</LabelStyled>
     </ScreenIconWrapper>
