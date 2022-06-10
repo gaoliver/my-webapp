@@ -2,8 +2,7 @@
 import axios from 'axios';
 import { myInfoUrl, portfolioUrl, toolsUrl } from 'src/mocks/index';
 import { Dispatch } from 'react';
-import { MyInfoModel, PortfolioModel, ToolsModel } from '../interfaces';
-import { WindowListProps } from './reducer';
+import { MyInfoModel, PortfolioModel, ToolsModel, WindowListProps } from './reducer';
 import { store } from './store';
 import { Theme } from 'src/styles/styled';
 import { dark, light } from 'src/styles';

@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes } from 'react';
+import React, { FC } from 'react';
 import styled, { useTheme } from 'styled-components';
 import { Icon } from 'src/components/_shared';
 import { TaskbarIcon } from '../_atoms';
@@ -7,6 +7,7 @@ import { rgba } from 'polished';
 import {
   addNewWindow,
   minimizeWindow,
+  SocialNetwork,
   store,
   toggleTaskSettings,
   WindowListProps,
@@ -16,7 +17,6 @@ import { useDispatch } from 'react-redux';
 import { BsFillCaretUpFill } from 'react-icons/bs';
 import { EmbedModel } from './EmbedModel';
 import { IconOption } from 'src/constants/icons';
-import { SocialNetwork } from 'src/interfaces';
 import { fonts } from 'src/constants/fonts';
 import { colors } from 'src/constants/colors';
 import { taskbarIconsShadow } from 'src/constants/taskbarIconsShadow';

@@ -1,6 +1,6 @@
 import { rgba } from 'polished';
 import React, { FC, HTMLAttributes } from 'react';
-import { PortfolioModel } from 'src/interfaces';
+import { PortfolioModel } from 'src/redux';
 import { dark } from 'src/styles';
 import listFormatter from 'src/utils/listFormatter';
 import styled from 'styled-components';
@@ -20,7 +20,7 @@ const ProjectContentWrapper = styled.section<HTMLAttributes<HTMLDivElement> & {i
   background-image: url(${props => props.imageUrl});
   background-position: center;
   background-size: cover;
-  background-color: ${props => rgba(props.theme.window, 0.95)};
+  background-color: ${props => rgba(props.theme.window, 0.93)};
   background-blend-mode: ${props => props.theme === dark ? "darken" : "lighten"};
 
   h1, h2, p {

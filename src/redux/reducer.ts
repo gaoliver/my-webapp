@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { light } from 'src/styles';
 import { Theme } from 'src/styles/styled';
-import { MyInfoModel, PortfolioModel, ToolsModel } from '../interfaces';
 import { AppActions } from './actions';
 
 export type WindowListProps = {
@@ -9,6 +8,66 @@ export type WindowListProps = {
   title: string;
   minimized: boolean;
   content: JSX.Element;
+};
+
+export type MyInfoModel = {
+  name: string;
+  surname: string;
+  age: string;
+  position: string;
+  company: string;
+  city: string;
+  country: string;
+  contact: ContactModel;
+  social: SocialNetwork[];
+};
+
+export type ContactModel = {
+  telephone: string;
+  email: string;
+};
+
+export type SocialNetwork = {
+  id: string;
+  title: string;
+  url: string;
+  image: string;
+};
+
+export type PortfolioModel = {
+  id: number;
+  name: string;
+  company: string;
+  mainImage: string;
+  url: string;
+  slug: string;
+  color: string;
+  jobInfo: {
+    role: string;
+    type: string;
+    language: string;
+    startDate: {
+      month: string;
+      year: number;
+    };
+    endDate?: {
+      month?: string;
+      year?: number;
+    };
+    mainTools: Array<string>;
+    images: Array<string>;
+  };
+  text?: string;
+};
+
+export type ToolsModel = {
+  description: string;
+  languages: {
+    pro: Array<string>;
+    intermediate: Array<string>;
+    beginner: Array<string>;
+  };
+  tools: Array<string>;
 };
 
 interface InitialStateModel {
