@@ -20,7 +20,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { AboutMe } from './components/_shared';
 
-import blackIcon from 'src/assets/images/GabrielRamos-blackIcon.png';
+import whiteIcon from 'src/assets/images/GabrielRamos-whiteIcon.png';
 import folderIcon from 'src/assets/images/folder.png';
 
 const PageWrapper = styled.div`
@@ -84,7 +84,7 @@ export const Desktop: FC = () => {
           position: 'relative'
         }}
       >
-        <DesktopIcon label="About me" imageSource={blackIcon} id="about_me">
+        <DesktopIcon label="About me" imageSource={whiteIcon} id="about_me">
           <AboutMe />
         </DesktopIcon>
         <DesktopIcon label="Portfolio" imageSource={folderIcon} id="portfolio">
