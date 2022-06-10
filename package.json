@@ -1,7 +1,7 @@
 {
-    "homepage": "http://gaoliver.github.io/my-webapp",
+    "homepage": "http://gaoliver.github.io/",
     "name": "my-webapp",
-    "version": "2.0.1",
+    "version": "3.0.0",
     "private": true,
     "scripts": {
         "start": "react-scripts start",

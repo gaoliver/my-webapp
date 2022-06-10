@@ -6,9 +6,11 @@ import { taskbarIconsShadow } from 'src/constants/taskbarIconsShadow';
 import { colors } from 'src/constants/colors';
 import { dark } from 'src/styles';
 
-type TaskbarIconProps = HTMLAttributes<HTMLButtonElement>;
+type TaskbarIconProps = HTMLAttributes<HTMLButtonElement> & {
+  isMobile?: boolean;
+};
 
-const TaskbarIconWrapper = styled.button`
+const TaskbarIconWrapper = styled.button<TaskbarIconProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,16 +32,25 @@ const TaskbarIconWrapper = styled.button`
   ${buttonInteraction}
 
   :hover {
-    cursor: pointer;
-    background-color: ${(props) => rgba(props.theme.window, 0.5)};
     ${(props) =>
-      props.theme === dark && {
-        border: `0.5px solid ${rgba(colors.white, 0.3)}`
+      !props.isMobile && {
+        cursor: 'pointer',
+        backgroundColor: rgba(props.theme.window, 0.5),
+        border:
+          props.theme === dark ? `0.5px solid ${rgba(colors.white, 0.3)}` : 0,
+        boxShadow: taskbarIconsShadow.boxShadow
       }}
-    ${taskbarIconsShadow}
   }
 `;
 
-export const TaskbarIcon: FC<TaskbarIconProps> = ({ children, ...props }) => {
-  return <TaskbarIconWrapper {...props}>{children}</TaskbarIconWrapper>;
+export const TaskbarIcon: FC<TaskbarIconProps> = ({
+  children,
+  isMobile,
+  ...props
+}) => {
+  return (
+    <TaskbarIconWrapper isMobile={isMobile} {...props}>
+      {children}
+    </TaskbarIconWrapper>
+  );
 };

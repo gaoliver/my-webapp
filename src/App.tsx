@@ -37,7 +37,7 @@ const App: React.FC = () => {
       return <Desktop />;
     }
 
-    return <Mobile onToggleTheme={() => null} />;
+    return <Mobile />;
   }, [aspectRatio]);
 
   useEffect(() => {

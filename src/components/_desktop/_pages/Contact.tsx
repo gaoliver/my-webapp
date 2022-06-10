@@ -50,7 +50,7 @@ export const Contact = () => {
   const emailLink = `mailto:${MYINFO?.contact.email}`;
 
   return (
-    <ContactWrapper>
+    <ContactWrapper id='contact-page'>
       <h2>Send me a message!</h2>
       <p>
         You can reach me through my social networks - just like LinkedIn - But

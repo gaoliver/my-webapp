@@ -2,7 +2,12 @@
 import axios from 'axios';
 import { myInfoUrl, portfolioUrl, toolsUrl } from 'src/mocks/index';
 import { Dispatch } from 'react';
-import { MyInfoModel, PortfolioModel, ToolsModel, WindowListProps } from './reducer';
+import {
+  MyInfoModel,
+  PortfolioModel,
+  ToolsModel,
+  WindowListProps
+} from './reducer';
 import { store } from './store';
 import { Theme } from 'src/styles/styled';
 import { dark, light } from 'src/styles';
@@ -25,6 +30,10 @@ export interface MinimizeWindow {
 export interface CloseWindow {
   readonly type: 'CLOSE_WINDOW';
   payload: WindowListProps[];
+}
+
+export interface CloseAllApps {
+  readonly type: 'CLOSE_ALL_APP';
 }
 
 export interface ToggleTaskSettings {
@@ -59,7 +68,8 @@ export type AppActions =
   | CloseWindow
   | ToggleTaskSettings
   | ToggleTheme
-  | WindowOnFocus;
+  | WindowOnFocus
+  | CloseAllApps;
 
 export const toggleTaskSettings = () => {
   return async (dispatch: Dispatch<AppActions>) => {
@@ -91,9 +101,7 @@ export const addNewWindow = (
   };
 };
 
-export const windowOnFocus = (
-  id: string
-) => {
+export const windowOnFocus = (id: string) => {
   return async (dispatch: Dispatch<AppActions>) => {
     dispatch({
       type: 'WINDOW_ON_FOCUS',
@@ -139,6 +147,14 @@ export const closeWindow = (id: string) => {
     dispatch({
       type: 'CLOSE_WINDOW',
       payload: removeWindow()
+    });
+  };
+};
+
+export const closeAllApps = () => {
+  return async (dispatch: Dispatch<AppActions>) => {
+    dispatch({
+      type: 'CLOSE_ALL_APP'
     });
   };
 };
