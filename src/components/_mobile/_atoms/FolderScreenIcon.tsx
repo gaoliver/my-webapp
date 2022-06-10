@@ -37,7 +37,7 @@ const LabelStyled = styled.span`
   width: 100%;
   flex: 1;
   margin-top: 5px;
-  color: ${colors.white};
+  color: ${props => props.theme.text};
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -46,7 +46,7 @@ const LabelStyled = styled.span`
   ${fonts.label}
 `;
 
-export const ScreenIcon: FC<ScreenIconProps> = ({
+export const FolderScreenIcon: FC<ScreenIconProps> = ({
   id,
   imageSource,
   label,
