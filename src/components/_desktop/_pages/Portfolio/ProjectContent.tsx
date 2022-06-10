@@ -1,5 +1,7 @@
-import React, { FC } from 'react';
+import { rgba } from 'polished';
+import React, { FC, HTMLAttributes } from 'react';
 import { PortfolioModel } from 'src/interfaces';
+import { dark } from 'src/styles';
 import listFormatter from 'src/utils/listFormatter';
 import styled from 'styled-components';
 import { Button, FolderIcon } from '../../_atoms';
@@ -10,11 +12,16 @@ export type ProjectContentProps = {
 
 const width = "600px"
 
-const ProjectContentWrapper = styled.section`
+const ProjectContentWrapper = styled.section<HTMLAttributes<HTMLDivElement> & {imageUrl?: string}>`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10px;
+  background-image: url(${props => props.imageUrl});
+  background-position: center;
+  background-size: cover;
+  background-color: ${props => rgba(props.theme.window, 0.95)};
+  background-blend-mode: ${props => props.theme === dark ? "darken" : "lighten"};
 
   h1, h2, p {
     width: ${width};
@@ -48,6 +55,10 @@ const ProjectContentWrapper = styled.section`
     margin: 20px 0;
     padding: 10px;
     border: 2px dotted ${(props) => props.theme.h1};
+    background-color: ${props => rgba(props.theme.h1, 0.1)};
+    color: ${props => props.theme.h1};
+    word-spacing: 3px;
+    text-align: center;
   }
 
   .project--gallery {
@@ -104,7 +115,7 @@ export const ProjectContent: FC<ProjectContentProps> = ({ project }) => {
   };
 
   return (
-    <ProjectContentWrapper>
+    <ProjectContentWrapper imageUrl={project.mainImage}>
       <h1>{project.name}</h1>
       <h2>by {project.company}</h2>
       <span className='project--date'>{`from ${translator.startDate.month}, ${translator.startDate.year} to ${translator.endDate.month}, ${translator.endDate.year}`}</span>
