@@ -15,9 +15,9 @@ export type ScreenIconProps = {
 const ScreenIconWrapper = styled.button`
   display: flex;
   flex-direction: column;
-  width: 85px;
-  height: 120px;
-  margin: 5px;
+  width: 90px;
+  height: 125px;
+  margin: 10px 20px;
   border: none;
   background-color: transparent;
   user-select: none;

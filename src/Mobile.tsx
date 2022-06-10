@@ -27,7 +27,7 @@ const ScreenWrapper = styled.div`
 const InnerPage = styled.div`
   width: 100%;
   height: 100%;
-  padding: 15px;
+  padding: 15px 10px;
 `;
 
 const FolderIconContainer = styled.div`
@@ -51,7 +51,7 @@ export const Mobile: FC = () => {
     <ScreenWrapper>
       <InnerPage>
         <FolderIconContainer>
-          <ScreenIcon id="about-me" imageSource={blackIcon} label="About me">
+          <ScreenIcon id="about-me" imageSource={blackIcon} label="About me asdvas asdvasdv asdv">
             <AboutMe />
           </ScreenIcon>
         </FolderIconContainer>
@@ -60,6 +60,13 @@ export const Mobile: FC = () => {
             id="portfolio"
             imageSource={folderIcon}
             label="Portfolio"
+          ></ScreenIcon>
+        </FolderIconContainer>
+        <FolderIconContainer>
+          <ScreenIcon
+            id="contact"
+            imageSource={EmailIcon}
+            label="Contact"
           ></ScreenIcon>
         </FolderIconContainer>
         <FolderIconContainer>
